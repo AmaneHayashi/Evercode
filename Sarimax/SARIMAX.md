@@ -246,6 +246,7 @@ i += 1
 ![平稳性示例](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175216.png)
   - *ADF*单位根检验
     - 白噪声是指功率谱密度在整个频域内是常数的噪声。序列的特点表现在任何两个时点的随机变量都不相关,序列中没有任何可以利用的动态规律
+    
     ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175258.png)
     ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175336.png)
     ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175351.png)
@@ -293,9 +294,11 @@ $$式中，\hat EX_t=E[X_t|X_{t-1},...,X_{t-k+1}],\hat EX_{t-k}=E[X_{t-k}|X_{t-1
 - 周期性差分(*seasonal differencing*)：数据点和前一个周期同一时间的数据点进行查分。
 #### 2.3.3 模型特征
 - *AR、MA、ARMA*的选择：
+  
   ![AR、MA、ARMA的区分](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175516.png)
     - 拖尾：序列以指数率单调递减或震荡衰减
     - $d$阶截尾：序列从某个第d阶开始变得非常小
+    
     ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175458.png)
 - *S*（季节性）的选择：是否数据序列具有季节周期性
 - *I*（差分）的选择：是否在处理数据平稳性时用到了差分
@@ -307,6 +310,7 @@ $$式中，\hat EX_t=E[X_t|X_{t-1},...,X_{t-k+1}],\hat EX_{t-k}=E[X_{t-k}|X_{t-1
   4. 参数估计，检验是否具有统计意义。
   5. 假设检验，判断(诊断)残差序列是否为白噪声序列。
   6. 利用已通过检验的模型进行预测。
+
   ![SARIMA算法流程](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175535.png)
 ### 2.3.5 模型选择标准
 - 模型选择问题在模型复杂度与模型对数据集描述能力（即似然函数）之间寻求最佳平衡。
