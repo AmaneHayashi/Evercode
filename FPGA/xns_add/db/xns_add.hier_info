@@ -1,0 +1,9 @@
+|xns_add
+yes_1 => out_temp[0].CLK
+yes_1 => out_temp[1].CLK
+rst => out_temp[0].ACLR
+rst => out_temp[1].ACLR
+key[0] <= out_temp[0].DB_MAX_OUTPUT_PORT_TYPE
+key[1] <= out_temp[1].DB_MAX_OUTPUT_PORT_TYPE
+
+

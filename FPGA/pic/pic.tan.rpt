@@ -1,0 +1,1177 @@
+Classic Timing Analyzer report for pic
+Sun Nov 04 20:35:17 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk2'
+  7. Clock Setup: 'clk1'
+  8. Clock Setup: 'count[0]'
+  9. Clock Setup: 'count[1]'
+ 10. Clock Hold: 'clk2'
+ 11. Clock Hold: 'count[0]'
+ 12. Clock Hold: 'count[1]'
+ 13. tsu
+ 14. tco
+ 15. th
+ 16. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                             ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+-------------------------+-------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                                    ; From                    ; To                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+-------------------------+-------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 3.858 ns                                       ; count[1]                ; pic_rdm:u2|now_state.s0 ; --         ; clk2     ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 30.380 ns                                      ; pic_p:u3|arr[0][4]      ; col1[4]                 ; clk2       ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; -1.188 ns                                      ; count[1]                ; pic_rdm:u2|now_state.s1 ; --         ; clk2     ; 0            ;
+; Clock Setup: 'clk2'          ; N/A                                      ; None          ; 37.66 MHz ( period = 26.552 ns )               ; pic_rdm:u2|a3[3]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; 0            ;
+; Clock Setup: 'count[1]'      ; N/A                                      ; None          ; 77.41 MHz ( period = 12.918 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][5]      ; count[1]   ; count[1] ; 0            ;
+; Clock Setup: 'count[0]'      ; N/A                                      ; None          ; 80.80 MHz ( period = 12.376 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][5]      ; count[0]   ; count[0] ; 0            ;
+; Clock Setup: 'clk1'          ; N/A                                      ; None          ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[0]      ; pic_st:u1|ddout[0]      ; clk1       ; clk1     ; 0            ;
+; Clock Hold: 'clk2'           ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[0]    ; clk2       ; clk2     ; 88           ;
+; Clock Hold: 'count[1]'       ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|out_a1[0]    ; count[1]   ; count[1] ; 80           ;
+; Clock Hold: 'count[0]'       ; Not operational: Clock Skew > Data Delay ; None          ; N/A                                            ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|out_a1[0]    ; count[0]   ; count[0] ; 80           ;
+; Total number of failed paths ;                                          ;               ;                                                ;                         ;                         ;            ;          ; 248          ;
++------------------------------+------------------------------------------+---------------+------------------------------------------------+-------------------------+-------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EPM1270T144C5      ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk2            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; clk1            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; count[0]        ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; count[1]        ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk2'                                                                                                                                                                                                    ;
++-------+------------------------------------------------+-------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                    ; To                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 37.66 MHz ( period = 26.552 ns )               ; pic_rdm:u2|a3[3]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 8.010 ns                ;
+; N/A   ; 37.87 MHz ( period = 26.404 ns )               ; pic_rdm:u2|a3[3]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.936 ns                ;
+; N/A   ; 38.07 MHz ( period = 26.264 ns )               ; pic_rdm:u2|a2[3]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 7.343 ns                ;
+; N/A   ; 38.48 MHz ( period = 25.988 ns )               ; pic_rdm:u2|a2[3]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.205 ns                ;
+; N/A   ; 39.17 MHz ( period = 25.528 ns )               ; pic_rdm:u2|a3[2]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 7.499 ns                ;
+; N/A   ; 39.31 MHz ( period = 25.442 ns )               ; pic_rdm:u2|a2[3]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 6.932 ns                ;
+; N/A   ; 39.40 MHz ( period = 25.380 ns )               ; pic_rdm:u2|a3[2]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.425 ns                ;
+; N/A   ; 39.76 MHz ( period = 25.148 ns )               ; pic_rdm:u2|a2[2]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.790 ns                ;
+; N/A   ; 40.76 MHz ( period = 24.534 ns )               ; pic_rdm:u2|a2[2]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 6.483 ns                ;
+; N/A   ; 41.11 MHz ( period = 24.326 ns )               ; pic_rdm:u2|a2[2]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 6.379 ns                ;
+; N/A   ; 42.93 MHz ( period = 23.296 ns )               ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.915 ns                ;
+; N/A   ; 43.14 MHz ( period = 23.182 ns )               ; pic_rdm:u2|a2[1]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.853 ns                ;
+; N/A   ; 43.20 MHz ( period = 23.148 ns )               ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 6.841 ns                ;
+; N/A   ; 43.41 MHz ( period = 23.034 ns )               ; pic_rdm:u2|a2[1]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 6.779 ns                ;
+; N/A   ; 43.73 MHz ( period = 22.868 ns )               ; pic_rdm:u2|a3[0]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 7.257 ns                ;
+; N/A   ; 44.01 MHz ( period = 22.720 ns )               ; pic_rdm:u2|a3[0]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.183 ns                ;
+; N/A   ; 45.99 MHz ( period = 21.742 ns )               ; pic_rdm:u2|a3[1]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 7.112 ns                ;
+; N/A   ; 46.31 MHz ( period = 21.594 ns )               ; pic_rdm:u2|a3[1]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.038 ns                ;
+; N/A   ; 46.76 MHz ( period = 21.384 ns )               ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 5.959 ns                ;
+; N/A   ; 48.25 MHz ( period = 20.724 ns )               ; pic_rdm:u2|a2[1]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 5.624 ns                ;
+; N/A   ; 54.87 MHz ( period = 18.226 ns )               ; pic_rdm:u2|a1[2]        ; pic_rdm:u2|out_a1[2]    ; clk2       ; clk2     ; None                        ; None                      ; 8.408 ns                ;
+; N/A   ; 57.44 MHz ( period = 17.410 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][5]      ; clk2       ; clk2     ; None                        ; None                      ; 4.356 ns                ;
+; N/A   ; 57.79 MHz ( period = 17.303 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.792 ns                ;
+; N/A   ; 57.95 MHz ( period = 17.257 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.831 ns                ;
+; N/A   ; 58.19 MHz ( period = 17.184 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.755 ns                ;
+; N/A   ; 58.66 MHz ( period = 17.047 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.779 ns                ;
+; N/A   ; 58.72 MHz ( period = 17.029 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 58.82 MHz ( period = 17.001 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.649 ns                ;
+; N/A   ; 58.87 MHz ( period = 16.987 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.990 ns                ;
+; N/A   ; 58.90 MHz ( period = 16.977 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.547 ns                ;
+; N/A   ; 58.90 MHz ( period = 16.977 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.543 ns                ;
+; N/A   ; 58.91 MHz ( period = 16.974 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.538 ns                ;
+; N/A   ; 58.98 MHz ( period = 16.954 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.898 ns                ;
+; N/A   ; 59.05 MHz ( period = 16.936 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.508 ns                ;
+; N/A   ; 59.29 MHz ( period = 16.865 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.520 ns                ;
+; N/A   ; 59.31 MHz ( period = 16.860 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.472 ns                ;
+; N/A   ; 59.43 MHz ( period = 16.827 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.386 ns                ;
+; N/A   ; 59.50 MHz ( period = 16.808 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.760 ns                ;
+; N/A   ; 59.59 MHz ( period = 16.781 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.777 ns                ;
+; N/A   ; 59.71 MHz ( period = 16.748 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 59.84 MHz ( period = 16.710 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 59.91 MHz ( period = 16.691 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.644 ns                ;
+; N/A   ; 59.92 MHz ( period = 16.688 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.292 ns                ;
+; N/A   ; 59.97 MHz ( period = 16.676 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.247 ns                ;
+; N/A   ; 59.97 MHz ( period = 16.674 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.658 ns                ;
+; N/A   ; 59.98 MHz ( period = 16.671 ns )               ; pic_rdm:u2|a1[3]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 8.174 ns                ;
+; N/A   ; 60.00 MHz ( period = 16.666 ns )               ; pic_rdm:u2|a1[3]        ; pic_rdm:u2|out_a1[3]    ; clk2       ; clk2     ; None                        ; None                      ; 7.598 ns                ;
+; N/A   ; 60.01 MHz ( period = 16.665 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][2]      ; clk2       ; clk2     ; None                        ; None                      ; 2.977 ns                ;
+; N/A   ; 60.02 MHz ( period = 16.662 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.225 ns                ;
+; N/A   ; 60.02 MHz ( period = 16.661 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 60.03 MHz ( period = 16.659 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.463 ns                ;
+; N/A   ; 60.05 MHz ( period = 16.654 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.227 ns                ;
+; N/A   ; 60.05 MHz ( period = 16.652 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|maxbushu[0]    ; clk2       ; clk2     ; None                        ; None                      ; 3.444 ns                ;
+; N/A   ; 60.10 MHz ( period = 16.640 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.202 ns                ;
+; N/A   ; 60.12 MHz ( period = 16.633 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.625 ns                ;
+; N/A   ; 60.14 MHz ( period = 16.628 ns )               ; pic_rdm:u2|a1[1]        ; pic_rdm:u2|out_a1[1]    ; clk2       ; clk2     ; None                        ; None                      ; 7.610 ns                ;
+; N/A   ; 60.17 MHz ( period = 16.619 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.573 ns                ;
+; N/A   ; 60.25 MHz ( period = 16.597 ns )               ; pic_rdm:u2|a1[3]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 8.100 ns                ;
+; N/A   ; 60.34 MHz ( period = 16.574 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.051 ns                ;
+; N/A   ; 60.37 MHz ( period = 16.565 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.556 ns                ;
+; N/A   ; 60.37 MHz ( period = 16.564 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.220 ns                ;
+; N/A   ; 60.58 MHz ( period = 16.507 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][2]      ; clk2       ; clk2     ; None                        ; None                      ; 2.823 ns                ;
+; N/A   ; 60.61 MHz ( period = 16.498 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 60.62 MHz ( period = 16.495 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.475 ns                ;
+; N/A   ; 60.64 MHz ( period = 16.492 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|maxbushu[0]    ; clk2       ; clk2     ; None                        ; None                      ; 3.285 ns                ;
+; N/A   ; 60.65 MHz ( period = 16.489 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.294 ns                ;
+; N/A   ; 60.81 MHz ( period = 16.444 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 60.81 MHz ( period = 16.444 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 60.90 MHz ( period = 16.421 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.401 ns                ;
+; N/A   ; 60.95 MHz ( period = 16.406 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.006 ns                ;
+; N/A   ; 61.25 MHz ( period = 16.327 ns )               ; pic_rdm:u2|a1[2]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 7.832 ns                ;
+; N/A   ; 61.26 MHz ( period = 16.323 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.295 ns                ;
+; N/A   ; 61.27 MHz ( period = 16.321 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.041 ns                ;
+; N/A   ; 61.27 MHz ( period = 16.320 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|maxbushu[0]    ; clk2       ; clk2     ; None                        ; None                      ; 3.105 ns                ;
+; N/A   ; 61.35 MHz ( period = 16.299 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.096 ns                ;
+; N/A   ; 61.37 MHz ( period = 16.294 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][2]      ; clk2       ; clk2     ; None                        ; None                      ; 2.617 ns                ;
+; N/A   ; 61.39 MHz ( period = 16.290 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.241 ns                ;
+; N/A   ; 61.52 MHz ( period = 16.256 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 61.53 MHz ( period = 16.253 ns )               ; pic_rdm:u2|a1[2]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 7.758 ns                ;
+; N/A   ; 61.61 MHz ( period = 16.230 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][5]      ; clk2       ; clk2     ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 61.63 MHz ( period = 16.225 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][4]      ; clk2       ; clk2     ; None                        ; None                      ; 2.785 ns                ;
+; N/A   ; 61.67 MHz ( period = 16.216 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][3]      ; clk2       ; clk2     ; None                        ; None                      ; 3.176 ns                ;
+; N/A   ; 61.67 MHz ( period = 16.215 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][2]      ; clk2       ; clk2     ; None                        ; None                      ; 3.167 ns                ;
+; N/A   ; 61.69 MHz ( period = 16.211 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.692 ns                ;
+; N/A   ; 62.34 MHz ( period = 16.041 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][4]      ; clk2       ; clk2     ; None                        ; None                      ; 3.009 ns                ;
+; N/A   ; 62.35 MHz ( period = 16.038 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|maxbushu[0]    ; clk2       ; clk2     ; None                        ; None                      ; 2.819 ns                ;
+; N/A   ; 62.46 MHz ( period = 16.009 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][5]      ; clk2       ; clk2     ; None                        ; None                      ; 2.802 ns                ;
+; N/A   ; 62.70 MHz ( period = 15.950 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][2]      ; clk2       ; clk2     ; None                        ; None                      ; 2.274 ns                ;
+; N/A   ; 63.08 MHz ( period = 15.852 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][2]      ; clk2       ; clk2     ; None                        ; None                      ; 2.792 ns                ;
+; N/A   ; 63.49 MHz ( period = 15.750 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.709 ns                ;
+; N/A   ; 63.66 MHz ( period = 15.708 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.676 ns                ;
+; N/A   ; 64.35 MHz ( period = 15.539 ns )               ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.508 ns                ;
+; N/A   ; 64.64 MHz ( period = 15.471 ns )               ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][4]      ; clk2       ; clk2     ; None                        ; None                      ; 2.202 ns                ;
+; N/A   ; 65.09 MHz ( period = 15.364 ns )               ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.325 ns                ;
+; N/A   ; 65.88 MHz ( period = 15.178 ns )               ; pic_rdm:u2|a1[1]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.703 ns                ;
+; N/A   ; 66.21 MHz ( period = 15.104 ns )               ; pic_rdm:u2|a1[1]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 6.629 ns                ;
+; N/A   ; 66.29 MHz ( period = 15.086 ns )               ; pic_rdm:u2|a1[0]        ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.593 ns                ;
+; N/A   ; 66.30 MHz ( period = 15.082 ns )               ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][3]      ; clk2       ; clk2     ; None                        ; None                      ; 2.039 ns                ;
+; N/A   ; 66.61 MHz ( period = 15.012 ns )               ; pic_rdm:u2|a1[0]        ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 6.519 ns                ;
+; N/A   ; 68.12 MHz ( period = 14.681 ns )               ; pic_rdm:u2|a1[3]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 6.184 ns                ;
+; N/A   ; 68.27 MHz ( period = 14.647 ns )               ; pic_rdm:u2|a1[0]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 6.154 ns                ;
+; N/A   ; 70.41 MHz ( period = 14.202 ns )               ; pic_rdm:u2|a1[1]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 5.727 ns                ;
+; N/A   ; 71.35 MHz ( period = 14.016 ns )               ; pic_rdm:u2|a1[0]        ; pic_rdm:u2|out_a1[0]    ; clk2       ; clk2     ; None                        ; None                      ; 6.470 ns                ;
+; N/A   ; 72.03 MHz ( period = 13.884 ns )               ; pic_rdm:u2|a1[2]        ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 5.389 ns                ;
+; N/A   ; 108.60 MHz ( period = 9.208 ns )               ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[2]    ; clk2       ; clk2     ; None                        ; None                      ; 11.685 ns               ;
+; N/A   ; 111.19 MHz ( period = 8.994 ns )               ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[3]    ; clk2       ; clk2     ; None                        ; None                      ; 11.550 ns               ;
+; N/A   ; 137.65 MHz ( period = 7.265 ns )               ; pic_rdm:u2|a2[3]        ; pic_rdm:u2|out_a1[3]    ; clk2       ; clk2     ; None                        ; None                      ; 9.238 ns                ;
+; N/A   ; 148.54 MHz ( period = 6.732 ns )               ; pic_rdm:u2|now_state.s1 ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 6.023 ns                ;
+; N/A   ; 149.54 MHz ( period = 6.687 ns )               ; pic_rdm:u2|a2[2]        ; pic_rdm:u2|out_a1[2]    ; clk2       ; clk2     ; None                        ; None                      ; 8.693 ns                ;
+; N/A   ; 159.82 MHz ( period = 6.257 ns )               ; pic_rdm:u2|now_state.s0 ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 5.548 ns                ;
+; N/A   ; 160.49 MHz ( period = 6.231 ns )               ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 5.522 ns                ;
+; N/A   ; 171.82 MHz ( period = 5.820 ns )               ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 5.111 ns                ;
+; N/A   ; 183.62 MHz ( period = 5.446 ns )               ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|now_state.s0 ; clk2       ; clk2     ; None                        ; None                      ; 4.737 ns                ;
+; N/A   ; 187.86 MHz ( period = 5.323 ns )               ; pic_rdm:u2|a3[3]        ; pic_rdm:u2|out_a1[3]    ; clk2       ; clk2     ; None                        ; None                      ; 7.819 ns                ;
+; N/A   ; 203.46 MHz ( period = 4.915 ns )               ; pic_rdm:u2|a2[1]        ; pic_rdm:u2|out_a1[1]    ; clk2       ; clk2     ; None                        ; None                      ; 7.948 ns                ;
+; N/A   ; 209.34 MHz ( period = 4.777 ns )               ; pic_rdm:u2|a3[2]        ; pic_rdm:u2|out_a1[2]    ; clk2       ; clk2     ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; 216.54 MHz ( period = 4.618 ns )               ; pic_rdm:u2|now_state.s0 ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 3.909 ns                ;
+; N/A   ; 220.17 MHz ( period = 4.542 ns )               ; pic_rdm:u2|now_state.s0 ; pic_rdm:u2|now_state.s1 ; clk2       ; clk2     ; None                        ; None                      ; 3.833 ns                ;
+; N/A   ; 225.07 MHz ( period = 4.443 ns )               ; pic_rdm:u2|now_state.s1 ; pic_rdm:u2|now_state.s1 ; clk2       ; clk2     ; None                        ; None                      ; 3.734 ns                ;
+; N/A   ; 236.41 MHz ( period = 4.230 ns )               ; pic_rdm:u2|a3[0]        ; pic_rdm:u2|out_a1[0]    ; clk2       ; clk2     ; None                        ; None                      ; 8.008 ns                ;
+; N/A   ; 248.63 MHz ( period = 4.022 ns )               ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|out_a1[0]    ; clk2       ; clk2     ; None                        ; None                      ; 7.244 ns                ;
+; N/A   ; 276.93 MHz ( period = 3.611 ns )               ; pic_rdm:u2|now_state.s0 ; pic_rdm:u2|now_state.s2 ; clk2       ; clk2     ; None                        ; None                      ; 2.902 ns                ;
+; N/A   ; 278.78 MHz ( period = 3.587 ns )               ; pic_rdm:u2|a3[1]        ; pic_rdm:u2|out_a1[1]    ; clk2       ; clk2     ; None                        ; None                      ; 7.599 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|now_state.s3 ; clk2       ; clk2     ; None                        ; None                      ; 2.067 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[1]    ; clk2       ; clk2     ; None                        ; None                      ; 7.910 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[2]    ; clk2       ; clk2     ; None                        ; None                      ; 7.599 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[3]    ; clk2       ; clk2     ; None                        ; None                      ; 7.492 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[1]    ; clk2       ; clk2     ; None                        ; None                      ; 7.475 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[0]    ; clk2       ; clk2     ; None                        ; None                      ; 7.385 ns                ;
++-------+------------------------------------------------+-------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk1'                                                                                                                                                                                          ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From               ; To                 ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[0] ; pic_st:u1|ddout[0] ; clk1       ; clk1     ; None                        ; None                      ; 1.983 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[0] ; pic_st:u1|ddout[1] ; clk1       ; clk1     ; None                        ; None                      ; 1.515 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[3] ; pic_st:u1|ddout[0] ; clk1       ; clk1     ; None                        ; None                      ; 1.508 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[1] ; pic_st:u1|ddout[2] ; clk1       ; clk1     ; None                        ; None                      ; 1.259 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_st:u1|ddout[2] ; pic_st:u1|ddout[3] ; clk1       ; clk1     ; None                        ; None                      ; 1.237 ns                ;
++-------+------------------------------------------------+--------------------+--------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'count[0]'                                                                                                                                                                                          ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 80.80 MHz ( period = 12.376 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 4.356 ns                ;
+; N/A   ; 81.51 MHz ( period = 12.269 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.792 ns                ;
+; N/A   ; 81.81 MHz ( period = 12.223 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.831 ns                ;
+; N/A   ; 82.30 MHz ( period = 12.150 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.755 ns                ;
+; N/A   ; 83.24 MHz ( period = 12.013 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.779 ns                ;
+; N/A   ; 83.37 MHz ( period = 11.995 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 83.56 MHz ( period = 11.967 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.649 ns                ;
+; N/A   ; 83.66 MHz ( period = 11.953 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.990 ns                ;
+; N/A   ; 83.73 MHz ( period = 11.943 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.547 ns                ;
+; N/A   ; 83.73 MHz ( period = 11.943 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.543 ns                ;
+; N/A   ; 83.75 MHz ( period = 11.940 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.538 ns                ;
+; N/A   ; 83.89 MHz ( period = 11.920 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.898 ns                ;
+; N/A   ; 84.02 MHz ( period = 11.902 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.508 ns                ;
+; N/A   ; 84.52 MHz ( period = 11.831 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.520 ns                ;
+; N/A   ; 84.56 MHz ( period = 11.826 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.472 ns                ;
+; N/A   ; 84.80 MHz ( period = 11.793 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.386 ns                ;
+; N/A   ; 84.93 MHz ( period = 11.774 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.760 ns                ;
+; N/A   ; 85.13 MHz ( period = 11.747 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.777 ns                ;
+; N/A   ; 85.37 MHz ( period = 11.714 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 85.65 MHz ( period = 11.676 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 85.79 MHz ( period = 11.657 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.644 ns                ;
+; N/A   ; 85.81 MHz ( period = 11.654 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.292 ns                ;
+; N/A   ; 85.90 MHz ( period = 11.642 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.247 ns                ;
+; N/A   ; 85.91 MHz ( period = 11.640 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.658 ns                ;
+; N/A   ; 85.98 MHz ( period = 11.631 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.977 ns                ;
+; N/A   ; 86.00 MHz ( period = 11.628 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.225 ns                ;
+; N/A   ; 86.01 MHz ( period = 11.627 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 86.02 MHz ( period = 11.625 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.463 ns                ;
+; N/A   ; 86.06 MHz ( period = 11.620 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.227 ns                ;
+; N/A   ; 86.07 MHz ( period = 11.618 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                        ; None                      ; 3.444 ns                ;
+; N/A   ; 86.16 MHz ( period = 11.606 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.202 ns                ;
+; N/A   ; 86.21 MHz ( period = 11.599 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.625 ns                ;
+; N/A   ; 86.32 MHz ( period = 11.585 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.573 ns                ;
+; N/A   ; 86.66 MHz ( period = 11.540 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.051 ns                ;
+; N/A   ; 86.72 MHz ( period = 11.531 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.556 ns                ;
+; N/A   ; 86.73 MHz ( period = 11.530 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.220 ns                ;
+; N/A   ; 87.16 MHz ( period = 11.473 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.823 ns                ;
+; N/A   ; 87.23 MHz ( period = 11.464 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 87.25 MHz ( period = 11.461 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.475 ns                ;
+; N/A   ; 87.28 MHz ( period = 11.458 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                        ; None                      ; 3.285 ns                ;
+; N/A   ; 87.30 MHz ( period = 11.455 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.294 ns                ;
+; N/A   ; 87.64 MHz ( period = 11.410 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 87.64 MHz ( period = 11.410 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 87.82 MHz ( period = 11.387 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.401 ns                ;
+; N/A   ; 87.94 MHz ( period = 11.372 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.006 ns                ;
+; N/A   ; 88.58 MHz ( period = 11.289 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.295 ns                ;
+; N/A   ; 88.60 MHz ( period = 11.287 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.041 ns                ;
+; N/A   ; 88.61 MHz ( period = 11.286 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                        ; None                      ; 3.105 ns                ;
+; N/A   ; 88.77 MHz ( period = 11.265 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.096 ns                ;
+; N/A   ; 88.81 MHz ( period = 11.260 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.617 ns                ;
+; N/A   ; 88.84 MHz ( period = 11.256 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.241 ns                ;
+; N/A   ; 89.11 MHz ( period = 11.222 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 89.32 MHz ( period = 11.196 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 89.36 MHz ( period = 11.191 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.785 ns                ;
+; N/A   ; 89.43 MHz ( period = 11.182 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.176 ns                ;
+; N/A   ; 89.44 MHz ( period = 11.181 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.167 ns                ;
+; N/A   ; 89.47 MHz ( period = 11.177 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.692 ns                ;
+; N/A   ; 90.85 MHz ( period = 11.007 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 3.009 ns                ;
+; N/A   ; 90.88 MHz ( period = 11.004 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                        ; None                      ; 2.819 ns                ;
+; N/A   ; 91.12 MHz ( period = 10.975 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.802 ns                ;
+; N/A   ; 91.61 MHz ( period = 10.916 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.274 ns                ;
+; N/A   ; 92.44 MHz ( period = 10.818 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.792 ns                ;
+; N/A   ; 93.32 MHz ( period = 10.716 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.709 ns                ;
+; N/A   ; 93.69 MHz ( period = 10.674 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.676 ns                ;
+; N/A   ; 95.19 MHz ( period = 10.505 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.508 ns                ;
+; N/A   ; 95.81 MHz ( period = 10.437 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.202 ns                ;
+; N/A   ; 96.81 MHz ( period = 10.330 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.325 ns                ;
+; N/A   ; 99.52 MHz ( period = 10.048 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                        ; None                      ; 2.039 ns                ;
+; N/A   ; 122.58 MHz ( period = 8.158 ns )               ; pic_rdm:u2|a1[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                        ; None                      ; 8.408 ns                ;
+; N/A   ; 151.56 MHz ( period = 6.598 ns )               ; pic_rdm:u2|a1[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                        ; None                      ; 7.598 ns                ;
+; N/A   ; 152.44 MHz ( period = 6.560 ns )               ; pic_rdm:u2|a1[1]     ; pic_rdm:u2|out_a1[1] ; count[0]   ; count[0] ; None                        ; None                      ; 7.610 ns                ;
+; N/A   ; 253.29 MHz ( period = 3.948 ns )               ; pic_rdm:u2|a1[0]     ; pic_rdm:u2|out_a1[0] ; count[0]   ; count[0] ; None                        ; None                      ; 6.470 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a2[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                        ; None                      ; 9.238 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a3[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                        ; None                      ; 7.819 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a2[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                        ; None                      ; 8.693 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a3[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                        ; None                      ; 7.302 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a3[0]     ; pic_rdm:u2|out_a1[0] ; count[0]   ; count[0] ; None                        ; None                      ; 8.008 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'count[1]'                                                                                                                                                                                          ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 77.41 MHz ( period = 12.918 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 4.356 ns                ;
+; N/A   ; 78.06 MHz ( period = 12.811 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.792 ns                ;
+; N/A   ; 78.34 MHz ( period = 12.765 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.831 ns                ;
+; N/A   ; 78.79 MHz ( period = 12.692 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.755 ns                ;
+; N/A   ; 79.65 MHz ( period = 12.555 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.779 ns                ;
+; N/A   ; 79.76 MHz ( period = 12.537 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 79.94 MHz ( period = 12.509 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.649 ns                ;
+; N/A   ; 80.03 MHz ( period = 12.495 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.990 ns                ;
+; N/A   ; 80.10 MHz ( period = 12.485 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.547 ns                ;
+; N/A   ; 80.10 MHz ( period = 12.485 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.543 ns                ;
+; N/A   ; 80.12 MHz ( period = 12.482 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.538 ns                ;
+; N/A   ; 80.24 MHz ( period = 12.462 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.898 ns                ;
+; N/A   ; 80.36 MHz ( period = 12.444 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.508 ns                ;
+; N/A   ; 80.82 MHz ( period = 12.373 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.520 ns                ;
+; N/A   ; 80.85 MHz ( period = 12.368 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.472 ns                ;
+; N/A   ; 81.07 MHz ( period = 12.335 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.386 ns                ;
+; N/A   ; 81.20 MHz ( period = 12.316 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.760 ns                ;
+; N/A   ; 81.37 MHz ( period = 12.289 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.777 ns                ;
+; N/A   ; 81.59 MHz ( period = 12.256 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 81.85 MHz ( period = 12.218 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 81.97 MHz ( period = 12.199 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.644 ns                ;
+; N/A   ; 81.99 MHz ( period = 12.196 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.292 ns                ;
+; N/A   ; 82.07 MHz ( period = 12.184 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.247 ns                ;
+; N/A   ; 82.09 MHz ( period = 12.182 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.658 ns                ;
+; N/A   ; 82.15 MHz ( period = 12.173 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.977 ns                ;
+; N/A   ; 82.17 MHz ( period = 12.170 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.225 ns                ;
+; N/A   ; 82.18 MHz ( period = 12.169 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.640 ns                ;
+; N/A   ; 82.19 MHz ( period = 12.167 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.463 ns                ;
+; N/A   ; 82.22 MHz ( period = 12.162 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.227 ns                ;
+; N/A   ; 82.24 MHz ( period = 12.160 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                        ; None                      ; 3.444 ns                ;
+; N/A   ; 82.32 MHz ( period = 12.148 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.202 ns                ;
+; N/A   ; 82.37 MHz ( period = 12.141 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.625 ns                ;
+; N/A   ; 82.46 MHz ( period = 12.127 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.573 ns                ;
+; N/A   ; 82.77 MHz ( period = 12.082 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.051 ns                ;
+; N/A   ; 82.83 MHz ( period = 12.073 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.556 ns                ;
+; N/A   ; 82.84 MHz ( period = 12.072 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.220 ns                ;
+; N/A   ; 83.23 MHz ( period = 12.015 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.823 ns                ;
+; N/A   ; 83.29 MHz ( period = 12.006 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 83.31 MHz ( period = 12.003 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.475 ns                ;
+; N/A   ; 83.33 MHz ( period = 12.000 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                        ; None                      ; 3.285 ns                ;
+; N/A   ; 83.35 MHz ( period = 11.997 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.294 ns                ;
+; N/A   ; 83.67 MHz ( period = 11.952 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.448 ns                ;
+; N/A   ; 83.67 MHz ( period = 11.952 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.392 ns                ;
+; N/A   ; 83.83 MHz ( period = 11.929 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.401 ns                ;
+; N/A   ; 83.93 MHz ( period = 11.914 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.006 ns                ;
+; N/A   ; 84.52 MHz ( period = 11.831 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.295 ns                ;
+; N/A   ; 84.54 MHz ( period = 11.829 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.041 ns                ;
+; N/A   ; 84.55 MHz ( period = 11.828 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                        ; None                      ; 3.105 ns                ;
+; N/A   ; 84.70 MHz ( period = 11.807 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.096 ns                ;
+; N/A   ; 84.73 MHz ( period = 11.802 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.617 ns                ;
+; N/A   ; 84.76 MHz ( period = 11.798 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.241 ns                ;
+; N/A   ; 85.01 MHz ( period = 11.764 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.198 ns                ;
+; N/A   ; 85.19 MHz ( period = 11.738 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.222 ns                ;
+; N/A   ; 85.23 MHz ( period = 11.733 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.785 ns                ;
+; N/A   ; 85.30 MHz ( period = 11.724 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.176 ns                ;
+; N/A   ; 85.30 MHz ( period = 11.723 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.167 ns                ;
+; N/A   ; 85.33 MHz ( period = 11.719 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.692 ns                ;
+; N/A   ; 86.59 MHz ( period = 11.549 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 3.009 ns                ;
+; N/A   ; 86.61 MHz ( period = 11.546 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                        ; None                      ; 2.819 ns                ;
+; N/A   ; 86.83 MHz ( period = 11.517 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.802 ns                ;
+; N/A   ; 87.28 MHz ( period = 11.458 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.274 ns                ;
+; N/A   ; 88.03 MHz ( period = 11.360 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.792 ns                ;
+; N/A   ; 88.83 MHz ( period = 11.258 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.709 ns                ;
+; N/A   ; 89.16 MHz ( period = 11.216 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.676 ns                ;
+; N/A   ; 90.52 MHz ( period = 11.047 ns )               ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.508 ns                ;
+; N/A   ; 91.08 MHz ( period = 10.979 ns )               ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.202 ns                ;
+; N/A   ; 91.98 MHz ( period = 10.872 ns )               ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.325 ns                ;
+; N/A   ; 94.43 MHz ( period = 10.590 ns )               ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                        ; None                      ; 2.039 ns                ;
+; N/A   ; 108.20 MHz ( period = 9.242 ns )               ; pic_rdm:u2|a1[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                        ; None                      ; 8.408 ns                ;
+; N/A   ; 130.17 MHz ( period = 7.682 ns )               ; pic_rdm:u2|a1[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                        ; None                      ; 7.598 ns                ;
+; N/A   ; 130.82 MHz ( period = 7.644 ns )               ; pic_rdm:u2|a1[1]     ; pic_rdm:u2|out_a1[1] ; count[1]   ; count[1] ; None                        ; None                      ; 7.610 ns                ;
+; N/A   ; 198.73 MHz ( period = 5.032 ns )               ; pic_rdm:u2|a1[0]     ; pic_rdm:u2|out_a1[0] ; count[1]   ; count[1] ; None                        ; None                      ; 6.470 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a2[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                        ; None                      ; 9.238 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a2[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                        ; None                      ; 8.693 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a3[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                        ; None                      ; 7.819 ns                ;
+; N/A   ; Restricted to 304.04 MHz ( period = 3.289 ns ) ; pic_rdm:u2|a3[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                        ; None                      ; 7.302 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clk2'                                                                                                                                                                                     ;
++------------------------------------------+-------------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                    ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[0] ; clk2       ; clk2     ; None                       ; None                       ; 5.822 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[0] ; clk2       ; clk2     ; None                       ; None                       ; 7.385 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[1] ; clk2       ; clk2     ; None                       ; None                       ; 7.475 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[3] ; clk2       ; clk2     ; None                       ; None                       ; 7.492 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s3 ; pic_rdm:u2|out_a1[2] ; clk2       ; clk2     ; None                       ; None                       ; 7.599 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[1] ; clk2       ; clk2     ; None                       ; None                       ; 7.910 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.039 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.325 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[1]        ; pic_rdm:u2|out_a1[1] ; clk2       ; clk2     ; None                       ; None                       ; 7.599 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][4]   ; clk2       ; clk2     ; None                       ; None                       ; 2.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.676 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.709 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][2]   ; clk2       ; clk2     ; None                       ; None                       ; 2.274 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][4]   ; clk2       ; clk2     ; None                       ; None                       ; 2.785 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][2]   ; clk2       ; clk2     ; None                       ; None                       ; 2.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[0]        ; pic_rdm:u2|out_a1[0] ; clk2       ; clk2     ; None                       ; None                       ; 7.244 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][2]   ; clk2       ; clk2     ; None                       ; None                       ; 2.617 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][3]   ; clk2       ; clk2     ; None                       ; None                       ; 2.692 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[0]        ; pic_rdm:u2|out_a1[0] ; clk2       ; clk2     ; None                       ; None                       ; 8.008 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.167 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.176 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.220 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.227 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.225 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[3] ; clk2       ; clk2     ; None                       ; None                       ; 11.550 ns                ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.241 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.247 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][2]   ; clk2       ; clk2     ; None                       ; None                       ; 2.823 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][5]   ; clk2       ; clk2     ; None                       ; None                       ; 2.802 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|maxbushu[0] ; clk2       ; clk2     ; None                       ; None                       ; 2.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|now_state.s2 ; pic_rdm:u2|out_a1[2] ; clk2       ; clk2     ; None                       ; None                       ; 11.685 ns                ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.386 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.401 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[3][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.448 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][2]   ; clk2       ; clk2     ; None                       ; None                       ; 2.977 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.041 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.520 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[0][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.051 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.543 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.547 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.556 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.006 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[2][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.009 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[2]        ; pic_rdm:u2|out_a1[2] ; clk2       ; clk2     ; None                       ; None                       ; 7.302 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.538 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[3][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.573 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0]    ; pic_p:u3|arr[1][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.625 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.096 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|maxbushu[0] ; clk2       ; clk2     ; None                       ; None                       ; 3.105 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.649 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.658 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[0][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[3][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.644 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[1]        ; pic_rdm:u2|out_a1[1] ; clk2       ; clk2     ; None                       ; None                       ; 7.948 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[0][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.755 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[1][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.777 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.760 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[1][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.831 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|maxbushu[0] ; clk2       ; clk2     ; None                       ; None                       ; 3.285 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.294 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.292 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[2][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.295 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.898 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[1][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.990 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|maxbushu[0] ; clk2       ; clk2     ; None                       ; None                       ; 3.444 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][5]   ; clk2       ; clk2     ; None                       ; None                       ; 3.463 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.472 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[2][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.475 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[3]        ; pic_rdm:u2|out_a1[3] ; clk2       ; clk2     ; None                       ; None                       ; 7.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2]    ; pic_p:u3|arr[2][2]   ; clk2       ; clk2     ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][4]   ; clk2       ; clk2     ; None                       ; None                       ; 3.779 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1]    ; pic_p:u3|arr[0][3]   ; clk2       ; clk2     ; None                       ; None                       ; 3.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3]    ; pic_p:u3|arr[3][5]   ; clk2       ; clk2     ; None                       ; None                       ; 4.356 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[2]        ; pic_rdm:u2|out_a1[2] ; clk2       ; clk2     ; None                       ; None                       ; 8.693 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[0]        ; pic_rdm:u2|out_a1[0] ; clk2       ; clk2     ; None                       ; None                       ; 6.470 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[3]        ; pic_rdm:u2|out_a1[3] ; clk2       ; clk2     ; None                       ; None                       ; 9.238 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[1]        ; pic_rdm:u2|out_a1[1] ; clk2       ; clk2     ; None                       ; None                       ; 7.610 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[3]        ; pic_rdm:u2|out_a1[3] ; clk2       ; clk2     ; None                       ; None                       ; 7.598 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[2]        ; pic_rdm:u2|out_a1[2] ; clk2       ; clk2     ; None                       ; None                       ; 8.408 ns                 ;
++------------------------------------------+-------------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'count[0]'                                                                                                                                                                              ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[0]     ; pic_rdm:u2|out_a1[0] ; count[0]   ; count[0] ; None                       ; None                       ; 7.244 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[1]     ; pic_rdm:u2|out_a1[1] ; count[0]   ; count[0] ; None                       ; None                       ; 7.948 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[1]     ; pic_rdm:u2|out_a1[1] ; count[0]   ; count[0] ; None                       ; None                       ; 7.599 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[0]     ; pic_rdm:u2|out_a1[0] ; count[0]   ; count[0] ; None                       ; None                       ; 8.008 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                       ; None                       ; 7.302 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                       ; None                       ; 8.693 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                       ; None                       ; 7.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                       ; None                       ; 9.238 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[0]     ; pic_rdm:u2|out_a1[0] ; count[0]   ; count[0] ; None                       ; None                       ; 6.470 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[1]     ; pic_rdm:u2|out_a1[1] ; count[0]   ; count[0] ; None                       ; None                       ; 7.610 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[3]     ; pic_rdm:u2|out_a1[3] ; count[0]   ; count[0] ; None                       ; None                       ; 7.598 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.039 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.325 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.676 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.709 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.274 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.785 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[2]     ; pic_rdm:u2|out_a1[2] ; count[0]   ; count[0] ; None                       ; None                       ; 8.408 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.617 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.692 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.167 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.176 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.220 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.227 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.225 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.241 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.247 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.823 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.802 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                       ; None                       ; 2.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.386 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.401 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.448 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 2.977 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.041 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.520 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.051 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.543 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.547 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.556 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.006 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.009 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.538 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.573 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.625 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.096 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                       ; None                       ; 3.105 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.649 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.658 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.644 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.755 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.777 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.760 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.831 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                       ; None                       ; 3.285 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.294 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.292 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.295 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.898 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.990 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|maxbushu[0] ; count[0]   ; count[0] ; None                       ; None                       ; 3.444 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.463 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.472 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.475 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][2]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][4]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.779 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][3]   ; count[0]   ; count[0] ; None                       ; None                       ; 3.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][5]   ; count[0]   ; count[0] ; None                       ; None                       ; 4.356 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'count[1]'                                                                                                                                                                              ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[0]     ; pic_rdm:u2|out_a1[0] ; count[1]   ; count[1] ; None                       ; None                       ; 7.244 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[1]     ; pic_rdm:u2|out_a1[1] ; count[1]   ; count[1] ; None                       ; None                       ; 7.599 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[1]     ; pic_rdm:u2|out_a1[1] ; count[1]   ; count[1] ; None                       ; None                       ; 7.948 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[0]     ; pic_rdm:u2|out_a1[0] ; count[1]   ; count[1] ; None                       ; None                       ; 8.008 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                       ; None                       ; 7.302 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a3[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                       ; None                       ; 7.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                       ; None                       ; 8.693 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a2[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                       ; None                       ; 9.238 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[0]     ; pic_rdm:u2|out_a1[0] ; count[1]   ; count[1] ; None                       ; None                       ; 6.470 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.039 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.325 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[1]     ; pic_rdm:u2|out_a1[1] ; count[1]   ; count[1] ; None                       ; None                       ; 7.610 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[3]     ; pic_rdm:u2|out_a1[3] ; count[1]   ; count[1] ; None                       ; None                       ; 7.598 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.676 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.709 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.274 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.785 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.617 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.692 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.167 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.176 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.202 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.220 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.227 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.225 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.241 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.247 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.823 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.802 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                       ; None                       ; 2.819 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.386 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.401 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|a1[2]     ; pic_rdm:u2|out_a1[2] ; count[1]   ; count[1] ; None                       ; None                       ; 8.408 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.392 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.448 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 2.977 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.041 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.520 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.051 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.508 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.543 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.547 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.556 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.006 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.009 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.538 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.573 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[0] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.625 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.096 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                       ; None                       ; 3.105 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.649 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.658 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.198 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.644 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.222 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.755 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.777 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.760 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[1][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.831 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                       ; None                       ; 3.285 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.294 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.292 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.295 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.898 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[1][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.990 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|maxbushu[0] ; count[1]   ; count[1] ; None                       ; None                       ; 3.444 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.463 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.472 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.475 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[2] ; pic_p:u3|arr[2][2]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.640 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][4]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.779 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[1] ; pic_p:u3|arr[0][3]   ; count[1]   ; count[1] ; None                       ; None                       ; 3.792 ns                 ;
+; Not operational: Clock Skew > Data Delay ; pic_rdm:u2|out_a1[3] ; pic_p:u3|arr[3][5]   ; count[1]   ; count[1] ; None                       ; None                       ; 4.356 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; tsu                                                                               ;
++-------+--------------+------------+----------+-------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                      ; To Clock ;
++-------+--------------+------------+----------+-------------------------+----------+
+; N/A   ; None         ; 3.858 ns   ; count[1] ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A   ; None         ; 3.577 ns   ; count[1] ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A   ; None         ; 3.351 ns   ; hap      ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A   ; None         ; 3.289 ns   ; count[0] ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A   ; None         ; 3.092 ns   ; count[0] ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A   ; None         ; 3.039 ns   ; hap      ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A   ; None         ; 2.849 ns   ; false    ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A   ; None         ; 2.221 ns   ; false    ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A   ; None         ; 2.101 ns   ; count[1] ; pic_rdm:u2|now_state.s2 ; clk2     ;
+; N/A   ; None         ; 1.767 ns   ; count[0] ; pic_rdm:u2|now_state.s1 ; clk2     ;
+; N/A   ; None         ; 1.758 ns   ; count[0] ; pic_rdm:u2|now_state.s2 ; clk2     ;
+; N/A   ; None         ; 1.742 ns   ; count[1] ; pic_rdm:u2|now_state.s1 ; clk2     ;
++-------+--------------+------------+----------+-------------------------+----------+
+
+
++------------------------------------------------------------------------------------+
+; tco                                                                                ;
++-------+--------------+------------+-------------------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From                    ; To      ; From Clock ;
++-------+--------------+------------+-------------------------+---------+------------+
+; N/A   ; None         ; 30.380 ns  ; pic_p:u3|arr[0][4]      ; col1[4] ; clk2       ;
+; N/A   ; None         ; 30.316 ns  ; pic_p:u3|arr[1][3]      ; col2[3] ; clk2       ;
+; N/A   ; None         ; 30.283 ns  ; pic_p:u3|arr[2][3]      ; col3[3] ; clk2       ;
+; N/A   ; None         ; 30.206 ns  ; pic_p:u3|arr[0][5]      ; col1[5] ; clk2       ;
+; N/A   ; None         ; 29.857 ns  ; pic_p:u3|arr[2][2]      ; col3[2] ; clk2       ;
+; N/A   ; None         ; 29.815 ns  ; pic_p:u3|arr[3][4]      ; col4[4] ; clk2       ;
+; N/A   ; None         ; 29.694 ns  ; pic_p:u3|arr[1][2]      ; col2[2] ; clk2       ;
+; N/A   ; None         ; 29.681 ns  ; pic_p:u3|arr[3][2]      ; col4[2] ; clk2       ;
+; N/A   ; None         ; 29.628 ns  ; pic_p:u3|arr[1][4]      ; col2[4] ; clk2       ;
+; N/A   ; None         ; 29.537 ns  ; pic_p:u3|arr[3][3]      ; col4[3] ; clk2       ;
+; N/A   ; None         ; 29.350 ns  ; pic_p:u3|arr[0][4]      ; col1[4] ; count[1]   ;
+; N/A   ; None         ; 29.288 ns  ; pic_p:u3|arr[0][2]      ; col1[2] ; clk2       ;
+; N/A   ; None         ; 29.286 ns  ; pic_p:u3|arr[1][3]      ; col2[3] ; count[1]   ;
+; N/A   ; None         ; 29.254 ns  ; pic_p:u3|maxbushu[0]    ; max[2]  ; clk2       ;
+; N/A   ; None         ; 29.254 ns  ; pic_p:u3|maxbushu[0]    ; max[1]  ; clk2       ;
+; N/A   ; None         ; 29.253 ns  ; pic_p:u3|arr[2][3]      ; col3[3] ; count[1]   ;
+; N/A   ; None         ; 29.225 ns  ; pic_p:u3|maxbushu[0]    ; max[3]  ; clk2       ;
+; N/A   ; None         ; 29.176 ns  ; pic_p:u3|arr[0][5]      ; col1[5] ; count[1]   ;
+; N/A   ; None         ; 29.119 ns  ; pic_p:u3|arr[1][5]      ; col2[5] ; clk2       ;
+; N/A   ; None         ; 29.118 ns  ; pic_p:u3|maxbushu[0]    ; max[0]  ; clk2       ;
+; N/A   ; None         ; 28.970 ns  ; pic_p:u3|arr[3][5]      ; col4[5] ; clk2       ;
+; N/A   ; None         ; 28.827 ns  ; pic_p:u3|arr[2][2]      ; col3[2] ; count[1]   ;
+; N/A   ; None         ; 28.785 ns  ; pic_p:u3|arr[3][4]      ; col4[4] ; count[1]   ;
+; N/A   ; None         ; 28.664 ns  ; pic_p:u3|arr[1][2]      ; col2[2] ; count[1]   ;
+; N/A   ; None         ; 28.651 ns  ; pic_p:u3|arr[3][2]      ; col4[2] ; count[1]   ;
+; N/A   ; None         ; 28.598 ns  ; pic_p:u3|arr[1][4]      ; col2[4] ; count[1]   ;
+; N/A   ; None         ; 28.528 ns  ; pic_p:u3|arr[0][3]      ; col1[3] ; clk2       ;
+; N/A   ; None         ; 28.507 ns  ; pic_p:u3|arr[3][3]      ; col4[3] ; count[1]   ;
+; N/A   ; None         ; 28.477 ns  ; pic_p:u3|arr[2][4]      ; col3[4] ; clk2       ;
+; N/A   ; None         ; 28.472 ns  ; pic_p:u3|arr[2][5]      ; col3[5] ; clk2       ;
+; N/A   ; None         ; 28.258 ns  ; pic_p:u3|arr[0][2]      ; col1[2] ; count[1]   ;
+; N/A   ; None         ; 28.224 ns  ; pic_p:u3|maxbushu[0]    ; max[2]  ; count[1]   ;
+; N/A   ; None         ; 28.224 ns  ; pic_p:u3|maxbushu[0]    ; max[1]  ; count[1]   ;
+; N/A   ; None         ; 28.195 ns  ; pic_p:u3|maxbushu[0]    ; max[3]  ; count[1]   ;
+; N/A   ; None         ; 28.089 ns  ; pic_p:u3|arr[1][5]      ; col2[5] ; count[1]   ;
+; N/A   ; None         ; 28.088 ns  ; pic_p:u3|maxbushu[0]    ; max[0]  ; count[1]   ;
+; N/A   ; None         ; 28.043 ns  ; pic_p:u3|arr[0][4]      ; col1[4] ; count[0]   ;
+; N/A   ; None         ; 27.979 ns  ; pic_p:u3|arr[1][3]      ; col2[3] ; count[0]   ;
+; N/A   ; None         ; 27.946 ns  ; pic_p:u3|arr[2][3]      ; col3[3] ; count[0]   ;
+; N/A   ; None         ; 27.940 ns  ; pic_p:u3|arr[3][5]      ; col4[5] ; count[1]   ;
+; N/A   ; None         ; 27.869 ns  ; pic_p:u3|arr[0][5]      ; col1[5] ; count[0]   ;
+; N/A   ; None         ; 27.520 ns  ; pic_p:u3|arr[2][2]      ; col3[2] ; count[0]   ;
+; N/A   ; None         ; 27.498 ns  ; pic_p:u3|arr[0][3]      ; col1[3] ; count[1]   ;
+; N/A   ; None         ; 27.478 ns  ; pic_p:u3|arr[3][4]      ; col4[4] ; count[0]   ;
+; N/A   ; None         ; 27.447 ns  ; pic_p:u3|arr[2][4]      ; col3[4] ; count[1]   ;
+; N/A   ; None         ; 27.442 ns  ; pic_p:u3|arr[2][5]      ; col3[5] ; count[1]   ;
+; N/A   ; None         ; 27.357 ns  ; pic_p:u3|arr[1][2]      ; col2[2] ; count[0]   ;
+; N/A   ; None         ; 27.344 ns  ; pic_p:u3|arr[3][2]      ; col4[2] ; count[0]   ;
+; N/A   ; None         ; 27.291 ns  ; pic_p:u3|arr[1][4]      ; col2[4] ; count[0]   ;
+; N/A   ; None         ; 27.200 ns  ; pic_p:u3|arr[3][3]      ; col4[3] ; count[0]   ;
+; N/A   ; None         ; 26.951 ns  ; pic_p:u3|arr[0][2]      ; col1[2] ; count[0]   ;
+; N/A   ; None         ; 26.917 ns  ; pic_p:u3|maxbushu[0]    ; max[2]  ; count[0]   ;
+; N/A   ; None         ; 26.917 ns  ; pic_p:u3|maxbushu[0]    ; max[1]  ; count[0]   ;
+; N/A   ; None         ; 26.888 ns  ; pic_p:u3|maxbushu[0]    ; max[3]  ; count[0]   ;
+; N/A   ; None         ; 26.782 ns  ; pic_p:u3|arr[1][5]      ; col2[5] ; count[0]   ;
+; N/A   ; None         ; 26.781 ns  ; pic_p:u3|maxbushu[0]    ; max[0]  ; count[0]   ;
+; N/A   ; None         ; 26.633 ns  ; pic_p:u3|arr[3][5]      ; col4[5] ; count[0]   ;
+; N/A   ; None         ; 26.191 ns  ; pic_p:u3|arr[0][3]      ; col1[3] ; count[0]   ;
+; N/A   ; None         ; 26.140 ns  ; pic_p:u3|arr[2][4]      ; col3[4] ; count[0]   ;
+; N/A   ; None         ; 26.135 ns  ; pic_p:u3|arr[2][5]      ; col3[5] ; count[0]   ;
+; N/A   ; None         ; 23.207 ns  ; pic_rdm:u2|a1[3]        ; ready   ; clk2       ;
+; N/A   ; None         ; 22.863 ns  ; pic_rdm:u2|a1[2]        ; ready   ; clk2       ;
+; N/A   ; None         ; 22.177 ns  ; pic_rdm:u2|a1[3]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 21.833 ns  ; pic_rdm:u2|a1[2]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 21.714 ns  ; pic_rdm:u2|a1[1]        ; ready   ; clk2       ;
+; N/A   ; None         ; 21.622 ns  ; pic_rdm:u2|a1[0]        ; ready   ; clk2       ;
+; N/A   ; None         ; 20.870 ns  ; pic_rdm:u2|a1[3]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 20.684 ns  ; pic_rdm:u2|a1[1]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 20.592 ns  ; pic_rdm:u2|a1[0]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 20.526 ns  ; pic_rdm:u2|a1[2]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 19.812 ns  ; pic_rdm:u2|a3[3]        ; ready   ; clk2       ;
+; N/A   ; None         ; 19.661 ns  ; pic_rdm:u2|a2[3]        ; ready   ; clk2       ;
+; N/A   ; None         ; 19.377 ns  ; pic_rdm:u2|a1[1]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 19.300 ns  ; pic_rdm:u2|a3[2]        ; ready   ; clk2       ;
+; N/A   ; None         ; 19.285 ns  ; pic_rdm:u2|a1[0]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 19.103 ns  ; pic_rdm:u2|a2[2]        ; ready   ; clk2       ;
+; N/A   ; None         ; 18.771 ns  ; pic_rdm:u2|a3[3]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 18.483 ns  ; pic_rdm:u2|a3[3]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 18.259 ns  ; pic_rdm:u2|a3[2]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 18.184 ns  ; pic_rdm:u2|a2[0]        ; ready   ; clk2       ;
+; N/A   ; None         ; 18.127 ns  ; pic_rdm:u2|a2[1]        ; ready   ; clk2       ;
+; N/A   ; None         ; 17.971 ns  ; pic_rdm:u2|a3[2]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 17.970 ns  ; pic_rdm:u2|a3[0]        ; ready   ; clk2       ;
+; N/A   ; None         ; 17.554 ns  ; pic_rdm:u2|a2[3]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 17.407 ns  ; pic_rdm:u2|a3[1]        ; ready   ; clk2       ;
+; N/A   ; None         ; 16.996 ns  ; pic_rdm:u2|a2[2]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 16.929 ns  ; pic_rdm:u2|a3[0]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 16.789 ns  ; pic_rdm:u2|a2[3]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 16.641 ns  ; pic_rdm:u2|a3[0]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 16.366 ns  ; pic_rdm:u2|a3[1]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 16.231 ns  ; pic_rdm:u2|a2[2]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 16.078 ns  ; pic_rdm:u2|a3[1]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 16.077 ns  ; pic_rdm:u2|a2[0]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 16.020 ns  ; pic_rdm:u2|a2[1]        ; ready   ; count[1]   ;
+; N/A   ; None         ; 15.312 ns  ; pic_rdm:u2|a2[0]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 15.255 ns  ; pic_rdm:u2|a2[1]        ; ready   ; count[0]   ;
+; N/A   ; None         ; 12.760 ns  ; pic_rdm:u2|now_state.s2 ; ready   ; clk2       ;
+; N/A   ; None         ; 11.985 ns  ; pic_rdm:u2|now_state.s3 ; ready   ; clk2       ;
+; N/A   ; None         ; 11.733 ns  ; pic_rdm:u2|now_state.s1 ; ready   ; clk2       ;
++-------+--------------+------------+-------------------------+---------+------------+
+
+
++-----------------------------------------------------------------------------------------+
+; th                                                                                      ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                      ; To Clock ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+; N/A           ; None        ; -1.188 ns ; count[1] ; pic_rdm:u2|now_state.s1 ; clk2     ;
+; N/A           ; None        ; -1.204 ns ; count[0] ; pic_rdm:u2|now_state.s2 ; clk2     ;
+; N/A           ; None        ; -1.213 ns ; count[0] ; pic_rdm:u2|now_state.s1 ; clk2     ;
+; N/A           ; None        ; -1.547 ns ; count[1] ; pic_rdm:u2|now_state.s2 ; clk2     ;
+; N/A           ; None        ; -1.667 ns ; false    ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A           ; None        ; -1.695 ns ; count[0] ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A           ; None        ; -2.295 ns ; false    ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A           ; None        ; -2.485 ns ; hap      ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A           ; None        ; -2.735 ns ; count[0] ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A           ; None        ; -2.797 ns ; hap      ; pic_rdm:u2|now_state.s0 ; clk2     ;
+; N/A           ; None        ; -3.023 ns ; count[1] ; pic_rdm:u2|now_state.s3 ; clk2     ;
+; N/A           ; None        ; -3.304 ns ; count[1] ; pic_rdm:u2|now_state.s0 ; clk2     ;
++---------------+-------------+-----------+----------+-------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Sun Nov 04 20:35:16 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off pic -c pic
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "pic_rdm:u2|a1[1]" is a latch
+    Warning: Node "pic_rdm:u2|a1[0]" is a latch
+    Warning: Node "pic_rdm:u2|a2[0]" is a latch
+    Warning: Node "pic_rdm:u2|a2[1]" is a latch
+    Warning: Node "pic_rdm:u2|a2[3]" is a latch
+    Warning: Node "pic_rdm:u2|a2[2]" is a latch
+    Warning: Node "pic_rdm:u2|a1[3]" is a latch
+    Warning: Node "pic_rdm:u2|a1[2]" is a latch
+    Warning: Node "pic_rdm:u2|a3[1]" is a latch
+    Warning: Node "pic_rdm:u2|a3[0]" is a latch
+    Warning: Node "pic_rdm:u2|a3[3]" is a latch
+    Warning: Node "pic_rdm:u2|a3[2]" is a latch
+    Warning: Node "pic_rdm:u2|out_a1[0]" is a latch
+    Warning: Node "pic_rdm:u2|out_a1[3]" is a latch
+    Warning: Node "pic_rdm:u2|out_a1[2]" is a latch
+    Warning: Node "pic_rdm:u2|out_a1[1]" is a latch
+    Warning: Node "pic_p:u3|arr[0][2]" is a latch
+    Warning: Node "pic_p:u3|arr[0][3]" is a latch
+    Warning: Node "pic_p:u3|arr[0][4]" is a latch
+    Warning: Node "pic_p:u3|arr[0][5]" is a latch
+    Warning: Node "pic_p:u3|arr[1][2]" is a latch
+    Warning: Node "pic_p:u3|arr[1][3]" is a latch
+    Warning: Node "pic_p:u3|arr[1][4]" is a latch
+    Warning: Node "pic_p:u3|arr[1][5]" is a latch
+    Warning: Node "pic_p:u3|arr[2][2]" is a latch
+    Warning: Node "pic_p:u3|arr[2][3]" is a latch
+    Warning: Node "pic_p:u3|arr[2][4]" is a latch
+    Warning: Node "pic_p:u3|arr[2][5]" is a latch
+    Warning: Node "pic_p:u3|arr[3][2]" is a latch
+    Warning: Node "pic_p:u3|arr[3][3]" is a latch
+    Warning: Node "pic_p:u3|arr[3][4]" is a latch
+    Warning: Node "pic_p:u3|arr[3][5]" is a latch
+    Warning: Node "pic_p:u3|maxbushu[0]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk2" is an undefined clock
+    Info: Assuming node "clk1" is an undefined clock
+    Info: Assuming node "count[0]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "count[1]" is a latch enable. Will not compute fmax for this pin.
+Warning: Found 27 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "pic_rdm:u2|a3[2]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a3[3]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a3[0]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a3[1]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a1[2]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a1[3]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a2[2]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a2[3]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a2[1]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a2[0]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a1[0]" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|a1[1]" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Selector8~1" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal3~1" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal4~1" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Selector2~1" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal4~0" as buffer
+    Info: Detected gated clock "pic_rdm:u2|a1[0]~0" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal3~0" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Selector3~0" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|now_state.s3" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal2~1" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Equal2~0" as buffer
+    Info: Detected gated clock "pic_rdm:u2|Selector8~0" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|now_state.s2" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|now_state.s0" as buffer
+    Info: Detected ripple clock "pic_rdm:u2|now_state.s1" as buffer
+Info: Clock "clk2" has Internal fmax of 37.66 MHz between source register "pic_rdm:u2|a3[3]" and destination register "pic_rdm:u2|now_state.s0" (period= 26.552 ns)
+    Info: + Longest register to register delay is 8.010 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X9_Y6_N0; Fanout = 3; REG Node = 'pic_rdm:u2|a3[3]'
+        Info: 2: + IC(0.729 ns) + CELL(0.740 ns) = 1.469 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+        Info: 3: + IC(2.504 ns) + CELL(0.914 ns) = 4.887 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+        Info: 4: + IC(0.792 ns) + CELL(0.511 ns) = 6.190 ns; Loc. = LC_X7_Y5_N1; Fanout = 1; COMB Node = 'pic_rdm:u2|next_state.s0~1'
+        Info: 5: + IC(0.724 ns) + CELL(0.200 ns) = 7.114 ns; Loc. = LC_X7_Y5_N8; Fanout = 1; COMB Node = 'pic_rdm:u2|next_state.s0~2'
+        Info: 6: + IC(0.305 ns) + CELL(0.591 ns) = 8.010 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+        Info: Total cell delay = 2.956 ns ( 36.90 % )
+        Info: Total interconnect delay = 5.054 ns ( 63.10 % )
+    Info: - Smallest clock skew is -4.933 ns
+        Info: + Shortest clock path from clock "clk2" to destination register is 3.819 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+            Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+            Info: Total cell delay = 2.081 ns ( 54.49 % )
+            Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+        Info: - Longest clock path from clock "clk2" to source register is 8.752 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+            Info: 3: + IC(1.911 ns) + CELL(0.200 ns) = 6.306 ns; Loc. = LC_X9_Y5_N2; Fanout = 5; COMB Node = 'pic_rdm:u2|Selector3~0'
+            Info: 4: + IC(1.935 ns) + CELL(0.511 ns) = 8.752 ns; Loc. = LC_X9_Y6_N0; Fanout = 3; REG Node = 'pic_rdm:u2|a3[3]'
+            Info: Total cell delay = 3.168 ns ( 36.20 % )
+            Info: Total interconnect delay = 5.584 ns ( 63.80 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.333 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "clk1" Internal fmax is restricted to 304.04 MHz between source register "pic_st:u1|ddout[0]" and destination register "pic_st:u1|ddout[0]"
+    Info: fmax restricted to clock pin edge rate 3.289 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 1.983 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X10_Y5_N9; Fanout = 6; REG Node = 'pic_st:u1|ddout[0]'
+            Info: 2: + IC(0.922 ns) + CELL(1.061 ns) = 1.983 ns; Loc. = LC_X10_Y5_N9; Fanout = 6; REG Node = 'pic_st:u1|ddout[0]'
+            Info: Total cell delay = 1.061 ns ( 53.50 % )
+            Info: Total interconnect delay = 0.922 ns ( 46.50 % )
+        Info: - Smallest clock skew is 0.000 ns
+            Info: + Shortest clock path from clock "clk1" to destination register is 3.819 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 4; CLK Node = 'clk1'
+                Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X10_Y5_N9; Fanout = 6; REG Node = 'pic_st:u1|ddout[0]'
+                Info: Total cell delay = 2.081 ns ( 54.49 % )
+                Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+            Info: - Longest clock path from clock "clk1" to source register is 3.819 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 4; CLK Node = 'clk1'
+                Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X10_Y5_N9; Fanout = 6; REG Node = 'pic_st:u1|ddout[0]'
+                Info: Total cell delay = 2.081 ns ( 54.49 % )
+                Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+        Info: + Micro clock to output delay of source is 0.376 ns
+        Info: + Micro setup delay of destination is 0.333 ns
+Info: Clock "count[0]" has Internal fmax of 80.8 MHz between source register "pic_rdm:u2|out_a1[3]" and destination register "pic_p:u3|arr[3][5]" (period= 12.376 ns)
+    Info: + Longest register to register delay is 4.356 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X4_Y9_N9; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[3]'
+        Info: 2: + IC(2.532 ns) + CELL(0.914 ns) = 3.446 ns; Loc. = LC_X5_Y5_N2; Fanout = 1; COMB Node = 'pic_p:u3|Mux0~0'
+        Info: 3: + IC(0.710 ns) + CELL(0.200 ns) = 4.356 ns; Loc. = LC_X5_Y5_N0; Fanout = 1; REG Node = 'pic_p:u3|arr[3][5]'
+        Info: Total cell delay = 1.114 ns ( 25.57 % )
+        Info: Total interconnect delay = 3.242 ns ( 74.43 % )
+    Info: - Smallest clock skew is -6.006 ns
+        Info: + Shortest clock path from clock "count[0]" to destination register is 16.096 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_58; Fanout = 7; CLK Node = 'count[0]'
+            Info: 2: + IC(2.326 ns) + CELL(0.511 ns) = 3.969 ns; Loc. = LC_X9_Y5_N7; Fanout = 4; COMB Node = 'pic_rdm:u2|Selector2~1'
+            Info: 3: + IC(1.183 ns) + CELL(0.200 ns) = 5.352 ns; Loc. = LC_X10_Y5_N3; Fanout = 3; REG Node = 'pic_rdm:u2|a2[1]'
+            Info: 4: + IC(1.795 ns) + CELL(0.200 ns) = 7.347 ns; Loc. = LC_X7_Y5_N6; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal2~0'
+            Info: 5: + IC(0.770 ns) + CELL(0.511 ns) = 8.628 ns; Loc. = LC_X7_Y5_N3; Fanout = 3; COMB Node = 'pic_rdm:u2|Selector8~0'
+            Info: 6: + IC(0.744 ns) + CELL(0.200 ns) = 9.572 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.784 ns) + CELL(0.740 ns) = 16.096 ns; Loc. = LC_X5_Y5_N0; Fanout = 1; REG Node = 'pic_p:u3|arr[3][5]'
+            Info: Total cell delay = 3.494 ns ( 21.71 % )
+            Info: Total interconnect delay = 12.602 ns ( 78.29 % )
+        Info: - Longest clock path from clock "count[0]" to source register is 22.102 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_58; Fanout = 7; CLK Node = 'count[0]'
+            Info: 2: + IC(2.322 ns) + CELL(0.511 ns) = 3.965 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+            Info: 3: + IC(5.170 ns) + CELL(0.511 ns) = 9.646 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+            Info: 4: + IC(0.719 ns) + CELL(0.914 ns) = 11.279 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+            Info: 5: + IC(2.504 ns) + CELL(0.914 ns) = 14.697 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+            Info: 6: + IC(0.804 ns) + CELL(0.511 ns) = 16.012 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.890 ns) + CELL(0.200 ns) = 22.102 ns; Loc. = LC_X4_Y9_N9; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[3]'
+            Info: Total cell delay = 4.693 ns ( 21.23 % )
+            Info: Total interconnect delay = 17.409 ns ( 78.77 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 2.014 ns
+Info: Clock "count[1]" has Internal fmax of 77.41 MHz between source register "pic_rdm:u2|out_a1[3]" and destination register "pic_p:u3|arr[3][5]" (period= 12.918 ns)
+    Info: + Longest register to register delay is 4.356 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X4_Y9_N9; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[3]'
+        Info: 2: + IC(2.532 ns) + CELL(0.914 ns) = 3.446 ns; Loc. = LC_X5_Y5_N2; Fanout = 1; COMB Node = 'pic_p:u3|Mux0~0'
+        Info: 3: + IC(0.710 ns) + CELL(0.200 ns) = 4.356 ns; Loc. = LC_X5_Y5_N0; Fanout = 1; REG Node = 'pic_p:u3|arr[3][5]'
+        Info: Total cell delay = 1.114 ns ( 25.57 % )
+        Info: Total interconnect delay = 3.242 ns ( 74.43 % )
+    Info: - Smallest clock skew is -6.548 ns
+        Info: + Shortest clock path from clock "count[1]" to destination register is 16.861 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+            Info: 2: + IC(3.402 ns) + CELL(0.200 ns) = 4.734 ns; Loc. = LC_X9_Y5_N7; Fanout = 4; COMB Node = 'pic_rdm:u2|Selector2~1'
+            Info: 3: + IC(1.183 ns) + CELL(0.200 ns) = 6.117 ns; Loc. = LC_X10_Y5_N3; Fanout = 3; REG Node = 'pic_rdm:u2|a2[1]'
+            Info: 4: + IC(1.795 ns) + CELL(0.200 ns) = 8.112 ns; Loc. = LC_X7_Y5_N6; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal2~0'
+            Info: 5: + IC(0.770 ns) + CELL(0.511 ns) = 9.393 ns; Loc. = LC_X7_Y5_N3; Fanout = 3; COMB Node = 'pic_rdm:u2|Selector8~0'
+            Info: 6: + IC(0.744 ns) + CELL(0.200 ns) = 10.337 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.784 ns) + CELL(0.740 ns) = 16.861 ns; Loc. = LC_X5_Y5_N0; Fanout = 1; REG Node = 'pic_p:u3|arr[3][5]'
+            Info: Total cell delay = 3.183 ns ( 18.88 % )
+            Info: Total interconnect delay = 13.678 ns ( 81.12 % )
+        Info: - Longest clock path from clock "count[1]" to source register is 23.409 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+            Info: 2: + IC(3.400 ns) + CELL(0.740 ns) = 5.272 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+            Info: 3: + IC(5.170 ns) + CELL(0.511 ns) = 10.953 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+            Info: 4: + IC(0.719 ns) + CELL(0.914 ns) = 12.586 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+            Info: 5: + IC(2.504 ns) + CELL(0.914 ns) = 16.004 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+            Info: 6: + IC(0.804 ns) + CELL(0.511 ns) = 17.319 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.890 ns) + CELL(0.200 ns) = 23.409 ns; Loc. = LC_X4_Y9_N9; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[3]'
+            Info: Total cell delay = 4.922 ns ( 21.03 % )
+            Info: Total interconnect delay = 18.487 ns ( 78.97 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 2.014 ns
+Warning: Circuit may not operate. Detected 88 non-operational path(s) clocked by clock "clk2" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "pic_rdm:u2|now_state.s3" and destination pin or register "pic_rdm:u2|out_a1[0]" for clock "clk2" (Hold time is 14.426 ns)
+    Info: + Largest clock skew is 20.624 ns
+        Info: + Longest clock path from clock "clk2" to destination register is 24.443 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+            Info: 3: + IC(1.907 ns) + CELL(0.200 ns) = 6.302 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+            Info: 4: + IC(5.170 ns) + CELL(0.511 ns) = 11.983 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+            Info: 5: + IC(0.719 ns) + CELL(0.914 ns) = 13.616 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+            Info: 6: + IC(2.504 ns) + CELL(0.914 ns) = 17.034 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+            Info: 7: + IC(0.804 ns) + CELL(0.511 ns) = 18.349 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 8: + IC(5.894 ns) + CELL(0.200 ns) = 24.443 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+            Info: Total cell delay = 5.707 ns ( 23.35 % )
+            Info: Total interconnect delay = 18.736 ns ( 76.65 % )
+        Info: - Shortest clock path from clock "clk2" to source register is 3.819 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+            Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X9_Y5_N3; Fanout = 8; REG Node = 'pic_rdm:u2|now_state.s3'
+            Info: Total cell delay = 2.081 ns ( 54.49 % )
+            Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+    Info: - Micro clock to output delay of source is 0.376 ns
+    Info: - Shortest register to register delay is 5.822 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X9_Y5_N3; Fanout = 8; REG Node = 'pic_rdm:u2|now_state.s3'
+        Info: 2: + IC(1.269 ns) + CELL(0.740 ns) = 2.009 ns; Loc. = LC_X10_Y5_N4; Fanout = 1; COMB Node = 'pic_rdm:u2|Selector7~1'
+        Info: 3: + IC(3.073 ns) + CELL(0.740 ns) = 5.822 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+        Info: Total cell delay = 1.480 ns ( 25.42 % )
+        Info: Total interconnect delay = 4.342 ns ( 74.58 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 80 non-operational path(s) clocked by clock "count[0]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "pic_rdm:u2|a2[0]" and destination pin or register "pic_rdm:u2|out_a1[0]" for clock "count[0]" (Hold time is 9.515 ns)
+    Info: + Largest clock skew is 16.759 ns
+        Info: + Longest clock path from clock "count[0]" to destination register is 22.106 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_58; Fanout = 7; CLK Node = 'count[0]'
+            Info: 2: + IC(2.322 ns) + CELL(0.511 ns) = 3.965 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+            Info: 3: + IC(5.170 ns) + CELL(0.511 ns) = 9.646 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+            Info: 4: + IC(0.719 ns) + CELL(0.914 ns) = 11.279 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+            Info: 5: + IC(2.504 ns) + CELL(0.914 ns) = 14.697 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+            Info: 6: + IC(0.804 ns) + CELL(0.511 ns) = 16.012 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.894 ns) + CELL(0.200 ns) = 22.106 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+            Info: Total cell delay = 4.693 ns ( 21.23 % )
+            Info: Total interconnect delay = 17.413 ns ( 78.77 % )
+        Info: - Shortest clock path from clock "count[0]" to source register is 5.347 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_58; Fanout = 7; CLK Node = 'count[0]'
+            Info: 2: + IC(2.326 ns) + CELL(0.511 ns) = 3.969 ns; Loc. = LC_X9_Y5_N7; Fanout = 4; COMB Node = 'pic_rdm:u2|Selector2~1'
+            Info: 3: + IC(1.178 ns) + CELL(0.200 ns) = 5.347 ns; Loc. = LC_X10_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|a2[0]'
+            Info: Total cell delay = 1.843 ns ( 34.47 % )
+            Info: Total interconnect delay = 3.504 ns ( 65.53 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 7.244 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X10_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|a2[0]'
+        Info: 2: + IC(1.857 ns) + CELL(0.200 ns) = 2.057 ns; Loc. = LC_X10_Y5_N0; Fanout = 1; COMB Node = 'pic_rdm:u2|Selector7~0'
+        Info: 3: + IC(1.174 ns) + CELL(0.200 ns) = 3.431 ns; Loc. = LC_X10_Y5_N4; Fanout = 1; COMB Node = 'pic_rdm:u2|Selector7~1'
+        Info: 4: + IC(3.073 ns) + CELL(0.740 ns) = 7.244 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+        Info: Total cell delay = 1.140 ns ( 15.74 % )
+        Info: Total interconnect delay = 6.104 ns ( 84.26 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+Warning: Circuit may not operate. Detected 80 non-operational path(s) clocked by clock "count[1]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "pic_rdm:u2|a2[0]" and destination pin or register "pic_rdm:u2|out_a1[0]" for clock "count[1]" (Hold time is 10.057 ns)
+    Info: + Largest clock skew is 17.301 ns
+        Info: + Longest clock path from clock "count[1]" to destination register is 23.413 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+            Info: 2: + IC(3.400 ns) + CELL(0.740 ns) = 5.272 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+            Info: 3: + IC(5.170 ns) + CELL(0.511 ns) = 10.953 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+            Info: 4: + IC(0.719 ns) + CELL(0.914 ns) = 12.586 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+            Info: 5: + IC(2.504 ns) + CELL(0.914 ns) = 16.004 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+            Info: 6: + IC(0.804 ns) + CELL(0.511 ns) = 17.319 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+            Info: 7: + IC(5.894 ns) + CELL(0.200 ns) = 23.413 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+            Info: Total cell delay = 4.922 ns ( 21.02 % )
+            Info: Total interconnect delay = 18.491 ns ( 78.98 % )
+        Info: - Shortest clock path from clock "count[1]" to source register is 6.112 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+            Info: 2: + IC(3.402 ns) + CELL(0.200 ns) = 4.734 ns; Loc. = LC_X9_Y5_N7; Fanout = 4; COMB Node = 'pic_rdm:u2|Selector2~1'
+            Info: 3: + IC(1.178 ns) + CELL(0.200 ns) = 6.112 ns; Loc. = LC_X10_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|a2[0]'
+            Info: Total cell delay = 1.532 ns ( 25.07 % )
+            Info: Total interconnect delay = 4.580 ns ( 74.93 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 7.244 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X10_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|a2[0]'
+        Info: 2: + IC(1.857 ns) + CELL(0.200 ns) = 2.057 ns; Loc. = LC_X10_Y5_N0; Fanout = 1; COMB Node = 'pic_rdm:u2|Selector7~0'
+        Info: 3: + IC(1.174 ns) + CELL(0.200 ns) = 3.431 ns; Loc. = LC_X10_Y5_N4; Fanout = 1; COMB Node = 'pic_rdm:u2|Selector7~1'
+        Info: 4: + IC(3.073 ns) + CELL(0.740 ns) = 7.244 ns; Loc. = LC_X4_Y9_N5; Fanout = 17; REG Node = 'pic_rdm:u2|out_a1[0]'
+        Info: Total cell delay = 1.140 ns ( 15.74 % )
+        Info: Total interconnect delay = 6.104 ns ( 84.26 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+Info: tsu for register "pic_rdm:u2|now_state.s0" (data pin = "count[1]", clock pin = "clk2") is 3.858 ns
+    Info: + Longest pin to register delay is 7.344 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+        Info: 2: + IC(3.403 ns) + CELL(0.200 ns) = 4.735 ns; Loc. = LC_X9_Y5_N6; Fanout = 1; COMB Node = 'pic_rdm:u2|next_state.s0~0'
+        Info: 3: + IC(1.805 ns) + CELL(0.804 ns) = 7.344 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+        Info: Total cell delay = 2.136 ns ( 29.08 % )
+        Info: Total interconnect delay = 5.208 ns ( 70.92 % )
+    Info: + Micro setup delay of destination is 0.333 ns
+    Info: - Shortest clock path from clock "clk2" to destination register is 3.819 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+        Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+        Info: Total cell delay = 2.081 ns ( 54.49 % )
+        Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+Info: tco from clock "clk2" to destination pin "col1[4]" through register "pic_p:u3|arr[0][4]" is 30.380 ns
+    Info: + Longest clock path from clock "clk2" to source register is 24.440 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X7_Y5_N9; Fanout = 6; REG Node = 'pic_rdm:u2|now_state.s0'
+        Info: 3: + IC(1.907 ns) + CELL(0.200 ns) = 6.302 ns; Loc. = LC_X9_Y5_N9; Fanout = 4; COMB Node = 'pic_rdm:u2|a1[0]~0'
+        Info: 4: + IC(5.170 ns) + CELL(0.511 ns) = 11.983 ns; Loc. = LC_X9_Y6_N4; Fanout = 3; REG Node = 'pic_rdm:u2|a1[3]'
+        Info: 5: + IC(0.719 ns) + CELL(0.914 ns) = 13.616 ns; Loc. = LC_X9_Y6_N3; Fanout = 1; COMB Node = 'pic_rdm:u2|Equal3~1'
+        Info: 6: + IC(2.504 ns) + CELL(0.914 ns) = 17.034 ns; Loc. = LC_X7_Y5_N0; Fanout = 3; COMB Node = 'pic_rdm:u2|p3~0'
+        Info: 7: + IC(0.804 ns) + CELL(0.511 ns) = 18.349 ns; Loc. = LC_X7_Y5_N5; Fanout = 22; COMB Node = 'pic_rdm:u2|Selector8~1'
+        Info: 8: + IC(5.891 ns) + CELL(0.200 ns) = 24.440 ns; Loc. = LC_X4_Y9_N8; Fanout = 1; REG Node = 'pic_p:u3|arr[0][4]'
+        Info: Total cell delay = 5.707 ns ( 23.35 % )
+        Info: Total interconnect delay = 18.733 ns ( 76.65 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 5.940 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X4_Y9_N8; Fanout = 1; REG Node = 'pic_p:u3|arr[0][4]'
+        Info: 2: + IC(3.618 ns) + CELL(2.322 ns) = 5.940 ns; Loc. = PIN_104; Fanout = 0; PIN Node = 'col1[4]'
+        Info: Total cell delay = 2.322 ns ( 39.09 % )
+        Info: Total interconnect delay = 3.618 ns ( 60.91 % )
+Info: th for register "pic_rdm:u2|now_state.s1" (data pin = "count[1]", clock pin = "clk2") is -1.188 ns
+    Info: + Longest clock path from clock "clk2" to destination register is 3.819 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 4; CLK Node = 'clk2'
+        Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X9_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|now_state.s1'
+        Info: Total cell delay = 2.081 ns ( 54.49 % )
+        Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+    Info: + Micro hold delay of destination is 0.221 ns
+    Info: - Shortest pin to register delay is 5.228 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_37; Fanout = 6; CLK Node = 'count[1]'
+        Info: 2: + IC(3.292 ns) + CELL(0.804 ns) = 5.228 ns; Loc. = LC_X9_Y5_N8; Fanout = 3; REG Node = 'pic_rdm:u2|now_state.s1'
+        Info: Total cell delay = 1.936 ns ( 37.03 % )
+        Info: Total interconnect delay = 3.292 ns ( 62.97 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 197 megabytes
+    Info: Processing ended: Sun Nov 04 20:35:17 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

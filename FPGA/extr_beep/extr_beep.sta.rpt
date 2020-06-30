@@ -1,0 +1,661 @@
+TimeQuest Timing Analyzer report for extr_beep
+Mon Nov 05 09:43:04 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Recovery: 'clk'
+ 14. Removal: 'clk'
+ 15. Minimum Pulse Width: 'clk'
+ 16. Setup Times
+ 17. Hold Times
+ 18. Clock to Output Times
+ 19. Minimum Clock to Output Times
+ 20. Setup Transfers
+ 21. Hold Transfers
+ 22. Recovery Transfers
+ 23. Removal Transfers
+ 24. Report TCCS
+ 25. Report RSKM
+ 26. Unconstrained Paths
+ 27. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name      ; extr_beep                                        ;
+; Device Family      ; MAX II                                           ;
+; Device Name        ; EPM1270T144C5                                    ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Slow Model                                       ;
+; Rise/Fall Delays   ; Unavailable                                      ;
++--------------------+--------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 63.64 MHz ; 63.64 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Setup Summary                   ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clk   ; -14.714 ; -484.038      ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 1.659 ; 0.000         ;
++-------+-------+---------------+
+
+
++--------------------------------+
+; Recovery Summary               ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -8.632 ; -8.632        ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Removal Summary               ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 6.812 ; 0.000         ;
++-------+-------+---------------+
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                           ;
++---------+----------------------------+-----------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                  ; To Node   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------------------+-----------+--------------+-------------+--------------+------------+------------+
+; -14.714 ; \melodyCtrl:cntForTime[13] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.381     ;
+; -14.678 ; \melodyCtrl:cntForTime[7]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.345     ;
+; -14.641 ; \melodyCtrl:cntForTime[13] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.308     ;
+; -14.605 ; \melodyCtrl:cntForTime[7]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.272     ;
+; -14.569 ; \melodyCtrl:cntForTime[4]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.236     ;
+; -14.496 ; \melodyCtrl:cntForTime[4]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.163     ;
+; -14.418 ; \melodyCtrl:cntForTime[13] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.085     ;
+; -14.402 ; \melodyCtrl:cntForTime[0]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.069     ;
+; -14.402 ; \melodyCtrl:cntForTime[12] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.069     ;
+; -14.382 ; \melodyCtrl:cntForTime[7]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.049     ;
+; -14.342 ; \melodyCtrl:cntForTime[15] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.009     ;
+; -14.333 ; \melodyCtrl:cntForTime[6]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 15.000     ;
+; -14.329 ; \melodyCtrl:cntForTime[0]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.996     ;
+; -14.329 ; \melodyCtrl:cntForTime[12] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.996     ;
+; -14.328 ; \melodyCtrl:cntForTime[13] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.995     ;
+; -14.318 ; \melodyCtrl:cntForTime[13] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.985     ;
+; -14.292 ; \melodyCtrl:cntForTime[7]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.959     ;
+; -14.282 ; \melodyCtrl:cntForTime[7]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.949     ;
+; -14.273 ; \melodyCtrl:cntForTime[4]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.940     ;
+; -14.269 ; \melodyCtrl:cntForTime[15] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.936     ;
+; -14.260 ; \melodyCtrl:cntForTime[6]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.927     ;
+; -14.204 ; \melodyCtrl:cntForTime[14] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.871     ;
+; -14.183 ; \melodyCtrl:cntForTime[4]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.850     ;
+; -14.177 ; \melodyCtrl:cntForTime[11] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.844     ;
+; -14.173 ; \melodyCtrl:cntForTime[4]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.840     ;
+; -14.137 ; \melodyCtrl:cntForTime[13] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.804     ;
+; -14.133 ; \melodyCtrl:cntForTime[10] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.800     ;
+; -14.131 ; \melodyCtrl:cntForTime[14] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.798     ;
+; -14.106 ; \melodyCtrl:cntForTime[0]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.773     ;
+; -14.106 ; \melodyCtrl:cntForTime[12] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.773     ;
+; -14.104 ; \melodyCtrl:cntForTime[11] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.771     ;
+; -14.101 ; \melodyCtrl:cntForTime[7]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.768     ;
+; -14.087 ; \melodyCtrl:cntForTime[8]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.754     ;
+; -14.070 ; \melodyCtrl:cntForTime[1]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.737     ;
+; -14.060 ; \melodyCtrl:cntForTime[10] ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.727     ;
+; -14.046 ; \melodyCtrl:cntForTime[15] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.713     ;
+; -14.037 ; \melodyCtrl:cntForTime[6]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.704     ;
+; -14.016 ; \melodyCtrl:cntForTime[0]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.683     ;
+; -14.016 ; \melodyCtrl:cntForTime[12] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.683     ;
+; -14.014 ; \melodyCtrl:cntForTime[8]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.681     ;
+; -14.006 ; \melodyCtrl:cntForTime[0]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.673     ;
+; -14.006 ; \melodyCtrl:cntForTime[12] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.673     ;
+; -13.997 ; \melodyCtrl:cntForTime[1]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.664     ;
+; -13.992 ; \melodyCtrl:cntForTime[4]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.659     ;
+; -13.956 ; \melodyCtrl:cntForTime[15] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.623     ;
+; -13.947 ; \melodyCtrl:cntForTime[6]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.614     ;
+; -13.946 ; \melodyCtrl:cntForTime[15] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.613     ;
+; -13.937 ; \melodyCtrl:cntForTime[6]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.604     ;
+; -13.908 ; \melodyCtrl:cntForTime[14] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.575     ;
+; -13.904 ; \melodyCtrl:cntForTime[5]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.571     ;
+; -13.901 ; \melodyCtrl:cntForTime[2]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.568     ;
+; -13.881 ; \melodyCtrl:cntForTime[11] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.548     ;
+; -13.837 ; \melodyCtrl:cntForTime[10] ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.504     ;
+; -13.831 ; \melodyCtrl:cntForTime[5]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.498     ;
+; -13.828 ; \melodyCtrl:cntForTime[2]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.495     ;
+; -13.825 ; \melodyCtrl:cntForTime[0]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.492     ;
+; -13.825 ; \melodyCtrl:cntForTime[12] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.492     ;
+; -13.818 ; \melodyCtrl:cntForTime[14] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.485     ;
+; -13.814 ; \melodyCtrl:cntForTime[9]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.481     ;
+; -13.808 ; \melodyCtrl:cntForTime[14] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.475     ;
+; -13.791 ; \melodyCtrl:cntForTime[11] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.458     ;
+; -13.791 ; \melodyCtrl:cntForTime[8]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.458     ;
+; -13.781 ; \melodyCtrl:cntForTime[11] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.448     ;
+; -13.774 ; \melodyCtrl:cntForTime[1]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.441     ;
+; -13.765 ; \melodyCtrl:cntForTime[15] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.432     ;
+; -13.756 ; \melodyCtrl:cntForTime[6]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.423     ;
+; -13.747 ; \melodyCtrl:cntForTime[10] ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.414     ;
+; -13.741 ; \melodyCtrl:cntForTime[9]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.408     ;
+; -13.737 ; \melodyCtrl:cntForTime[10] ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.404     ;
+; -13.701 ; \melodyCtrl:cntForTime[8]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.368     ;
+; -13.691 ; \melodyCtrl:cntForTime[8]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.358     ;
+; -13.684 ; \melodyCtrl:cntForTime[1]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.351     ;
+; -13.674 ; \melodyCtrl:cntForTime[1]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.341     ;
+; -13.627 ; \melodyCtrl:cntForTime[14] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.294     ;
+; -13.608 ; \melodyCtrl:cntForTime[5]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.275     ;
+; -13.605 ; \melodyCtrl:cntForTime[2]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.272     ;
+; -13.600 ; \melodyCtrl:cntForTime[11] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.267     ;
+; -13.556 ; \melodyCtrl:cntForTime[10] ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.223     ;
+; -13.531 ; \melodyCtrl:cntForTime[3]  ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.198     ;
+; -13.518 ; \melodyCtrl:cntForTime[5]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.185     ;
+; -13.518 ; \melodyCtrl:cntForTime[9]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.185     ;
+; -13.515 ; \melodyCtrl:cntForTime[2]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.182     ;
+; -13.510 ; \melodyCtrl:cntForTime[8]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.177     ;
+; -13.508 ; \melodyCtrl:cntForTime[5]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.175     ;
+; -13.505 ; \melodyCtrl:cntForTime[2]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.172     ;
+; -13.493 ; \melodyCtrl:cntForTime[1]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.160     ;
+; -13.458 ; \melodyCtrl:cntForTime[3]  ; curDiv[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.125     ;
+; -13.428 ; \melodyCtrl:cntForTime[9]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.095     ;
+; -13.418 ; \melodyCtrl:cntForTime[9]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 14.085     ;
+; -13.327 ; \melodyCtrl:cntForTime[5]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.994     ;
+; -13.324 ; \melodyCtrl:cntForTime[2]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.991     ;
+; -13.237 ; \melodyCtrl:cntForTime[9]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.904     ;
+; -13.235 ; \melodyCtrl:cntForTime[3]  ; curDiv[5] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.902     ;
+; -13.145 ; \melodyCtrl:cntForTime[3]  ; curDiv[2] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.812     ;
+; -13.135 ; \melodyCtrl:cntForTime[3]  ; curDiv[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.802     ;
+; -12.955 ; \melodyCtrl:cntForTime[13] ; curDiv[8] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.622     ;
+; -12.954 ; \melodyCtrl:cntForTime[3]  ; curDiv[7] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.621     ;
+; -12.919 ; \melodyCtrl:cntForTime[7]  ; curDiv[8] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.586     ;
+; -12.822 ; \melodyCtrl:cntForTime[18] ; curDiv[6] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.489     ;
+; -12.810 ; \melodyCtrl:cntForTime[4]  ; curDiv[8] ; clk          ; clk         ; 1.000        ; 0.000      ; 13.477     ;
++---------+----------------------------+-----------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                           ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; 1.659 ; \drBuzzer:cnt[9]           ; \drBuzzer:cnt[9]           ; clk          ; clk         ; 0.000        ; 0.000      ; 1.880      ;
+; 1.659 ; \melodyCtrl:cntForTime[18] ; \melodyCtrl:cntForTime[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.880      ;
+; 1.685 ; \melodyCtrl:curIndex[0]    ; \melodyCtrl:curIndex[0]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.906      ;
+; 1.899 ; tempBuzzer                 ; tempBuzzer                 ; clk          ; clk         ; 0.000        ; 0.000      ; 2.120      ;
+; 2.116 ; \drBuzzer:cnt[0]           ; \drBuzzer:cnt[0]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:cntForTime[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; \drBuzzer:cnt[7]           ; \drBuzzer:cnt[7]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; \melodyCtrl:cntForTime[16] ; \melodyCtrl:cntForTime[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.118 ; \melodyCtrl:cntForTime[6]  ; \melodyCtrl:cntForTime[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.339      ;
+; 2.126 ; \drBuzzer:cnt[2]           ; \drBuzzer:cnt[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \drBuzzer:cnt[1]           ; \drBuzzer:cnt[1]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:cntForTime[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \melodyCtrl:cntForTime[1]  ; \melodyCtrl:cntForTime[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \melodyCtrl:cntForTime[8]  ; \melodyCtrl:cntForTime[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:cntForTime[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; \melodyCtrl:cntForTime[11] ; \melodyCtrl:cntForTime[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.221 ; \drBuzzer:cnt[8]           ; \drBuzzer:cnt[8]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; \drBuzzer:cnt[3]           ; \drBuzzer:cnt[3]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; \melodyCtrl:cntForTime[17] ; \melodyCtrl:cntForTime[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; \melodyCtrl:cntForTime[2]  ; \melodyCtrl:cntForTime[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; \melodyCtrl:cntForTime[7]  ; \melodyCtrl:cntForTime[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; \melodyCtrl:cntForTime[12] ; \melodyCtrl:cntForTime[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.230 ; \drBuzzer:cnt[5]           ; \drBuzzer:cnt[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:cntForTime[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:cntForTime[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[4]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; \drBuzzer:cnt[6]           ; \drBuzzer:cnt[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:cntForTime[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:cntForTime[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.562 ; \melodyCtrl:oFlag          ; \melodyCtrl:oFlag          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.783      ;
+; 2.948 ; \drBuzzer:cnt[0]           ; \drBuzzer:cnt[1]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 2.948 ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:cntForTime[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; \drBuzzer:cnt[7]           ; \drBuzzer:cnt[8]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; \melodyCtrl:cntForTime[16] ; \melodyCtrl:cntForTime[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.950 ; \melodyCtrl:cntForTime[6]  ; \melodyCtrl:cntForTime[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.171      ;
+; 2.958 ; \drBuzzer:cnt[2]           ; \drBuzzer:cnt[3]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; \drBuzzer:cnt[1]           ; \drBuzzer:cnt[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:cntForTime[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; \melodyCtrl:cntForTime[1]  ; \melodyCtrl:cntForTime[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:cntForTime[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; \melodyCtrl:cntForTime[11] ; \melodyCtrl:cntForTime[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 3.059 ; \drBuzzer:cnt[0]           ; \drBuzzer:cnt[2]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.280      ;
+; 3.059 ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:cntForTime[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.280      ;
+; 3.060 ; \drBuzzer:cnt[7]           ; \drBuzzer:cnt[9]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060 ; \melodyCtrl:cntForTime[16] ; \melodyCtrl:cntForTime[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.061 ; \melodyCtrl:cntForTime[6]  ; \melodyCtrl:cntForTime[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.282      ;
+; 3.069 ; \drBuzzer:cnt[2]           ; \drBuzzer:cnt[4]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; \melodyCtrl:cntForTime[1]  ; \melodyCtrl:cntForTime[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; \melodyCtrl:cntForTime[11] ; \melodyCtrl:cntForTime[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; \drBuzzer:cnt[1]           ; \drBuzzer:cnt[3]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:cntForTime[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.069 ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:cntForTime[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.290      ;
+; 3.161 ; \drBuzzer:cnt[8]           ; \drBuzzer:cnt[9]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; \melodyCtrl:cntForTime[17] ; \melodyCtrl:cntForTime[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; \melodyCtrl:cntForTime[7]  ; \melodyCtrl:cntForTime[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; \drBuzzer:cnt[3]           ; \drBuzzer:cnt[4]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; \melodyCtrl:cntForTime[2]  ; \melodyCtrl:cntForTime[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; \melodyCtrl:cntForTime[12] ; \melodyCtrl:cntForTime[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.170 ; \drBuzzer:cnt[5]           ; \drBuzzer:cnt[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:cntForTime[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:cntForTime[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; \drBuzzer:cnt[0]           ; \drBuzzer:cnt[3]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170 ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:cntForTime[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171 ; \drBuzzer:cnt[6]           ; \drBuzzer:cnt[7]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171 ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:cntForTime[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171 ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:cntForTime[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.180 ; \drBuzzer:cnt[1]           ; \drBuzzer:cnt[4]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.401      ;
+; 3.180 ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:cntForTime[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.401      ;
+; 3.180 ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:cntForTime[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.401      ;
+; 3.281 ; \drBuzzer:cnt[5]           ; \drBuzzer:cnt[7]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:cntForTime[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:cntForTime[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; \drBuzzer:cnt[0]           ; \drBuzzer:cnt[4]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.281 ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:cntForTime[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.282 ; \drBuzzer:cnt[6]           ; \drBuzzer:cnt[8]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.282 ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:cntForTime[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.282 ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:cntForTime[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.392 ; \drBuzzer:cnt[5]           ; \drBuzzer:cnt[8]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.392 ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:cntForTime[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.392 ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:cntForTime[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.393 ; \drBuzzer:cnt[6]           ; \drBuzzer:cnt[9]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.393 ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:cntForTime[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.393 ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:cntForTime[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.492 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[9]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[8]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[5]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[6]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \drBuzzer:cnt[4]           ; \drBuzzer:cnt[7]           ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:cntForTime[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492 ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:cntForTime[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.713      ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Recovery: 'clk'                                                                                       ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; -8.632 ; curDiv[2] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 9.299      ;
+; -8.479 ; curDiv[6] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 9.146      ;
+; -8.424 ; curDiv[7] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 9.091      ;
+; -8.223 ; curDiv[0] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 8.890      ;
+; -8.045 ; curDiv[1] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 8.712      ;
+; -7.908 ; curDiv[5] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 8.575      ;
+; -7.195 ; curDiv[3] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 7.862      ;
+; -6.366 ; curDiv[8] ; tempBuzzer ; clk          ; clk         ; 1.000        ; 0.000      ; 7.033      ;
++--------+-----------+------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Removal: 'clk'                                                                                       ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+; 6.812 ; curDiv[8] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 7.033      ;
+; 7.641 ; curDiv[3] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 7.862      ;
+; 8.354 ; curDiv[5] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 8.575      ;
+; 8.491 ; curDiv[1] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 8.712      ;
+; 8.669 ; curDiv[0] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 8.890      ;
+; 8.870 ; curDiv[7] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 9.091      ;
+; 8.925 ; curDiv[6] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 9.146      ;
+; 9.078 ; curDiv[2] ; tempBuzzer ; clk          ; clk         ; 0.000        ; 0.000      ; 9.299      ;
++-------+-----------+------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                                  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                     ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+; -2.289 ; 1.000        ; 3.289          ; Port Rate        ; clk   ; Rise       ; clk                        ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[0]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[0]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[1]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[1]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[2]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[2]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[3]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[3]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[4]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[4]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[5]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[5]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[6]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[6]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[7]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[7]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[8]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[8]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[9]           ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[9]           ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[0]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[10] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[10] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[11] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[11] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[12] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[12] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[13] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[13] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[14] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[14] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[15] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[15] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[16] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[16] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[17] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[17] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[18] ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[18] ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[1]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[2]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[3]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[4]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[5]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[6]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[7]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[8]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:cntForTime[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:cntForTime[9]  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:curIndex[0]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:curIndex[0]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:curIndex[1]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:curIndex[1]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:curIndex[2]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:curIndex[2]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:curIndex[3]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:curIndex[3]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:curIndex[4]    ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:curIndex[4]    ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; \melodyCtrl:oFlag          ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; \melodyCtrl:oFlag          ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[0]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[0]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[1]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[1]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[2]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[2]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[3]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[3]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[5]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[5]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[6]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[6]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[7]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[7]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; curDiv[8]                  ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; curDiv[8]                  ;
+; 0.234  ; 0.500        ; 0.266          ; High Pulse Width ; clk   ; Rise       ; tempBuzzer                 ;
+; 0.234  ; 0.500        ; 0.266          ; Low Pulse Width  ; clk   ; Rise       ; tempBuzzer                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[0]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[0]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[1]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[1]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[2]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[2]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[3]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[3]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[4]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; \drBuzzer:cnt[4]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; \drBuzzer:cnt[5]|clk       ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------+
+
+
++----------------------------------------------------------------------------+
+; Setup Times                                                                ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; bStateCode[*]  ; clk        ; 5.334 ; 5.334 ; Rise       ; clk             ;
+;  bStateCode[0] ; clk        ; 5.269 ; 5.269 ; Rise       ; clk             ;
+;  bStateCode[1] ; clk        ; 5.334 ; 5.334 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Hold Times                                                                   ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; bStateCode[*]  ; clk        ; -2.025 ; -2.025 ; Rise       ; clk             ;
+;  bStateCode[0] ; clk        ; -2.189 ; -2.189 ; Rise       ; clk             ;
+;  bStateCode[1] ; clk        ; -2.025 ; -2.025 ; Rise       ; clk             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; bBuzzer   ; clk        ; 9.148 ; 9.148 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; bBuzzer   ; clk        ; 9.148 ; 9.148 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 3372     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 3372     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8        ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 8        ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 66    ; 66   ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Mon Nov 05 09:43:03 2018
+Info: Command: quartus_sta extr_beep -c extr_beep
+Info: qsta_default_script.tcl version: #2
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Warning: Found USE_TIMEQUEST_TIMING_ANALYZER=OFF. The TimeQuest Timing Analyzer is not the default Timing Analysis Tool during full compilation.
+Critical Warning: Synopsys Design Constraints File file not found: 'extr_beep.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clk clk
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -14.714
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:   -14.714      -484.038 clk 
+Info: Worst-case hold slack is 1.659
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     1.659         0.000 clk 
+Info: Worst-case recovery slack is -8.632
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -8.632        -8.632 clk 
+Info: Worst-case removal slack is 6.812
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     6.812         0.000 clk 
+Info: Worst-case minimum pulse width slack is -2.289
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -2.289        -2.289 clk 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 155 megabytes
+    Info: Processing ended: Mon Nov 05 09:43:04 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

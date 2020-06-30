@@ -1,0 +1,140 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY pic_p IS --点阵设置
+	PORT(
+		IS_ready:       IN STD_LOGIC; --准备好
+		
+		pic_num:        IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		max_path:       OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		col1:           OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		col2:           OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		col3:           OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		col4:           OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		);
+END pic_p;
+
+ARCHITECTURE apic_p OF pic_p IS
+	
+	TYPE state          IS (s0,s1,s2,s3,s4);
+	TYPE col_array      IS ARRAY (3 DOWNTO 0) OF STD_LOGIC_VECTOR (7 DOWNTO 0);
+	
+	SIGNAL now_state:   state;
+	SIGNAL next_state:  state;
+	SIGNAL arr:         col_array;
+	SIGNAL mmax_path:   STD_LOGIC_VECTOR(6 DOWNTO 0);
+	
+BEGIN
+	
+PROCESS(IS_ready,pic_num)
+BEGIN
+	IF IS_ready='1' THEN
+		CASE pic_num IS --15种图案
+			WHEN "1111" =>--1
+				arr(0)<="00110000";
+				arr(1)<="00100000";
+				arr(2)<="00000100";
+				arr(3)<="00001100";
+				mmax_path<="0001100";
+			WHEN "0001" =>--2
+				arr(0)<="00110000";
+				arr(1)<="00110000";
+				arr(2)<="00111000";
+				arr(3)<="00010000";
+				mmax_path<="0001100";
+			WHEN "0010" =>--3
+				arr (0)<="00110000";
+				arr (1)<="00101000";
+				arr (2)<="00011100";
+				arr (3)<="00001000";
+				mmax_path<="0001100";
+			WHEN "0011" =>--4
+				arr (0)<="00011100";
+				arr (1)<="00001000";
+				arr (2)<="00100000";
+				arr (3)<="00110000";
+				mmax_path<="0001100";
+			WHEN "0100" =>--5
+				arr (0)<="00001100";
+				arr (1)<="00000100";
+				arr (2)<="00100000";
+				arr (3)<="00110000";
+				mmax_path<="0001100";
+			WHEN "0101" =>--6
+				arr (0)<="00000100";
+				arr (1)<="00011000";
+				arr (2)<="00001000";
+				arr (3)<="00000000";
+				mmax_path<="0001100";
+			WHEN "0110" =>--7
+				arr (0)<="00111000";
+				arr (1)<="00010000";
+				arr (2)<="00001000";
+				arr (3)<="00011100";
+				mmax_path<="0001100";
+			WHEN "0111" =>--8
+				arr (0)<="00001100";
+				arr (1)<="00001100";
+				arr (2)<="00011100";
+				arr (3)<="00001000";
+				mmax_path<="0001100";
+			WHEN "1000" =>--9
+				arr (0)<="00001000";
+				arr (1)<="00011100";
+				arr (2)<="00111000";
+				arr (3)<="00110000";
+				mmax_path<="0001100";
+			WHEN "1001" =>--10
+				arr (0)<="00101100";
+				arr (1)<="00110100";
+				arr (2)<="00100000";
+				arr (3)<="00000000";
+				mmax_path<="0001100";
+			WHEN "1010" =>--11
+				arr (0)<="00100000";
+				arr (1)<="00011000";
+				arr (2)<="00010000";
+				arr (3)<="00000000";
+				mmax_path<="0001100";
+			WHEN "1011" =>--12
+				arr (0)<="00001000";
+				arr (1)<="00010100";
+				arr (2)<="00010100";
+				arr (3)<="00001000";
+				mmax_path<="0001100";
+			WHEN "1100" =>--13
+				arr (0)<="00000000";
+				arr (1)<="00011000";
+				arr (2)<="00100100";
+				arr (3)<="00011000";
+				mmax_path<="0001100";
+			WHEN "1101" =>--14
+				arr (0)<="00000000";
+				arr (1)<="00001000";
+				arr (2)<="00011000";
+				arr (3)<="00000100";
+				mmax_path<="0001100";
+			WHEN "1110" =>--15
+				arr (0)<="00000000";
+				arr (1)<="00010000";
+				arr (2)<="00111100";
+				arr (3)<="00011100";
+				mmax_path<="0001100";
+			WHEN OTHERS =>--ZZZZ
+				arr (0)<="00111100";
+				arr (1)<="00111100";
+				arr (2)<="00111100";
+				arr (3)<="00111100";
+				mmax_path<="0000000";
+		END CASE;
+	END IF;
+END PROCESS;
+	
+	col1<=arr (0);
+	col2<=arr (1);
+	col3<=arr (2);
+	col4<=arr (3);
+	max_path<=mmax_path;
+	
+END apic_p;

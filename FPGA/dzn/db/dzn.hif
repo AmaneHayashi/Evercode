@@ -1,0 +1,222 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+45
+3268
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+dzn
+# storage
+db|dzn.(0).cnf
+db|dzn.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+dzn.vhd
+bc42b06a1cc2b39a96d65f0179ac4e
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+dzn_st
+# storage
+db|dzn.(1).cnf
+db|dzn.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|dzn_st|dzn_st.vhd
+4f4d763f18c0d862df70306c1bc9d61
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(in_col0)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(in_col1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(in_col2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(in_col3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(sin_col0)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(sin_col1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(sin_col2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(sin_col3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col5)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+dzn_st:u1
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+dzn_lg
+# storage
+db|dzn.(2).cnf
+db|dzn.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|dzn_lg|dzn_lg.vhd
+f9d02fda04a52e21d1dd59ca4cf4ef1
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(key)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(bushu)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(colin0)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colin1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colin2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colin3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(maxbu)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(ma)
+6 downto 0
+PARAMETER_STRING
+USR
+ constraint(colout0)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colout1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colout2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(colout3)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+dzn_lg:u2
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

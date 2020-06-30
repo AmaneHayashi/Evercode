@@ -1,0 +1,11 @@
+Fitter Status : Successful - Mon Nov 05 10:00:30 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
+Revision Name : extr_beep
+Top-level Entity Name : extr_beep
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 107 / 1,270 ( 8 % )
+Total pins : 4 / 116 ( 3 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

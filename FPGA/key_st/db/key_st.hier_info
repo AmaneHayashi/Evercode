@@ -1,0 +1,34 @@
+|key_st
+clk => coding[0].CLK
+clk => coding[1].CLK
+clk => coding[2].CLK
+clk => coding[3].CLK
+clk => flag.CLK
+clk => temp[0].CLK
+clk => temp[1].CLK
+clk => temp[2].CLK
+clk => temp[3].CLK
+clk => now_state.CLK
+rst => next_state.OUTPUTSELECT
+rst => now_state.ACLR
+codingin[0] => Equal1.IN3
+codingin[0] => coding.DATAB
+codingin[1] => Equal1.IN2
+codingin[1] => coding.DATAB
+codingin[2] => Equal1.IN1
+codingin[2] => coding.DATAB
+codingin[3] => Equal1.IN0
+codingin[3] => coding.DATAB
+isout => next_state.DATAB
+isout => coding[0].OUTPUTSELECT
+isout => coding[1].OUTPUTSELECT
+isout => coding[2].OUTPUTSELECT
+isout => coding[3].OUTPUTSELECT
+isout => flag.IN1
+outcoding[0] <= coding[0].DB_MAX_OUTPUT_PORT_TYPE
+outcoding[1] <= coding[1].DB_MAX_OUTPUT_PORT_TYPE
+outcoding[2] <= coding[2].DB_MAX_OUTPUT_PORT_TYPE
+outcoding[3] <= coding[3].DB_MAX_OUTPUT_PORT_TYPE
+outing <= flag.DB_MAX_OUTPUT_PORT_TYPE
+
+

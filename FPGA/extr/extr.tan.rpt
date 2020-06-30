@@ -1,0 +1,573 @@
+Classic Timing Analyzer report for extr
+Mon Nov 05 08:44:36 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'cp'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                        ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------+--------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                   ; To                                   ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------+--------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 1.819 ns                         ; rst                                    ; clk_1                                ; --         ; cp       ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 22.633 ns                        ; extr_beep:u1|tempBuzzer                ; outs                                 ; cp         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 10.142 ns                        ; fal                                    ; extr_beep:u1|\melodyCtrl:curIndex[4] ; --         ; cp       ; 0            ;
+; Clock Setup: 'cp'            ; N/A   ; None          ; 67.29 MHz ( period = 14.861 ns ) ; extr_beep:u1|\melodyCtrl:cntForTime[3] ; extr_beep:u1|curDiv[1]               ; cp         ; cp       ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                        ;                                      ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------------------------+--------------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EPM1270T144C5      ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; cp              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'cp'                                                                                                                                                                                                                                                                             ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------------------+-----------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                    ; To                                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------------------+-----------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 67.29 MHz ( period = 14.861 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 14.152 ns               ;
+; N/A                                     ; 67.54 MHz ( period = 14.807 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 14.098 ns               ;
+; N/A                                     ; 67.77 MHz ( period = 14.755 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 14.046 ns               ;
+; N/A                                     ; 68.02 MHz ( period = 14.701 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.992 ns               ;
+; N/A                                     ; 68.12 MHz ( period = 14.681 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.972 ns               ;
+; N/A                                     ; 68.20 MHz ( period = 14.662 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.953 ns               ;
+; N/A                                     ; 68.27 MHz ( period = 14.648 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.939 ns               ;
+; N/A                                     ; 68.37 MHz ( period = 14.627 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.918 ns               ;
+; N/A                                     ; 68.46 MHz ( period = 14.608 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.899 ns               ;
+; N/A                                     ; 68.49 MHz ( period = 14.600 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.891 ns               ;
+; N/A                                     ; 68.52 MHz ( period = 14.594 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.885 ns               ;
+; N/A                                     ; 68.72 MHz ( period = 14.552 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.843 ns               ;
+; N/A                                     ; 68.72 MHz ( period = 14.551 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.842 ns               ;
+; N/A                                     ; 68.75 MHz ( period = 14.546 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.837 ns               ;
+; N/A                                     ; 68.96 MHz ( period = 14.501 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.792 ns               ;
+; N/A                                     ; 68.98 MHz ( period = 14.498 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.789 ns               ;
+; N/A                                     ; 68.98 MHz ( period = 14.497 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.788 ns               ;
+; N/A                                     ; 69.10 MHz ( period = 14.472 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.763 ns               ;
+; N/A                                     ; 69.22 MHz ( period = 14.447 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.738 ns               ;
+; N/A                                     ; 69.22 MHz ( period = 14.447 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.738 ns               ;
+; N/A                                     ; 69.22 MHz ( period = 14.446 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.737 ns               ;
+; N/A                                     ; 69.33 MHz ( period = 14.423 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.714 ns               ;
+; N/A                                     ; 69.38 MHz ( period = 14.414 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.705 ns               ;
+; N/A                                     ; 69.48 MHz ( period = 14.393 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.684 ns               ;
+; N/A                                     ; 69.48 MHz ( period = 14.392 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.683 ns               ;
+; N/A                                     ; 69.59 MHz ( period = 14.369 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.660 ns               ;
+; N/A                                     ; 69.61 MHz ( period = 14.366 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.657 ns               ;
+; N/A                                     ; 69.85 MHz ( period = 14.317 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.608 ns               ;
+; N/A                                     ; 69.86 MHz ( period = 14.315 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.606 ns               ;
+; N/A                                     ; 69.87 MHz ( period = 14.312 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.603 ns               ;
+; N/A                                     ; 69.89 MHz ( period = 14.308 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.599 ns               ;
+; N/A                                     ; 69.94 MHz ( period = 14.297 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.588 ns               ;
+; N/A                                     ; 69.97 MHz ( period = 14.292 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.583 ns               ;
+; N/A                                     ; 70.06 MHz ( period = 14.273 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.564 ns               ;
+; N/A                                     ; 70.13 MHz ( period = 14.259 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.550 ns               ;
+; N/A                                     ; 70.14 MHz ( period = 14.258 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.549 ns               ;
+; N/A                                     ; 70.21 MHz ( period = 14.243 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.534 ns               ;
+; N/A                                     ; 70.21 MHz ( period = 14.243 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.534 ns               ;
+; N/A                                     ; 70.25 MHz ( period = 14.234 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.525 ns               ;
+; N/A                                     ; 70.29 MHz ( period = 14.226 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.517 ns               ;
+; N/A                                     ; 70.30 MHz ( period = 14.224 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.515 ns               ;
+; N/A                                     ; 70.35 MHz ( period = 14.215 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.506 ns               ;
+; N/A                                     ; 70.37 MHz ( period = 14.211 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.502 ns               ;
+; N/A                                     ; 70.37 MHz ( period = 14.210 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.501 ns               ;
+; N/A                                     ; 70.42 MHz ( period = 14.201 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.492 ns               ;
+; N/A                                     ; 70.61 MHz ( period = 14.163 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.454 ns               ;
+; N/A                                     ; 70.61 MHz ( period = 14.162 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.453 ns               ;
+; N/A                                     ; 70.61 MHz ( period = 14.162 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.453 ns               ;
+; N/A                                     ; 70.66 MHz ( period = 14.153 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.444 ns               ;
+; N/A                                     ; 70.67 MHz ( period = 14.150 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.441 ns               ;
+; N/A                                     ; 70.76 MHz ( period = 14.133 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.424 ns               ;
+; N/A                                     ; 70.82 MHz ( period = 14.120 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.411 ns               ;
+; N/A                                     ; 70.85 MHz ( period = 14.114 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.405 ns               ;
+; N/A                                     ; 70.86 MHz ( period = 14.113 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.404 ns               ;
+; N/A                                     ; 70.86 MHz ( period = 14.112 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.403 ns               ;
+; N/A                                     ; 70.90 MHz ( period = 14.105 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.396 ns               ;
+; N/A                                     ; 70.90 MHz ( period = 14.104 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.395 ns               ;
+; N/A                                     ; 70.94 MHz ( period = 14.096 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.387 ns               ;
+; N/A                                     ; 70.97 MHz ( period = 14.091 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.382 ns               ;
+; N/A                                     ; 71.00 MHz ( period = 14.085 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.376 ns               ;
+; N/A                                     ; 71.03 MHz ( period = 14.079 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.370 ns               ;
+; N/A                                     ; 71.11 MHz ( period = 14.063 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.354 ns               ;
+; N/A                                     ; 71.13 MHz ( period = 14.058 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.349 ns               ;
+; N/A                                     ; 71.15 MHz ( period = 14.054 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.345 ns               ;
+; N/A                                     ; 71.19 MHz ( period = 14.046 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.337 ns               ;
+; N/A                                     ; 71.24 MHz ( period = 14.037 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.328 ns               ;
+; N/A                                     ; 71.27 MHz ( period = 14.031 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.322 ns               ;
+; N/A                                     ; 71.29 MHz ( period = 14.027 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.318 ns               ;
+; N/A                                     ; 71.36 MHz ( period = 14.013 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.304 ns               ;
+; N/A                                     ; 71.38 MHz ( period = 14.009 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.300 ns               ;
+; N/A                                     ; 71.39 MHz ( period = 14.008 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.299 ns               ;
+; N/A                                     ; 71.43 MHz ( period = 14.000 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.291 ns               ;
+; N/A                                     ; 71.43 MHz ( period = 13.999 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.290 ns               ;
+; N/A                                     ; 71.53 MHz ( period = 13.980 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.271 ns               ;
+; N/A                                     ; 71.61 MHz ( period = 13.965 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.256 ns               ;
+; N/A                                     ; 71.78 MHz ( period = 13.931 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.222 ns               ;
+; N/A                                     ; 71.82 MHz ( period = 13.923 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.214 ns               ;
+; N/A                                     ; 71.83 MHz ( period = 13.922 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.213 ns               ;
+; N/A                                     ; 71.85 MHz ( period = 13.917 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.208 ns               ;
+; N/A                                     ; 71.86 MHz ( period = 13.916 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.207 ns               ;
+; N/A                                     ; 71.94 MHz ( period = 13.900 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 13.191 ns               ;
+; N/A                                     ; 72.08 MHz ( period = 13.874 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.165 ns               ;
+; N/A                                     ; 72.12 MHz ( period = 13.866 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.157 ns               ;
+; N/A                                     ; 72.12 MHz ( period = 13.865 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.156 ns               ;
+; N/A                                     ; 72.16 MHz ( period = 13.859 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.150 ns               ;
+; N/A                                     ; 72.20 MHz ( period = 13.850 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 13.141 ns               ;
+; N/A                                     ; 72.22 MHz ( period = 13.846 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 13.137 ns               ;
+; N/A                                     ; 72.40 MHz ( period = 13.812 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.103 ns               ;
+; N/A                                     ; 72.41 MHz ( period = 13.811 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.102 ns               ;
+; N/A                                     ; 72.67 MHz ( period = 13.761 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.052 ns               ;
+; N/A                                     ; 72.76 MHz ( period = 13.744 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 13.035 ns               ;
+; N/A                                     ; 72.81 MHz ( period = 13.734 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 13.025 ns               ;
+; N/A                                     ; 72.93 MHz ( period = 13.712 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 13.003 ns               ;
+; N/A                                     ; 72.98 MHz ( period = 13.703 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 12.994 ns               ;
+; N/A                                     ; 72.98 MHz ( period = 13.702 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 12.993 ns               ;
+; N/A                                     ; 73.01 MHz ( period = 13.696 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 12.987 ns               ;
+; N/A                                     ; 73.02 MHz ( period = 13.695 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 12.986 ns               ;
+; N/A                                     ; 73.07 MHz ( period = 13.686 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 12.977 ns               ;
+; N/A                                     ; 73.12 MHz ( period = 13.677 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.968 ns               ;
+; N/A                                     ; 73.20 MHz ( period = 13.662 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.953 ns               ;
+; N/A                                     ; 73.24 MHz ( period = 13.653 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 12.944 ns               ;
+; N/A                                     ; 73.28 MHz ( period = 13.647 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 12.938 ns               ;
+; N/A                                     ; 73.29 MHz ( period = 13.644 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 12.935 ns               ;
+; N/A                                     ; 73.32 MHz ( period = 13.638 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 12.929 ns               ;
+; N/A                                     ; 73.62 MHz ( period = 13.584 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 12.875 ns               ;
+; N/A                                     ; 73.99 MHz ( period = 13.515 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.806 ns               ;
+; N/A                                     ; 74.09 MHz ( period = 13.498 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.789 ns               ;
+; N/A                                     ; 74.28 MHz ( period = 13.462 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[6]                  ; cp         ; cp       ; None                        ; None                      ; 12.753 ns               ;
+; N/A                                     ; 74.32 MHz ( period = 13.456 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.747 ns               ;
+; N/A                                     ; 74.33 MHz ( period = 13.453 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 12.744 ns               ;
+; N/A                                     ; 74.34 MHz ( period = 13.452 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.743 ns               ;
+; N/A                                     ; 74.35 MHz ( period = 13.450 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.741 ns               ;
+; N/A                                     ; 74.43 MHz ( period = 13.435 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 12.726 ns               ;
+; N/A                                     ; 74.53 MHz ( period = 13.417 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.708 ns               ;
+; N/A                                     ; 74.93 MHz ( period = 13.346 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.637 ns               ;
+; N/A                                     ; 75.13 MHz ( period = 13.311 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.602 ns               ;
+; N/A                                     ; 75.35 MHz ( period = 13.272 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.563 ns               ;
+; N/A                                     ; 75.39 MHz ( period = 13.265 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[0]                  ; cp         ; cp       ; None                        ; None                      ; 12.556 ns               ;
+; N/A                                     ; 75.45 MHz ( period = 13.253 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.544 ns               ;
+; N/A                                     ; 75.53 MHz ( period = 13.239 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.530 ns               ;
+; N/A                                     ; 75.55 MHz ( period = 13.237 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.528 ns               ;
+; N/A                                     ; 75.65 MHz ( period = 13.218 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.509 ns               ;
+; N/A                                     ; 75.73 MHz ( period = 13.204 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.495 ns               ;
+; N/A                                     ; 75.81 MHz ( period = 13.191 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.482 ns               ;
+; N/A                                     ; 76.01 MHz ( period = 13.156 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.447 ns               ;
+; N/A                                     ; 76.09 MHz ( period = 13.143 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.434 ns               ;
+; N/A                                     ; 76.09 MHz ( period = 13.142 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.433 ns               ;
+; N/A                                     ; 76.29 MHz ( period = 13.108 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.399 ns               ;
+; N/A                                     ; 76.30 MHz ( period = 13.107 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.398 ns               ;
+; N/A                                     ; 76.38 MHz ( period = 13.092 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.383 ns               ;
+; N/A                                     ; 76.59 MHz ( period = 13.057 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.348 ns               ;
+; N/A                                     ; 76.70 MHz ( period = 13.038 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.329 ns               ;
+; N/A                                     ; 76.70 MHz ( period = 13.038 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[5]                  ; cp         ; cp       ; None                        ; None                      ; 12.329 ns               ;
+; N/A                                     ; 76.70 MHz ( period = 13.037 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.328 ns               ;
+; N/A                                     ; 76.91 MHz ( period = 13.003 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.294 ns               ;
+; N/A                                     ; 76.91 MHz ( period = 13.002 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.293 ns               ;
+; N/A                                     ; 77.16 MHz ( period = 12.960 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.251 ns               ;
+; N/A                                     ; 77.37 MHz ( period = 12.925 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.216 ns               ;
+; N/A                                     ; 77.50 MHz ( period = 12.903 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.194 ns               ;
+; N/A                                     ; 77.59 MHz ( period = 12.888 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.179 ns               ;
+; N/A                                     ; 77.71 MHz ( period = 12.868 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.159 ns               ;
+; N/A                                     ; 77.80 MHz ( period = 12.853 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 12.144 ns               ;
+; N/A                                     ; 78.38 MHz ( period = 12.759 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 12.050 ns               ;
+; N/A                                     ; 78.49 MHz ( period = 12.741 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.032 ns               ;
+; N/A                                     ; 78.59 MHz ( period = 12.724 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 12.015 ns               ;
+; N/A                                     ; 78.70 MHz ( period = 12.706 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 11.997 ns               ;
+; N/A                                     ; 78.81 MHz ( period = 12.689 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 11.980 ns               ;
+; N/A                                     ; 78.85 MHz ( period = 12.682 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 11.973 ns               ;
+; N/A                                     ; 78.89 MHz ( period = 12.676 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 11.967 ns               ;
+; N/A                                     ; 79.03 MHz ( period = 12.653 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.944 ns               ;
+; N/A                                     ; 79.07 MHz ( period = 12.647 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 11.938 ns               ;
+; N/A                                     ; 79.11 MHz ( period = 12.641 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 11.932 ns               ;
+; N/A                                     ; 79.50 MHz ( period = 12.579 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.870 ns               ;
+; N/A                                     ; 79.62 MHz ( period = 12.560 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.851 ns               ;
+; N/A                                     ; 79.71 MHz ( period = 12.546 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.837 ns               ;
+; N/A                                     ; 80.01 MHz ( period = 12.498 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.789 ns               ;
+; N/A                                     ; 80.06 MHz ( period = 12.491 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[8]                  ; cp         ; cp       ; None                        ; None                      ; 11.782 ns               ;
+; N/A                                     ; 80.28 MHz ( period = 12.456 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; extr_beep:u1|curDiv[3]                  ; cp         ; cp       ; None                        ; None                      ; 11.747 ns               ;
+; N/A                                     ; 80.32 MHz ( period = 12.450 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.741 ns               ;
+; N/A                                     ; 80.33 MHz ( period = 12.449 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.740 ns               ;
+; N/A                                     ; 80.65 MHz ( period = 12.399 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.690 ns               ;
+; N/A                                     ; 80.87 MHz ( period = 12.365 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 11.656 ns               ;
+; N/A                                     ; 81.00 MHz ( period = 12.345 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.636 ns               ;
+; N/A                                     ; 81.52 MHz ( period = 12.267 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.558 ns               ;
+; N/A                                     ; 81.75 MHz ( period = 12.233 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 11.524 ns               ;
+; N/A                                     ; 81.90 MHz ( period = 12.210 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.501 ns               ;
+; N/A                                     ; 82.07 MHz ( period = 12.184 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 11.475 ns               ;
+; N/A                                     ; 82.44 MHz ( period = 12.130 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 11.421 ns               ;
+; N/A                                     ; 82.91 MHz ( period = 12.061 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; extr_beep:u1|curDiv[1]                  ; cp         ; cp       ; None                        ; None                      ; 11.352 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 82.95 MHz ( period = 12.056 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp         ; cp       ; None                        ; None                      ; 11.347 ns               ;
+; N/A                                     ; 83.00 MHz ( period = 12.048 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.339 ns               ;
+; N/A                                     ; 83.12 MHz ( period = 12.031 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.322 ns               ;
+; N/A                                     ; 83.28 MHz ( period = 12.007 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; extr_beep:u1|curDiv[2]                  ; cp         ; cp       ; None                        ; None                      ; 11.298 ns               ;
+; N/A                                     ; 83.41 MHz ( period = 11.989 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.280 ns               ;
+; N/A                                     ; 83.45 MHz ( period = 11.983 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp         ; cp       ; None                        ; None                      ; 11.274 ns               ;
+; N/A                                     ; 83.53 MHz ( period = 11.972 ns )                    ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; extr_beep:u1|curDiv[7]                  ; cp         ; cp       ; None                        ; None                      ; 11.263 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 83.68 MHz ( period = 11.950 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp         ; cp       ; None                        ; None                      ; 11.241 ns               ;
+; N/A                                     ; 84.20 MHz ( period = 11.876 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp         ; cp       ; None                        ; None                      ; 11.167 ns               ;
+; N/A                                     ; 84.20 MHz ( period = 11.876 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp         ; cp       ; None                        ; None                      ; 11.167 ns               ;
+; N/A                                     ; 84.20 MHz ( period = 11.876 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp         ; cp       ; None                        ; None                      ; 11.167 ns               ;
+; N/A                                     ; 84.20 MHz ( period = 11.876 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp         ; cp       ; None                        ; None                      ; 11.167 ns               ;
+; N/A                                     ; 84.20 MHz ( period = 11.876 ns )                    ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp         ; cp       ; None                        ; None                      ; 11.167 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                         ;                                         ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-----------------------------------------+-----------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; tsu                                                                                           ;
++-------+--------------+------------+------+-----------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From ; To                                      ; To Clock ;
++-------+--------------+------------+------+-----------------------------------------+----------+
+; N/A   ; None         ; 1.819 ns   ; rst  ; clk_1                                   ; cp       ;
+; N/A   ; None         ; -4.815 ns  ; hap  ; extr_beep:u1|curDiv[2]                  ; cp       ;
+; N/A   ; None         ; -4.844 ns  ; hap  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp       ;
+; N/A   ; None         ; -5.224 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp       ;
+; N/A   ; None         ; -5.353 ns  ; hap  ; extr_beep:u1|curDiv[8]                  ; cp       ;
+; N/A   ; None         ; -5.385 ns  ; hap  ; extr_beep:u1|curDiv[1]                  ; cp       ;
+; N/A   ; None         ; -5.392 ns  ; hap  ; extr_beep:u1|curDiv[7]                  ; cp       ;
+; N/A   ; None         ; -5.478 ns  ; hap  ; extr_beep:u1|curDiv[3]                  ; cp       ;
+; N/A   ; None         ; -5.478 ns  ; hap  ; extr_beep:u1|curDiv[0]                  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; cp       ;
+; N/A   ; None         ; -5.618 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; cp       ;
+; N/A   ; None         ; -5.681 ns  ; fal  ; extr_beep:u1|curDiv[2]                  ; cp       ;
+; N/A   ; None         ; -5.710 ns  ; fal  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp       ;
+; N/A   ; None         ; -5.801 ns  ; hap  ; extr_beep:u1|curDiv[6]                  ; cp       ;
+; N/A   ; None         ; -5.807 ns  ; hap  ; extr_beep:u1|curDiv[5]                  ; cp       ;
+; N/A   ; None         ; -6.219 ns  ; fal  ; extr_beep:u1|curDiv[8]                  ; cp       ;
+; N/A   ; None         ; -6.344 ns  ; fal  ; extr_beep:u1|curDiv[3]                  ; cp       ;
+; N/A   ; None         ; -6.344 ns  ; fal  ; extr_beep:u1|curDiv[0]                  ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp       ;
+; N/A   ; None         ; -6.413 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp       ;
+; N/A   ; None         ; -6.769 ns  ; fal  ; extr_beep:u1|curDiv[1]                  ; cp       ;
+; N/A   ; None         ; -6.776 ns  ; fal  ; extr_beep:u1|curDiv[7]                  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; cp       ;
+; N/A   ; None         ; -6.807 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; cp       ;
+; N/A   ; None         ; -7.069 ns  ; fal  ; extr_beep:u1|curDiv[5]                  ; cp       ;
+; N/A   ; None         ; -7.185 ns  ; fal  ; extr_beep:u1|curDiv[6]                  ; cp       ;
+; N/A   ; None         ; -7.300 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[4]    ; cp       ;
+; N/A   ; None         ; -7.306 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[2]    ; cp       ;
+; N/A   ; None         ; -7.633 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; cp       ;
+; N/A   ; None         ; -7.640 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; cp       ;
+; N/A   ; None         ; -8.103 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; cp       ;
+; N/A   ; None         ; -9.041 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; cp       ;
+; N/A   ; None         ; -9.243 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; cp       ;
+; N/A   ; None         ; -9.249 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; cp       ;
+; N/A   ; None         ; -9.576 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[2]    ; cp       ;
+; N/A   ; None         ; -9.588 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[4]    ; cp       ;
++-------+--------------+------------+------+-----------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------+
+; tco                                                                             ;
++-------+--------------+------------+-------------------------+------+------------+
+; Slack ; Required tco ; Actual tco ; From                    ; To   ; From Clock ;
++-------+--------------+------------+-------------------------+------+------------+
+; N/A   ; None         ; 22.633 ns  ; extr_beep:u1|tempBuzzer ; outs ; cp         ;
++-------+--------------+------------+-------------------------+------+------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; th                                                                                                  ;
++---------------+-------------+-----------+------+-----------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From ; To                                      ; To Clock ;
++---------------+-------------+-----------+------+-----------------------------------------+----------+
+; N/A           ; None        ; 10.142 ns ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[4]    ; cp       ;
+; N/A           ; None        ; 10.134 ns ; fal  ; extr_beep:u1|curDiv[8]                  ; cp       ;
+; N/A           ; None        ; 10.130 ns ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[2]    ; cp       ;
+; N/A           ; None        ; 9.803 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; cp       ;
+; N/A           ; None        ; 9.797 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; cp       ;
+; N/A           ; None        ; 9.595 ns  ; fal  ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; cp       ;
+; N/A           ; None        ; 9.562 ns  ; fal  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp       ;
+; N/A           ; None        ; 9.458 ns  ; fal  ; extr_beep:u1|curDiv[1]                  ; cp       ;
+; N/A           ; None        ; 9.451 ns  ; fal  ; extr_beep:u1|curDiv[6]                  ; cp       ;
+; N/A           ; None        ; 9.180 ns  ; fal  ; extr_beep:u1|curDiv[0]                  ; cp       ;
+; N/A           ; None        ; 9.166 ns  ; fal  ; extr_beep:u1|curDiv[3]                  ; cp       ;
+; N/A           ; None        ; 8.888 ns  ; fal  ; extr_beep:u1|curDiv[2]                  ; cp       ;
+; N/A           ; None        ; 8.871 ns  ; fal  ; extr_beep:u1|curDiv[5]                  ; cp       ;
+; N/A           ; None        ; 8.733 ns  ; hap  ; extr_beep:u1|curDiv[0]                  ; cp       ;
+; N/A           ; None        ; 8.657 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[0]    ; cp       ;
+; N/A           ; None        ; 8.456 ns  ; fal  ; extr_beep:u1|curDiv[7]                  ; cp       ;
+; N/A           ; None        ; 8.194 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[1]    ; cp       ;
+; N/A           ; None        ; 8.187 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[3]    ; cp       ;
+; N/A           ; None        ; 7.860 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[2]    ; cp       ;
+; N/A           ; None        ; 7.854 ns  ; hap  ; extr_beep:u1|\melodyCtrl:curIndex[4]    ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; cp       ;
+; N/A           ; None        ; 7.361 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; cp       ;
+; N/A           ; None        ; 7.179 ns  ; hap  ; extr_beep:u1|curDiv[1]                  ; cp       ;
+; N/A           ; None        ; 7.179 ns  ; hap  ; extr_beep:u1|curDiv[5]                  ; cp       ;
+; N/A           ; None        ; 7.179 ns  ; hap  ; extr_beep:u1|curDiv[6]                  ; cp       ;
+; N/A           ; None        ; 7.179 ns  ; hap  ; extr_beep:u1|curDiv[7]                  ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp       ;
+; N/A           ; None        ; 6.967 ns  ; hap  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp       ;
+; N/A           ; None        ; 6.919 ns  ; hap  ; extr_beep:u1|\melodyCtrl:oFlag          ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[0]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[1]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[2]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[3]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[4]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[7]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[6]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[5]  ; cp       ;
+; N/A           ; None        ; 6.172 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[8]  ; cp       ;
+; N/A           ; None        ; 6.032 ns  ; hap  ; extr_beep:u1|curDiv[3]                  ; cp       ;
+; N/A           ; None        ; 5.907 ns  ; hap  ; extr_beep:u1|curDiv[8]                  ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[17] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[16] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[18] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[15] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[13] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[14] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[9]  ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[10] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[11] ; cp       ;
+; N/A           ; None        ; 5.778 ns  ; fal  ; extr_beep:u1|\melodyCtrl:cntForTime[12] ; cp       ;
+; N/A           ; None        ; 5.553 ns  ; hap  ; extr_beep:u1|curDiv[2]                  ; cp       ;
+; N/A           ; None        ; -1.265 ns ; rst  ; clk_1                                   ; cp       ;
++---------------+-------------+-----------+------+-----------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Mon Nov 05 08:44:36 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off extr -c extr
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "cp" is an undefined clock
+Warning: Found 2 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "clk_1" as buffer
+    Info: Detected ripple clock "extr_beep:u1|clk_tmp" as buffer
+Info: Clock "cp" has Internal fmax of 67.29 MHz between source register "extr_beep:u1|\melodyCtrl:cntForTime[3]" and destination register "extr_beep:u1|curDiv[1]" (period= 14.861 ns)
+    Info: + Longest register to register delay is 14.152 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X9_Y8_N4; Fanout = 3; REG Node = 'extr_beep:u1|\melodyCtrl:cntForTime[3]'
+        Info: 2: + IC(1.833 ns) + CELL(0.914 ns) = 2.747 ns; Loc. = LC_X11_Y8_N4; Fanout = 1; COMB Node = 'extr_beep:u1|Equal0~1'
+        Info: 3: + IC(2.366 ns) + CELL(0.511 ns) = 5.624 ns; Loc. = LC_X7_Y9_N1; Fanout = 4; COMB Node = 'extr_beep:u1|Equal0~5'
+        Info: 4: + IC(0.305 ns) + CELL(0.200 ns) = 6.129 ns; Loc. = LC_X7_Y9_N2; Fanout = 7; COMB Node = 'extr_beep:u1|Add1~0'
+        Info: 5: + IC(1.729 ns) + CELL(0.200 ns) = 8.058 ns; Loc. = LC_X4_Y9_N0; Fanout = 12; COMB Node = 'extr_beep:u1|Add1~5'
+        Info: 6: + IC(2.607 ns) + CELL(0.200 ns) = 10.865 ns; Loc. = LC_X9_Y10_N9; Fanout = 1; COMB Node = 'extr_beep:u1|Mux6~0'
+        Info: 7: + IC(1.776 ns) + CELL(0.200 ns) = 12.841 ns; Loc. = LC_X7_Y10_N2; Fanout = 1; COMB Node = 'extr_beep:u1|Mux24~0'
+        Info: 8: + IC(0.720 ns) + CELL(0.591 ns) = 14.152 ns; Loc. = LC_X7_Y10_N0; Fanout = 2; REG Node = 'extr_beep:u1|curDiv[1]'
+        Info: Total cell delay = 2.816 ns ( 19.90 % )
+        Info: Total interconnect delay = 11.336 ns ( 80.10 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "cp" to destination register is 16.547 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 14; CLK Node = 'cp'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+            Info: 3: + IC(4.917 ns) + CELL(1.294 ns) = 10.406 ns; Loc. = LC_X8_Y8_N4; Fanout = 45; REG Node = 'extr_beep:u1|clk_tmp'
+            Info: 4: + IC(5.223 ns) + CELL(0.918 ns) = 16.547 ns; Loc. = LC_X7_Y10_N0; Fanout = 2; REG Node = 'extr_beep:u1|curDiv[1]'
+            Info: Total cell delay = 4.669 ns ( 28.22 % )
+            Info: Total interconnect delay = 11.878 ns ( 71.78 % )
+        Info: - Longest clock path from clock "cp" to source register is 16.547 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 14; CLK Node = 'cp'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+            Info: 3: + IC(4.917 ns) + CELL(1.294 ns) = 10.406 ns; Loc. = LC_X8_Y8_N4; Fanout = 45; REG Node = 'extr_beep:u1|clk_tmp'
+            Info: 4: + IC(5.223 ns) + CELL(0.918 ns) = 16.547 ns; Loc. = LC_X9_Y8_N4; Fanout = 3; REG Node = 'extr_beep:u1|\melodyCtrl:cntForTime[3]'
+            Info: Total cell delay = 4.669 ns ( 28.22 % )
+            Info: Total interconnect delay = 11.878 ns ( 71.78 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Micro setup delay of destination is 0.333 ns
+Info: tsu for register "clk_1" (data pin = "rst", clock pin = "cp") is 1.819 ns
+    Info: + Longest pin to register delay is 5.305 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_20; Fanout = 14; PIN Node = 'rst'
+        Info: 2: + IC(3.081 ns) + CELL(1.061 ns) = 5.305 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+        Info: Total cell delay = 2.224 ns ( 41.92 % )
+        Info: Total interconnect delay = 3.081 ns ( 58.08 % )
+    Info: + Micro setup delay of destination is 0.333 ns
+    Info: - Shortest clock path from clock "cp" to destination register is 3.819 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 14; CLK Node = 'cp'
+        Info: 2: + IC(1.738 ns) + CELL(0.918 ns) = 3.819 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+        Info: Total cell delay = 2.081 ns ( 54.49 % )
+        Info: Total interconnect delay = 1.738 ns ( 45.51 % )
+Info: tco from clock "cp" to destination pin "outs" through register "extr_beep:u1|tempBuzzer" is 22.633 ns
+    Info: + Longest clock path from clock "cp" to source register is 16.547 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 14; CLK Node = 'cp'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+        Info: 3: + IC(4.917 ns) + CELL(1.294 ns) = 10.406 ns; Loc. = LC_X8_Y8_N4; Fanout = 45; REG Node = 'extr_beep:u1|clk_tmp'
+        Info: 4: + IC(5.223 ns) + CELL(0.918 ns) = 16.547 ns; Loc. = LC_X11_Y10_N5; Fanout = 2; REG Node = 'extr_beep:u1|tempBuzzer'
+        Info: Total cell delay = 4.669 ns ( 28.22 % )
+        Info: Total interconnect delay = 11.878 ns ( 71.78 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Longest register to pin delay is 5.710 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X11_Y10_N5; Fanout = 2; REG Node = 'extr_beep:u1|tempBuzzer'
+        Info: 2: + IC(3.388 ns) + CELL(2.322 ns) = 5.710 ns; Loc. = PIN_57; Fanout = 0; PIN Node = 'outs'
+        Info: Total cell delay = 2.322 ns ( 40.67 % )
+        Info: Total interconnect delay = 3.388 ns ( 59.33 % )
+Info: th for register "extr_beep:u1|\melodyCtrl:curIndex[4]" (data pin = "fal", clock pin = "cp") is 10.142 ns
+    Info: + Longest clock path from clock "cp" to destination register is 16.547 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 14; CLK Node = 'cp'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X3_Y6_N9; Fanout = 7; REG Node = 'clk_1'
+        Info: 3: + IC(4.917 ns) + CELL(1.294 ns) = 10.406 ns; Loc. = LC_X8_Y8_N4; Fanout = 45; REG Node = 'extr_beep:u1|clk_tmp'
+        Info: 4: + IC(5.223 ns) + CELL(0.918 ns) = 16.547 ns; Loc. = LC_X4_Y9_N1; Fanout = 2; REG Node = 'extr_beep:u1|\melodyCtrl:curIndex[4]'
+        Info: Total cell delay = 4.669 ns ( 28.22 % )
+        Info: Total interconnect delay = 11.878 ns ( 71.78 % )
+    Info: + Micro hold delay of destination is 0.221 ns
+    Info: - Shortest pin to register delay is 6.626 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_6; Fanout = 20; PIN Node = 'fal'
+        Info: 2: + IC(4.433 ns) + CELL(1.061 ns) = 6.626 ns; Loc. = LC_X4_Y9_N1; Fanout = 2; REG Node = 'extr_beep:u1|\melodyCtrl:curIndex[4]'
+        Info: Total cell delay = 2.193 ns ( 33.10 % )
+        Info: Total interconnect delay = 4.433 ns ( 66.90 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 151 megabytes
+    Info: Processing ended: Mon Nov 05 08:44:36 2018
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

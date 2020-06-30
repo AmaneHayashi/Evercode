@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.819 ns
+From           : rst
+To             : clk_1
+From Clock     : --
+To Clock       : cp
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 22.633 ns
+From           : extr_beep:u1|tempBuzzer
+To             : outs
+From Clock     : cp
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.142 ns
+From           : fal
+To             : extr_beep:u1|\melodyCtrl:curIndex[4]
+From Clock     : --
+To Clock       : cp
+Failed Paths   : 0
+
+Type           : Clock Setup: 'cp'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 67.29 MHz ( period = 14.861 ns )
+From           : extr_beep:u1|\melodyCtrl:cntForTime[3]
+To             : extr_beep:u1|curDiv[1]
+From Clock     : cp
+To Clock       : cp
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

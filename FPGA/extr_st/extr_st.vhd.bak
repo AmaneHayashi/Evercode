@@ -1,0 +1,36 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+
+ENTITY extr_st IS --·äÃùÆ÷×´Ì¬ÉèÖÃ
+	PORT(
+		clk:           IN STD_LOGIC;
+		ISxns:         IN STD_LOGIC; --Ê¤Àû
+		ISfail:        IN STD_LOGIC; --Ê§°Ü
+		
+		statecode:     OUT STD_LOGIC_VECTOR(1 DOWNTO 0) --×´Ì¬Âë
+		);
+END extr_st;
+
+ARCHITECTURE aextr_st OF extr_st IS 
+	
+	SIGNAL tempstate:  STD_LOGIC_VECTOR(1 DOWNTO 0);
+	
+BEGIN 
+
+p1:PROCESS(clk, ISwin, ISfail)
+BEGIN 
+    IF clk'EVENT AND clk='1' THEN
+		IF ISxns ='1' AND ISfail = '0' THEN --Ê¤Àû×´Ì¬
+			tempstate <="01";
+		ELSIF ISfail = '1' AND ISxns = '0' THEN --Ê§°Ü×´Ì¬
+			tempstate <="10";
+		END IF ;
+	END IF;
+END PROCESS;
+	
+    statecode<=tempstate;
+
+END aextr_st;
+	

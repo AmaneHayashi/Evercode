@@ -1,0 +1,124 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.1 Build 222 10/21/2009 SJ Web Edition
+# Date created = 17:15:54  November 04, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		core_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM1270T144C5
+set_global_assignment -name TOP_LEVEL_ENTITY core
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:15:54  NOVEMBER 04, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name MISC_FILE "D:/Digital_Circuit/AAA SYNEX EXPERIMENTS/FINAL_EXP/core/core.dpf"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_1 -to row[7]
+set_location_assignment PIN_2 -to row[6]
+set_location_assignment PIN_3 -to row[5]
+set_location_assignment PIN_4 -to row[4]
+set_location_assignment PIN_5 -to row[3]
+set_location_assignment PIN_6 -to row[2]
+set_location_assignment PIN_7 -to row[1]
+set_location_assignment PIN_8 -to row[0]
+set_location_assignment PIN_124 -to rst
+set_global_assignment -name MISC_FILE "F:/FINAL_EXP/core/core.dpf"
+set_global_assignment -name VHDL_FILE ../dvdr/dvdr.vhd
+set_global_assignment -name VHDL_FILE ../pic/pic.vhd
+set_global_assignment -name VHDL_FILE ../pic_rdm/pic_rdm.vhd
+set_global_assignment -name VHDL_FILE ../pic_st/pic_st.vhd
+set_global_assignment -name VHDL_FILE ../pic_p/pic_p.vhd
+set_global_assignment -name VHDL_FILE ../dzn/dzn.vhd
+set_global_assignment -name VHDL_FILE ../dzn_lg/dzn_lg.vhd
+set_global_assignment -name VHDL_FILE ../dzn_st/dzn_st.vhd
+set_global_assignment -name VHDL_FILE ../xns/xns.vhd
+set_global_assignment -name VHDL_FILE ../xns_add/xns_add.vhd
+set_global_assignment -name VHDL_FILE ../xns_pic/xns_pic.vhd
+set_global_assignment -name VHDL_FILE ../key/key.vhd
+set_global_assignment -name VHDL_FILE ../key_lg/key_lg.vhd
+set_global_assignment -name VHDL_FILE ../key_st/key_st.vhd
+set_global_assignment -name VHDL_FILE ../disp/disp.vhd
+set_global_assignment -name VHDL_FILE ../extr/extr.vhd
+set_global_assignment -name VHDL_FILE ../extr_st/extr_st.vhd
+set_global_assignment -name VHDL_FILE ../extr_beep/extr_beep.vhd
+set_global_assignment -name VHDL_FILE core.vhd
+set_location_assignment PIN_123 -to next_state
+set_location_assignment PIN_18 -to mainclk
+set_location_assignment PIN_60 -to beepout
+set_location_assignment PIN_120 -to key_col[3]
+set_location_assignment PIN_119 -to key_col[2]
+set_location_assignment PIN_118 -to key_col[1]
+set_location_assignment PIN_117 -to key_col[0]
+set_location_assignment PIN_114 -to key_row[3]
+set_location_assignment PIN_113 -to key_row[2]
+set_location_assignment PIN_112 -to key_row[1]
+set_location_assignment PIN_111 -to key_row[0]
+set_location_assignment PIN_62 -to disp_num[6]
+set_location_assignment PIN_59 -to disp_num[5]
+set_location_assignment PIN_58 -to disp_num[4]
+set_location_assignment PIN_57 -to disp_num[3]
+set_location_assignment PIN_55 -to disp_num[2]
+set_location_assignment PIN_53 -to disp_num[1]
+set_location_assignment PIN_52 -to disp_num[0]
+set_location_assignment PIN_31 -to disp_cat[7]
+set_location_assignment PIN_30 -to disp_cat[6]
+set_location_assignment PIN_70 -to disp_cat[5]
+set_location_assignment PIN_69 -to disp_cat[4]
+set_location_assignment PIN_68 -to disp_cat[3]
+set_location_assignment PIN_67 -to disp_cat[2]
+set_location_assignment PIN_66 -to disp_cat[1]
+set_location_assignment PIN_63 -to disp_cat[0]
+set_location_assignment PIN_11 -to colr[7]
+set_location_assignment PIN_12 -to colr[6]
+set_location_assignment PIN_13 -to colr[5]
+set_location_assignment PIN_14 -to colr[4]
+set_location_assignment PIN_15 -to colr[3]
+set_location_assignment PIN_16 -to colr[2]
+set_location_assignment PIN_21 -to colr[1]
+set_location_assignment PIN_22 -to colr[0]
+set_location_assignment PIN_38 -to colg[7]
+set_location_assignment PIN_39 -to colg[6]
+set_location_assignment PIN_40 -to colg[5]
+set_location_assignment PIN_41 -to colg[4]
+set_location_assignment PIN_42 -to colg[3]
+set_location_assignment PIN_43 -to colg[2]
+set_location_assignment PIN_44 -to colg[1]
+set_location_assignment PIN_45 -to colg[0]
+set_global_assignment -name VECTOR_WAVEFORM_FILE core.vwf

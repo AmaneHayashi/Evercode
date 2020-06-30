@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.708 ns
+From           : maxbu[0]
+To             : max[0]
+From Clock     : --
+To Clock       : r
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 10.468 ns
+From           : temparr[1][7]
+To             : colout1[7]
+From Clock     : isout
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.326 ns
+From           : maxbu[2]
+To             : max[2]
+From Clock     : --
+To Clock       : r
+Failed Paths   : 0
+
+Type           : Clock Setup: 'isout'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 125.77 MHz ( period = 7.951 ns )
+From           : bu[1]
+To             : false
+From Clock     : isout
+To Clock       : isout
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

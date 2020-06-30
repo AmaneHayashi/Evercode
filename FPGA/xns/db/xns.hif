@@ -1,0 +1,166 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+45
+3268
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+xns
+# storage
+db|xns.(0).cnf
+db|xns.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+xns.vhd
+d06a80d14e63e03a64e38fcdc06a1d
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+xns_add
+# storage
+db|xns.(1).cnf
+db|xns.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|xns_add|xns_add.vhd
+739f265aa18868e64788191b8caaba3b
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(key)
+1 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+xns_add:u1
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+xns_pic
+# storage
+db|xns.(2).cnf
+db|xns.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|xns_pic|xns_pic.vhd
+5fe25e37c5c6dd03aad1ae0b69bb47
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(yes)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(col0)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col5)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col6)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col7)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+xns_pic:u2
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

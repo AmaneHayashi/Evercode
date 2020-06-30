@@ -1,0 +1,497 @@
+Simulator report for extr
+Mon Nov 05 09:37:22 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------+
+; Simulator Summary                           ;
++-----------------------------+---------------+
+; Type                        ; Value         ;
++-----------------------------+---------------+
+; Simulation Start Time       ; 0 ps          ;
+; Simulation End Time         ; 50.0 us       ;
+; Simulation Netlist Size     ; 137 nodes     ;
+; Simulation Coverage         ;      20.32 %  ;
+; Total Number of Transitions ; 31183         ;
+; Simulation Breakpoints      ; 0             ;
+; Family                      ; MAX II        ;
+; Device                      ; EPM1270T144C5 ;
++-----------------------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      20.32 % ;
+; Total nodes checked                                 ; 137          ;
+; Total output ports checked                          ; 187          ;
+; Total output ports with complete 1/0-value coverage ; 38           ;
+; Total output ports with no 1/0-value coverage       ; 147          ;
+; Total output ports with no 1-value coverage         ; 148          ;
+; Total output ports with no 0-value coverage         ; 148          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++-------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                 ;
++------------------+-----------------------+------------------+
+; Node Name        ; Output Port Name      ; Output Port Type ;
++------------------+-----------------------+------------------+
+; |extr|count1[10] ; |extr|count1[10]      ; regout           ;
+; |extr|count1[9]  ; |extr|count1[9]       ; regout           ;
+; |extr|count1[8]  ; |extr|count1[8]       ; regout           ;
+; |extr|count1[6]  ; |extr|count1[6]       ; regout           ;
+; |extr|count1[5]  ; |extr|count1[5]       ; regout           ;
+; |extr|count1[7]  ; |extr|Equal0~1        ; combout          ;
+; |extr|count1[7]  ; |extr|count1[7]       ; regout           ;
+; |extr|count1[3]  ; |extr|count1[3]       ; regout           ;
+; |extr|count1[2]  ; |extr|count1[2]       ; regout           ;
+; |extr|count1[1]  ; |extr|count1[1]       ; regout           ;
+; |extr|count1[4]  ; |extr|Equal0~2        ; combout          ;
+; |extr|count1[4]  ; |extr|count1[4]       ; regout           ;
+; |extr|count1[0]  ; |extr|count1[0]       ; regout           ;
+; |extr|Add0~0     ; |extr|Add0~0          ; combout          ;
+; |extr|Add0~5     ; |extr|Add0~5          ; combout          ;
+; |extr|Add0~10    ; |extr|Add0~10         ; combout          ;
+; |extr|Add0~10    ; |extr|Add0~12         ; cout             ;
+; |extr|Add0~15    ; |extr|Add0~15         ; combout          ;
+; |extr|Add0~15    ; |extr|Add0~17         ; cout0            ;
+; |extr|Add0~20    ; |extr|Add0~20         ; combout          ;
+; |extr|Add0~20    ; |extr|Add0~22         ; cout0            ;
+; |extr|Add0~25    ; |extr|Add0~25         ; combout          ;
+; |extr|Add0~25    ; |extr|Add0~27         ; cout0            ;
+; |extr|Add0~30    ; |extr|Add0~30         ; combout          ;
+; |extr|Add0~30    ; |extr|Add0~32         ; cout0            ;
+; |extr|Add0~35    ; |extr|Add0~35         ; combout          ;
+; |extr|Add0~35    ; |extr|Add0~37         ; cout             ;
+; |extr|Add0~40    ; |extr|Add0~40         ; combout          ;
+; |extr|Add0~40    ; |extr|Add0~42COUT1_80 ; cout1            ;
+; |extr|Add0~45    ; |extr|Add0~45         ; combout          ;
+; |extr|Add0~45    ; |extr|Add0~47COUT1_78 ; cout1            ;
+; |extr|Add0~50    ; |extr|Add0~50         ; combout          ;
+; |extr|Add0~50    ; |extr|Add0~52COUT1_82 ; cout1            ;
+; |extr|Add0~55    ; |extr|Add0~55         ; combout          ;
+; |extr|Add0~55    ; |extr|Add0~57COUT1_76 ; cout1            ;
+; |extr|Add0~60    ; |extr|Add0~60         ; combout          ;
+; |extr|Add0~60    ; |extr|Add0~62         ; cout             ;
+; |extr|cp         ; |extr|cp~corein       ; combout          ;
++------------------+-----------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++---------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                  ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+; Node Name                                     ; Output Port Name                                       ; Output Port Type ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+; |extr|extr_beep:u1|curDiv[8]                  ; |extr|extr_beep:u1|curDiv[8]                           ; regout           ;
+; |extr|extr_beep:u1|curDiv[2]                  ; |extr|extr_beep:u1|curDiv[2]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[8]           ; |extr|extr_beep:u1|\drBuzzer:cnt[8]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[8]           ; |extr|extr_beep:u1|\drBuzzer:cnt[8]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~0                   ; |extr|extr_beep:u1|Equal2~0                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[3]                  ; |extr|extr_beep:u1|curDiv[3]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[3]           ; |extr|extr_beep:u1|\drBuzzer:cnt[3]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[3]           ; |extr|extr_beep:u1|\drBuzzer:cnt[3]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[2]           ; |extr|extr_beep:u1|\drBuzzer:cnt[2]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[2]           ; |extr|extr_beep:u1|\drBuzzer:cnt[2]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~1                   ; |extr|extr_beep:u1|Equal2~1                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[1]                  ; |extr|extr_beep:u1|curDiv[1]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[1]           ; |extr|extr_beep:u1|\drBuzzer:cnt[1]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[1]           ; |extr|extr_beep:u1|\drBuzzer:cnt[1]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|curDiv[0]                  ; |extr|extr_beep:u1|curDiv[0]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[0]           ; |extr|extr_beep:u1|\drBuzzer:cnt[0]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[0]           ; |extr|extr_beep:u1|\drBuzzer:cnt[0]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~2                   ; |extr|extr_beep:u1|Equal2~2                            ; combout          ;
+; |extr|extr_beep:u1|Equal2~3                   ; |extr|extr_beep:u1|Equal2~3                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[5]                  ; |extr|extr_beep:u1|curDiv[5]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[5]           ; |extr|extr_beep:u1|\drBuzzer:cnt[5]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[5]           ; |extr|extr_beep:u1|\drBuzzer:cnt[5]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[4]           ; |extr|extr_beep:u1|\drBuzzer:cnt[4]~1                  ; cout             ;
+; |extr|extr_beep:u1|Equal2~4                   ; |extr|extr_beep:u1|Equal2~4                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[6]                  ; |extr|extr_beep:u1|curDiv[6]                           ; regout           ;
+; |extr|extr_beep:u1|curDiv[7]                  ; |extr|extr_beep:u1|curDiv[7]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[7]           ; |extr|extr_beep:u1|\drBuzzer:cnt[7]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[7]           ; |extr|extr_beep:u1|\drBuzzer:cnt[7]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[6]           ; |extr|extr_beep:u1|\drBuzzer:cnt[6]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[6]           ; |extr|extr_beep:u1|\drBuzzer:cnt[6]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~5                   ; |extr|extr_beep:u1|Equal2~5                            ; combout          ;
+; |extr|extr_beep:u1|Equal2~6                   ; |extr|extr_beep:u1|Equal2~6                            ; combout          ;
+; |extr|extr_beep:u1|clk_tmp                    ; |extr|extr_beep:u1|clk_tmp                             ; regout           ;
+; |extr|extr_beep:u1|Equal1~0                   ; |extr|extr_beep:u1|Equal1~0                            ; combout          ;
+; |extr|extr_beep:u1|Equal1~1                   ; |extr|extr_beep:u1|Equal1~1                            ; combout          ;
+; |extr|extr_beep:u1|Equal1~2                   ; |extr|extr_beep:u1|Equal1~2                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[4]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[4]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[3]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[3]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[0]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[0]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|Equal0~0                   ; |extr|extr_beep:u1|Equal0~0                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[3]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[3]~1         ; cout             ;
+; |extr|extr_beep:u1|Equal0~1                   ; |extr|extr_beep:u1|Equal0~1                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|Equal0~2                   ; |extr|extr_beep:u1|Equal0~2                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[8]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[8]~1         ; cout             ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|Equal0~3                   ; |extr|extr_beep:u1|Equal0~3                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[13] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[13]~1        ; cout             ;
+; |extr|extr_beep:u1|Equal0~4                   ; |extr|extr_beep:u1|Equal0~4                            ; combout          ;
+; |extr|extr_beep:u1|Equal0~5                   ; |extr|extr_beep:u1|Equal0~5                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[1]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[1]             ; regout           ;
+; |extr|extr_beep:u1|Add1~0                     ; |extr|extr_beep:u1|Add1~0                              ; combout          ;
+; |extr|extr_beep:u1|Add1~1                     ; |extr|extr_beep:u1|Add1~1                              ; combout          ;
+; |extr|extr_beep:u1|Add1~2                     ; |extr|extr_beep:u1|Add1~2                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~2                    ; |extr|extr_beep:u1|Mux25~2                             ; combout          ;
+; |extr|extr_beep:u1|Add1~3                     ; |extr|extr_beep:u1|Add1~3                              ; combout          ;
+; |extr|extr_beep:u1|Mux17~0                    ; |extr|extr_beep:u1|Mux17~0                             ; combout          ;
+; |extr|extr_beep:u1|Add1~4                     ; |extr|extr_beep:u1|Add1~4                              ; combout          ;
+; |extr|extr_beep:u1|Add1~5                     ; |extr|extr_beep:u1|Add1~5                              ; combout          ;
+; |extr|extr_beep:u1|Mux0~0                     ; |extr|extr_beep:u1|Mux0~0                              ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:oFlag          ; |extr|extr_beep:u1|\melodyCtrl:oFlag                   ; regout           ;
+; |extr|extr_beep:u1|curDiv[0]~0                ; |extr|extr_beep:u1|curDiv[0]~0                         ; combout          ;
+; |extr|extr_beep:u1|Mux9~0                     ; |extr|extr_beep:u1|Mux9~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~3                    ; |extr|extr_beep:u1|Mux25~3                             ; combout          ;
+; |extr|extr_beep:u1|Mux5~0                     ; |extr|extr_beep:u1|Mux5~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux23~0                    ; |extr|extr_beep:u1|Mux23~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux5~1                     ; |extr|extr_beep:u1|Mux5~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux5~2                     ; |extr|extr_beep:u1|Mux5~2                              ; combout          ;
+; |extr|extr_beep:u1|Mux22~0                    ; |extr|extr_beep:u1|Mux22~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux6~0                     ; |extr|extr_beep:u1|Mux6~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux24~0                    ; |extr|extr_beep:u1|Mux24~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux6~1                     ; |extr|extr_beep:u1|Mux6~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux7~0                     ; |extr|extr_beep:u1|Mux7~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux7~1                     ; |extr|extr_beep:u1|Mux7~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~4                    ; |extr|extr_beep:u1|Mux25~4                             ; combout          ;
+; |extr|extr_beep:u1|Mux3~0                     ; |extr|extr_beep:u1|Mux3~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux3~1                     ; |extr|extr_beep:u1|Mux3~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux20~0                    ; |extr|extr_beep:u1|Mux20~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux2~0                     ; |extr|extr_beep:u1|Mux2~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux19~0                    ; |extr|extr_beep:u1|Mux19~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux2~1                     ; |extr|extr_beep:u1|Mux2~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux1~0                     ; |extr|extr_beep:u1|Mux1~0                              ; combout          ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~0                              ; combout          ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~2                              ; cout0            ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~2COUT1_37                      ; cout1            ;
+; |extr|extr_beep:u1|Add0~5                     ; |extr|extr_beep:u1|Add0~5                              ; combout          ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~10                             ; combout          ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~12                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~12COUT1_33                     ; cout1            ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~15                             ; combout          ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~17                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~17COUT1_35                     ; cout1            ;
+; |extr|extr_beep:u1|LessThan0~0                ; |extr|extr_beep:u1|LessThan0~0                         ; combout          ;
+; |extr|clk_1                                   ; |extr|clk_1                                            ; regout           ;
+; |extr|extr_beep:u1|Mux44~0                    ; |extr|extr_beep:u1|Mux44~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux45~0                    ; |extr|extr_beep:u1|Mux45~0                             ; combout          ;
+; |extr|extr_beep:u1|\clk_trans:tmp[3]          ; |extr|extr_beep:u1|\clk_trans:tmp[3]                   ; regout           ;
+; |extr|extr_beep:u1|\clk_trans:tmp[4]          ; |extr|extr_beep:u1|\clk_trans:tmp[4]                   ; regout           ;
+; |extr|extr_beep:u1|\clk_trans:tmp[1]          ; |extr|extr_beep:u1|\clk_trans:tmp[1]                   ; regout           ;
+; |extr|extr_beep:u1|Add0~22                    ; |extr|extr_beep:u1|Add0~22                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~22                    ; |extr|extr_beep:u1|Add0~22COUT1_31                     ; cout1            ;
+; |extr|extr_beep:u1|\clk_trans:tmp[2]          ; |extr|extr_beep:u1|\clk_trans:tmp[2]                   ; regout           ;
+; |extr|count1[12]                              ; |extr|count1[12]                                       ; regout           ;
+; |extr|count1[9]                               ; |extr|Equal0~0                                         ; combout          ;
+; |extr|Equal0~3                                ; |extr|Equal0~3                                         ; combout          ;
+; |extr|extr_beep:u1|\clk_trans:tmp[0]          ; |extr|extr_beep:u1|\clk_trans:tmp[0]                   ; regout           ;
+; |extr|Add0~5                                  ; |extr|Add0~7                                           ; cout0            ;
+; |extr|Add0~5                                  ; |extr|Add0~7COUT1_92                                   ; cout1            ;
+; |extr|Add0~15                                 ; |extr|Add0~17COUT1_90                                  ; cout1            ;
+; |extr|Add0~20                                 ; |extr|Add0~22COUT1_88                                  ; cout1            ;
+; |extr|Add0~25                                 ; |extr|Add0~27COUT1_84                                  ; cout1            ;
+; |extr|Add0~30                                 ; |extr|Add0~32COUT1_86                                  ; cout1            ;
+; |extr|Add0~40                                 ; |extr|Add0~42                                          ; cout0            ;
+; |extr|Add0~45                                 ; |extr|Add0~47                                          ; cout0            ;
+; |extr|Add0~50                                 ; |extr|Add0~52                                          ; cout0            ;
+; |extr|Add0~55                                 ; |extr|Add0~57                                          ; cout0            ;
+; |extr|fal                                     ; |extr|fal~corein                                       ; combout          ;
+; |extr|hap                                     ; |extr|hap~corein                                       ; combout          ;
+; |extr|rst                                     ; |extr|rst~corein                                       ; combout          ;
+; |extr|outs                                    ; |extr|outs                                             ; padio            ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++---------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                  ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+; Node Name                                     ; Output Port Name                                       ; Output Port Type ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+; |extr|extr_beep:u1|curDiv[8]                  ; |extr|extr_beep:u1|curDiv[8]                           ; regout           ;
+; |extr|extr_beep:u1|curDiv[2]                  ; |extr|extr_beep:u1|curDiv[2]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[8]           ; |extr|extr_beep:u1|\drBuzzer:cnt[8]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[8]           ; |extr|extr_beep:u1|\drBuzzer:cnt[8]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~0                   ; |extr|extr_beep:u1|Equal2~0                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[3]                  ; |extr|extr_beep:u1|curDiv[3]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[3]           ; |extr|extr_beep:u1|\drBuzzer:cnt[3]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[3]           ; |extr|extr_beep:u1|\drBuzzer:cnt[3]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[2]           ; |extr|extr_beep:u1|\drBuzzer:cnt[2]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[2]           ; |extr|extr_beep:u1|\drBuzzer:cnt[2]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~1                   ; |extr|extr_beep:u1|Equal2~1                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[1]                  ; |extr|extr_beep:u1|curDiv[1]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[1]           ; |extr|extr_beep:u1|\drBuzzer:cnt[1]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[1]           ; |extr|extr_beep:u1|\drBuzzer:cnt[1]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|curDiv[0]                  ; |extr|extr_beep:u1|curDiv[0]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[0]           ; |extr|extr_beep:u1|\drBuzzer:cnt[0]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[0]           ; |extr|extr_beep:u1|\drBuzzer:cnt[0]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~2                   ; |extr|extr_beep:u1|Equal2~2                            ; combout          ;
+; |extr|extr_beep:u1|Equal2~3                   ; |extr|extr_beep:u1|Equal2~3                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[5]                  ; |extr|extr_beep:u1|curDiv[5]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[5]           ; |extr|extr_beep:u1|\drBuzzer:cnt[5]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[5]           ; |extr|extr_beep:u1|\drBuzzer:cnt[5]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[4]           ; |extr|extr_beep:u1|\drBuzzer:cnt[4]~1                  ; cout             ;
+; |extr|extr_beep:u1|Equal2~4                   ; |extr|extr_beep:u1|Equal2~4                            ; combout          ;
+; |extr|extr_beep:u1|curDiv[6]                  ; |extr|extr_beep:u1|curDiv[6]                           ; regout           ;
+; |extr|extr_beep:u1|curDiv[7]                  ; |extr|extr_beep:u1|curDiv[7]                           ; regout           ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[7]           ; |extr|extr_beep:u1|\drBuzzer:cnt[7]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[7]           ; |extr|extr_beep:u1|\drBuzzer:cnt[7]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[6]           ; |extr|extr_beep:u1|\drBuzzer:cnt[6]~1                  ; cout0            ;
+; |extr|extr_beep:u1|\drBuzzer:cnt[6]           ; |extr|extr_beep:u1|\drBuzzer:cnt[6]~1COUT1_5           ; cout1            ;
+; |extr|extr_beep:u1|Equal2~5                   ; |extr|extr_beep:u1|Equal2~5                            ; combout          ;
+; |extr|extr_beep:u1|Equal2~6                   ; |extr|extr_beep:u1|Equal2~6                            ; combout          ;
+; |extr|extr_beep:u1|clk_tmp                    ; |extr|extr_beep:u1|clk_tmp                             ; regout           ;
+; |extr|extr_beep:u1|Equal1~0                   ; |extr|extr_beep:u1|Equal1~0                            ; combout          ;
+; |extr|extr_beep:u1|Equal1~1                   ; |extr|extr_beep:u1|Equal1~1                            ; combout          ;
+; |extr|extr_beep:u1|Equal1~2                   ; |extr|extr_beep:u1|Equal1~2                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[4]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[4]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[3]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[3]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[0]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[0]             ; regout           ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[16]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[17]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|Equal0~0                   ; |extr|extr_beep:u1|Equal0~0                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[0]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[1]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[2]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[3]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[3]~1         ; cout             ;
+; |extr|extr_beep:u1|Equal0~1                   ; |extr|extr_beep:u1|Equal0~1                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[4]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[7]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[5]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[6]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|Equal0~2                   ; |extr|extr_beep:u1|Equal0~2                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[8]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[8]~1         ; cout             ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]~1         ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]  ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[9]~1COUT1_5  ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[10]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[11]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|Equal0~3                   ; |extr|extr_beep:u1|Equal0~3                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[12]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[14]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15]~1        ; cout0            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[15]~1COUT1_5 ; cout1            ;
+; |extr|extr_beep:u1|\melodyCtrl:cntForTime[13] ; |extr|extr_beep:u1|\melodyCtrl:cntForTime[13]~1        ; cout             ;
+; |extr|extr_beep:u1|Equal0~4                   ; |extr|extr_beep:u1|Equal0~4                            ; combout          ;
+; |extr|extr_beep:u1|Equal0~5                   ; |extr|extr_beep:u1|Equal0~5                            ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:curIndex[1]    ; |extr|extr_beep:u1|\melodyCtrl:curIndex[1]             ; regout           ;
+; |extr|extr_beep:u1|Add1~0                     ; |extr|extr_beep:u1|Add1~0                              ; combout          ;
+; |extr|extr_beep:u1|Add1~1                     ; |extr|extr_beep:u1|Add1~1                              ; combout          ;
+; |extr|extr_beep:u1|Add1~2                     ; |extr|extr_beep:u1|Add1~2                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~2                    ; |extr|extr_beep:u1|Mux25~2                             ; combout          ;
+; |extr|extr_beep:u1|Add1~3                     ; |extr|extr_beep:u1|Add1~3                              ; combout          ;
+; |extr|extr_beep:u1|Mux17~0                    ; |extr|extr_beep:u1|Mux17~0                             ; combout          ;
+; |extr|extr_beep:u1|Add1~4                     ; |extr|extr_beep:u1|Add1~4                              ; combout          ;
+; |extr|extr_beep:u1|Add1~5                     ; |extr|extr_beep:u1|Add1~5                              ; combout          ;
+; |extr|extr_beep:u1|Mux0~0                     ; |extr|extr_beep:u1|Mux0~0                              ; combout          ;
+; |extr|extr_beep:u1|\melodyCtrl:oFlag          ; |extr|extr_beep:u1|\melodyCtrl:oFlag                   ; regout           ;
+; |extr|extr_beep:u1|curDiv[0]~0                ; |extr|extr_beep:u1|curDiv[0]~0                         ; combout          ;
+; |extr|extr_beep:u1|Mux9~0                     ; |extr|extr_beep:u1|Mux9~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~3                    ; |extr|extr_beep:u1|Mux25~3                             ; combout          ;
+; |extr|extr_beep:u1|Mux5~0                     ; |extr|extr_beep:u1|Mux5~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux23~0                    ; |extr|extr_beep:u1|Mux23~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux5~1                     ; |extr|extr_beep:u1|Mux5~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux5~2                     ; |extr|extr_beep:u1|Mux5~2                              ; combout          ;
+; |extr|extr_beep:u1|Mux22~0                    ; |extr|extr_beep:u1|Mux22~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux6~0                     ; |extr|extr_beep:u1|Mux6~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux24~0                    ; |extr|extr_beep:u1|Mux24~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux6~1                     ; |extr|extr_beep:u1|Mux6~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux7~0                     ; |extr|extr_beep:u1|Mux7~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux7~1                     ; |extr|extr_beep:u1|Mux7~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux25~4                    ; |extr|extr_beep:u1|Mux25~4                             ; combout          ;
+; |extr|extr_beep:u1|Mux3~0                     ; |extr|extr_beep:u1|Mux3~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux3~1                     ; |extr|extr_beep:u1|Mux3~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux20~0                    ; |extr|extr_beep:u1|Mux20~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux2~0                     ; |extr|extr_beep:u1|Mux2~0                              ; combout          ;
+; |extr|extr_beep:u1|Mux19~0                    ; |extr|extr_beep:u1|Mux19~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux2~1                     ; |extr|extr_beep:u1|Mux2~1                              ; combout          ;
+; |extr|extr_beep:u1|Mux1~0                     ; |extr|extr_beep:u1|Mux1~0                              ; combout          ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~0                              ; combout          ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~2                              ; cout0            ;
+; |extr|extr_beep:u1|Add0~0                     ; |extr|extr_beep:u1|Add0~2COUT1_37                      ; cout1            ;
+; |extr|extr_beep:u1|Add0~5                     ; |extr|extr_beep:u1|Add0~5                              ; combout          ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~10                             ; combout          ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~12                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~10                    ; |extr|extr_beep:u1|Add0~12COUT1_33                     ; cout1            ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~15                             ; combout          ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~17                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~15                    ; |extr|extr_beep:u1|Add0~17COUT1_35                     ; cout1            ;
+; |extr|extr_beep:u1|LessThan0~0                ; |extr|extr_beep:u1|LessThan0~0                         ; combout          ;
+; |extr|clk_1                                   ; |extr|clk_1                                            ; regout           ;
+; |extr|extr_beep:u1|Mux44~0                    ; |extr|extr_beep:u1|Mux44~0                             ; combout          ;
+; |extr|extr_beep:u1|Mux45~0                    ; |extr|extr_beep:u1|Mux45~0                             ; combout          ;
+; |extr|extr_beep:u1|\clk_trans:tmp[3]          ; |extr|extr_beep:u1|\clk_trans:tmp[3]                   ; regout           ;
+; |extr|extr_beep:u1|\clk_trans:tmp[4]          ; |extr|extr_beep:u1|\clk_trans:tmp[4]                   ; regout           ;
+; |extr|extr_beep:u1|\clk_trans:tmp[1]          ; |extr|extr_beep:u1|\clk_trans:tmp[1]                   ; regout           ;
+; |extr|extr_beep:u1|Add0~22                    ; |extr|extr_beep:u1|Add0~22                             ; cout0            ;
+; |extr|extr_beep:u1|Add0~22                    ; |extr|extr_beep:u1|Add0~22COUT1_31                     ; cout1            ;
+; |extr|extr_beep:u1|\clk_trans:tmp[2]          ; |extr|extr_beep:u1|\clk_trans:tmp[2]                   ; regout           ;
+; |extr|count1[12]                              ; |extr|count1[12]                                       ; regout           ;
+; |extr|count1[11]                              ; |extr|count1[11]                                       ; regout           ;
+; |extr|count1[9]                               ; |extr|Equal0~0                                         ; combout          ;
+; |extr|Equal0~3                                ; |extr|Equal0~3                                         ; combout          ;
+; |extr|extr_beep:u1|\clk_trans:tmp[0]          ; |extr|extr_beep:u1|\clk_trans:tmp[0]                   ; regout           ;
+; |extr|Add0~5                                  ; |extr|Add0~7                                           ; cout0            ;
+; |extr|Add0~15                                 ; |extr|Add0~17COUT1_90                                  ; cout1            ;
+; |extr|Add0~20                                 ; |extr|Add0~22COUT1_88                                  ; cout1            ;
+; |extr|Add0~25                                 ; |extr|Add0~27COUT1_84                                  ; cout1            ;
+; |extr|Add0~30                                 ; |extr|Add0~32COUT1_86                                  ; cout1            ;
+; |extr|Add0~40                                 ; |extr|Add0~42                                          ; cout0            ;
+; |extr|Add0~45                                 ; |extr|Add0~47                                          ; cout0            ;
+; |extr|Add0~50                                 ; |extr|Add0~52                                          ; cout0            ;
+; |extr|Add0~55                                 ; |extr|Add0~57                                          ; cout0            ;
+; |extr|fal                                     ; |extr|fal~corein                                       ; combout          ;
+; |extr|hap                                     ; |extr|hap~corein                                       ; combout          ;
+; |extr|rst                                     ; |extr|rst~corein                                       ; combout          ;
+; |extr|outs                                    ; |extr|outs                                             ; padio            ;
++-----------------------------------------------+--------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Mon Nov 05 09:37:21 2018
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off extr -c extr
+Info: Using vector source file "F:/FINAL_EXP/extr/extr.vwf"
+Info: Inverted registers were found during simulation
+    Info: Register: |extr|extr_beep:u1|\clk_trans:tmp[0]
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      20.32 %
+Info: Number of transitions in simulation is 31183
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 135 megabytes
+    Info: Processing ended: Mon Nov 05 09:37:22 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

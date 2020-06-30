@@ -1,0 +1,567 @@
+Classic Timing Analyzer report for extr_beep
+Mon Nov 05 10:00:32 2018
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                               ;
++------------------------------+-------+---------------+----------------------------------+----------------------------+-------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                       ; To                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------------+-------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 0.972 ns                         ; bStateCode[0]              ; \melodyCtrl:oFlag       ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 14.837 ns                        ; tempBuzzer                 ; bBuzzer                 ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 4.056 ns                         ; bStateCode[1]              ; \melodyCtrl:curIndex[2] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 62.25 MHz ( period = 16.065 ns ) ; \melodyCtrl:cntForTime[13] ; curDiv[0]               ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                            ;                         ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------------+-------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EPM1270T144C5      ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                               ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                       ; To                      ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 62.25 MHz ( period = 16.065 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 15.356 ns               ;
+; N/A                                     ; 62.35 MHz ( period = 16.038 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 15.329 ns               ;
+; N/A                                     ; 62.46 MHz ( period = 16.011 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 15.302 ns               ;
+; N/A                                     ; 62.65 MHz ( period = 15.962 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 15.253 ns               ;
+; N/A                                     ; 63.36 MHz ( period = 15.784 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 15.075 ns               ;
+; N/A                                     ; 63.96 MHz ( period = 15.634 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.925 ns               ;
+; N/A                                     ; 63.99 MHz ( period = 15.627 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.918 ns               ;
+; N/A                                     ; 64.10 MHz ( period = 15.600 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.891 ns               ;
+; N/A                                     ; 64.11 MHz ( period = 15.597 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.888 ns               ;
+; N/A                                     ; 64.14 MHz ( period = 15.590 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.881 ns               ;
+; N/A                                     ; 64.21 MHz ( period = 15.573 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.864 ns               ;
+; N/A                                     ; 64.23 MHz ( period = 15.570 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.861 ns               ;
+; N/A                                     ; 64.25 MHz ( period = 15.563 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.854 ns               ;
+; N/A                                     ; 64.34 MHz ( period = 15.543 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.834 ns               ;
+; N/A                                     ; 64.37 MHz ( period = 15.536 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.827 ns               ;
+; N/A                                     ; 64.41 MHz ( period = 15.525 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.816 ns               ;
+; N/A                                     ; 64.42 MHz ( period = 15.524 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.815 ns               ;
+; N/A                                     ; 64.52 MHz ( period = 15.498 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.789 ns               ;
+; N/A                                     ; 64.54 MHz ( period = 15.494 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.785 ns               ;
+; N/A                                     ; 64.57 MHz ( period = 15.487 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.778 ns               ;
+; N/A                                     ; 64.62 MHz ( period = 15.476 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.767 ns               ;
+; N/A                                     ; 64.64 MHz ( period = 15.471 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.762 ns               ;
+; N/A                                     ; 64.73 MHz ( period = 15.449 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.740 ns               ;
+; N/A                                     ; 64.82 MHz ( period = 15.427 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.718 ns               ;
+; N/A                                     ; 64.84 MHz ( period = 15.422 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.713 ns               ;
+; N/A                                     ; 64.84 MHz ( period = 15.422 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.713 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.400 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.691 ns               ;
+; N/A                                     ; 65.00 MHz ( period = 15.384 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.675 ns               ;
+; N/A                                     ; 65.05 MHz ( period = 15.373 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.664 ns               ;
+; N/A                                     ; 65.05 MHz ( period = 15.373 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.664 ns               ;
+; N/A                                     ; 65.12 MHz ( period = 15.357 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.648 ns               ;
+; N/A                                     ; 65.16 MHz ( period = 15.346 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.637 ns               ;
+; N/A                                     ; 65.23 MHz ( period = 15.330 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.621 ns               ;
+; N/A                                     ; 65.24 MHz ( period = 15.329 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.620 ns               ;
+; N/A                                     ; 65.26 MHz ( period = 15.324 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.615 ns               ;
+; N/A                                     ; 65.29 MHz ( period = 15.316 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.607 ns               ;
+; N/A                                     ; 65.32 MHz ( period = 15.309 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.600 ns               ;
+; N/A                                     ; 65.35 MHz ( period = 15.302 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.593 ns               ;
+; N/A                                     ; 65.35 MHz ( period = 15.302 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.593 ns               ;
+; N/A                                     ; 65.42 MHz ( period = 15.286 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.577 ns               ;
+; N/A                                     ; 65.44 MHz ( period = 15.281 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.572 ns               ;
+; N/A                                     ; 65.47 MHz ( period = 15.275 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.566 ns               ;
+; N/A                                     ; 65.47 MHz ( period = 15.275 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.566 ns               ;
+; N/A                                     ; 65.54 MHz ( period = 15.259 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.550 ns               ;
+; N/A                                     ; 65.58 MHz ( period = 15.248 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.539 ns               ;
+; N/A                                     ; 65.60 MHz ( period = 15.244 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.535 ns               ;
+; N/A                                     ; 65.65 MHz ( period = 15.232 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.523 ns               ;
+; N/A                                     ; 65.68 MHz ( period = 15.226 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.517 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.199 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.490 ns               ;
+; N/A                                     ; 65.81 MHz ( period = 15.196 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.487 ns               ;
+; N/A                                     ; 65.81 MHz ( period = 15.195 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.486 ns               ;
+; N/A                                     ; 65.86 MHz ( period = 15.183 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.474 ns               ;
+; N/A                                     ; 65.94 MHz ( period = 15.166 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.457 ns               ;
+; N/A                                     ; 65.97 MHz ( period = 15.159 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.450 ns               ;
+; N/A                                     ; 66.02 MHz ( period = 15.146 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.437 ns               ;
+; N/A                                     ; 66.11 MHz ( period = 15.126 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.417 ns               ;
+; N/A                                     ; 66.21 MHz ( period = 15.103 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.394 ns               ;
+; N/A                                     ; 66.23 MHz ( period = 15.099 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.390 ns               ;
+; N/A                                     ; 66.25 MHz ( period = 15.094 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.385 ns               ;
+; N/A                                     ; 66.33 MHz ( period = 15.077 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.368 ns               ;
+; N/A                                     ; 66.35 MHz ( period = 15.072 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.363 ns               ;
+; N/A                                     ; 66.37 MHz ( period = 15.066 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.357 ns               ;
+; N/A                                     ; 66.45 MHz ( period = 15.050 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.341 ns               ;
+; N/A                                     ; 66.45 MHz ( period = 15.048 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.339 ns               ;
+; N/A                                     ; 66.47 MHz ( period = 15.045 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.336 ns               ;
+; N/A                                     ; 66.49 MHz ( period = 15.039 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.330 ns               ;
+; N/A                                     ; 66.56 MHz ( period = 15.023 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.314 ns               ;
+; N/A                                     ; 66.56 MHz ( period = 15.023 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.314 ns               ;
+; N/A                                     ; 66.57 MHz ( period = 15.021 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.312 ns               ;
+; N/A                                     ; 66.61 MHz ( period = 15.012 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.303 ns               ;
+; N/A                                     ; 66.64 MHz ( period = 15.005 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.296 ns               ;
+; N/A                                     ; 66.68 MHz ( period = 14.998 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.289 ns               ;
+; N/A                                     ; 66.68 MHz ( period = 14.996 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.287 ns               ;
+; N/A                                     ; 66.78 MHz ( period = 14.974 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.265 ns               ;
+; N/A                                     ; 66.80 MHz ( period = 14.971 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.262 ns               ;
+; N/A                                     ; 66.83 MHz ( period = 14.963 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.254 ns               ;
+; N/A                                     ; 66.88 MHz ( period = 14.953 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.244 ns               ;
+; N/A                                     ; 66.92 MHz ( period = 14.944 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.235 ns               ;
+; N/A                                     ; 67.12 MHz ( period = 14.898 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.189 ns               ;
+; N/A                                     ; 67.14 MHz ( period = 14.895 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.186 ns               ;
+; N/A                                     ; 67.15 MHz ( period = 14.891 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.182 ns               ;
+; N/A                                     ; 67.24 MHz ( period = 14.871 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.162 ns               ;
+; N/A                                     ; 67.28 MHz ( period = 14.864 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.155 ns               ;
+; N/A                                     ; 67.32 MHz ( period = 14.855 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 14.146 ns               ;
+; N/A                                     ; 67.36 MHz ( period = 14.845 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.136 ns               ;
+; N/A                                     ; 67.40 MHz ( period = 14.837 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.128 ns               ;
+; N/A                                     ; 67.46 MHz ( period = 14.823 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 14.114 ns               ;
+; N/A                                     ; 67.59 MHz ( period = 14.796 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.087 ns               ;
+; N/A                                     ; 67.59 MHz ( period = 14.796 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 14.087 ns               ;
+; N/A                                     ; 67.62 MHz ( period = 14.788 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.079 ns               ;
+; N/A                                     ; 67.64 MHz ( period = 14.785 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.076 ns               ;
+; N/A                                     ; 67.71 MHz ( period = 14.769 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 14.060 ns               ;
+; N/A                                     ; 67.84 MHz ( period = 14.740 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 14.031 ns               ;
+; N/A                                     ; 67.93 MHz ( period = 14.720 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 14.011 ns               ;
+; N/A                                     ; 67.95 MHz ( period = 14.717 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 14.008 ns               ;
+; N/A                                     ; 68.05 MHz ( period = 14.695 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.986 ns               ;
+; N/A                                     ; 68.28 MHz ( period = 14.646 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.937 ns               ;
+; N/A                                     ; 68.33 MHz ( period = 14.635 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.926 ns               ;
+; N/A                                     ; 68.45 MHz ( period = 14.610 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 13.901 ns               ;
+; N/A                                     ; 68.65 MHz ( period = 14.567 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.858 ns               ;
+; N/A                                     ; 68.77 MHz ( period = 14.542 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 13.833 ns               ;
+; N/A                                     ; 68.79 MHz ( period = 14.537 ns )                    ; \melodyCtrl:cntForTime[13] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.828 ns               ;
+; N/A                                     ; 69.16 MHz ( period = 14.460 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.751 ns               ;
+; N/A                                     ; 69.48 MHz ( period = 14.392 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.683 ns               ;
+; N/A                                     ; 69.79 MHz ( period = 14.329 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 13.620 ns               ;
+; N/A                                     ; 69.92 MHz ( period = 14.302 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.593 ns               ;
+; N/A                                     ; 69.92 MHz ( period = 14.302 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 13.593 ns               ;
+; N/A                                     ; 70.05 MHz ( period = 14.275 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 13.566 ns               ;
+; N/A                                     ; 70.07 MHz ( period = 14.272 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.563 ns               ;
+; N/A                                     ; 70.10 MHz ( period = 14.265 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.556 ns               ;
+; N/A                                     ; 70.29 MHz ( period = 14.226 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 13.517 ns               ;
+; N/A                                     ; 70.42 MHz ( period = 14.200 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.491 ns               ;
+; N/A                                     ; 70.67 MHz ( period = 14.151 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.442 ns               ;
+; N/A                                     ; 70.91 MHz ( period = 14.102 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.393 ns               ;
+; N/A                                     ; 70.93 MHz ( period = 14.099 ns )                    ; \melodyCtrl:cntForTime[8]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.390 ns               ;
+; N/A                                     ; 71.08 MHz ( period = 14.069 ns )                    ; \melodyCtrl:cntForTime[12] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.360 ns               ;
+; N/A                                     ; 71.11 MHz ( period = 14.062 ns )                    ; \melodyCtrl:cntForTime[9]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.353 ns               ;
+; N/A                                     ; 71.13 MHz ( period = 14.059 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.350 ns               ;
+; N/A                                     ; 71.13 MHz ( period = 14.058 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 13.349 ns               ;
+; N/A                                     ; 71.18 MHz ( period = 14.048 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 13.339 ns               ;
+; N/A                                     ; 71.27 MHz ( period = 14.031 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 13.322 ns               ;
+; N/A                                     ; 71.41 MHz ( period = 14.004 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.295 ns               ;
+; N/A                                     ; 71.41 MHz ( period = 14.004 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 13.295 ns               ;
+; N/A                                     ; 71.44 MHz ( period = 13.997 ns )                    ; \melodyCtrl:cntForTime[14] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.288 ns               ;
+; N/A                                     ; 71.55 MHz ( period = 13.977 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.268 ns               ;
+; N/A                                     ; 71.63 MHz ( period = 13.961 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.252 ns               ;
+; N/A                                     ; 71.66 MHz ( period = 13.955 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 13.246 ns               ;
+; N/A                                     ; 71.69 MHz ( period = 13.948 ns )                    ; \melodyCtrl:cntForTime[15] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.239 ns               ;
+; N/A                                     ; 71.95 MHz ( period = 13.899 ns )                    ; \melodyCtrl:cntForTime[5]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.190 ns               ;
+; N/A                                     ; 71.95 MHz ( period = 13.898 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 13.189 ns               ;
+; N/A                                     ; 72.17 MHz ( period = 13.856 ns )                    ; \melodyCtrl:cntForTime[0]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.147 ns               ;
+; N/A                                     ; 72.46 MHz ( period = 13.801 ns )                    ; \melodyCtrl:cntForTime[4]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.092 ns               ;
+; N/A                                     ; 72.46 MHz ( period = 13.801 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.092 ns               ;
+; N/A                                     ; 72.58 MHz ( period = 13.777 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 13.068 ns               ;
+; N/A                                     ; 72.60 MHz ( period = 13.774 ns )                    ; \melodyCtrl:cntForTime[11] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.065 ns               ;
+; N/A                                     ; 72.68 MHz ( period = 13.758 ns )                    ; \melodyCtrl:cntForTime[7]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 13.049 ns               ;
+; N/A                                     ; 72.72 MHz ( period = 13.752 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.043 ns               ;
+; N/A                                     ; 72.77 MHz ( period = 13.741 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 13.032 ns               ;
+; N/A                                     ; 73.14 MHz ( period = 13.673 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 12.964 ns               ;
+; N/A                                     ; 73.38 MHz ( period = 13.627 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 12.918 ns               ;
+; N/A                                     ; 73.54 MHz ( period = 13.598 ns )                    ; \melodyCtrl:cntForTime[2]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.889 ns               ;
+; N/A                                     ; 73.71 MHz ( period = 13.566 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 12.857 ns               ;
+; N/A                                     ; 73.81 MHz ( period = 13.549 ns )                    ; \melodyCtrl:cntForTime[1]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.840 ns               ;
+; N/A                                     ; 73.87 MHz ( period = 13.538 ns )                    ; \melodyCtrl:cntForTime[6]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.829 ns               ;
+; N/A                                     ; 74.09 MHz ( period = 13.498 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 12.789 ns               ;
+; N/A                                     ; 74.24 MHz ( period = 13.470 ns )                    ; \melodyCtrl:cntForTime[17] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.761 ns               ;
+; N/A                                     ; 74.83 MHz ( period = 13.363 ns )                    ; \melodyCtrl:cntForTime[10] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.654 ns               ;
+; N/A                                     ; 75.22 MHz ( period = 13.295 ns )                    ; \melodyCtrl:cntForTime[3]  ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.586 ns               ;
+; N/A                                     ; 76.79 MHz ( period = 13.022 ns )                    ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 12.313 ns               ;
+; N/A                                     ; 76.90 MHz ( period = 13.004 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 12.295 ns               ;
+; N/A                                     ; 78.12 MHz ( period = 12.801 ns )                    ; \melodyCtrl:cntForTime[16] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 12.092 ns               ;
+; N/A                                     ; 78.28 MHz ( period = 12.775 ns )                    ; \melodyCtrl:cntForTime[13] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 12.066 ns               ;
+; N/A                                     ; 78.54 MHz ( period = 12.733 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[3]               ; clk        ; clk      ; None                        ; None                      ; 12.024 ns               ;
+; N/A                                     ; 79.47 MHz ( period = 12.584 ns )                    ; \melodyCtrl:cntForTime[8]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.875 ns               ;
+; N/A                                     ; 79.66 MHz ( period = 12.554 ns )                    ; \melodyCtrl:cntForTime[12] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.845 ns               ;
+; N/A                                     ; 79.70 MHz ( period = 12.547 ns )                    ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.838 ns               ;
+; N/A                                     ; 79.81 MHz ( period = 12.530 ns )                    ; \melodyCtrl:cntForTime[18] ; curDiv[8]               ; clk        ; clk      ; None                        ; None                      ; 11.821 ns               ;
+; N/A                                     ; 80.12 MHz ( period = 12.482 ns )                    ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.773 ns               ;
+; N/A                                     ; 80.43 MHz ( period = 12.433 ns )                    ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.724 ns               ;
+; N/A                                     ; 80.75 MHz ( period = 12.384 ns )                    ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.675 ns               ;
+; N/A                                     ; 81.03 MHz ( period = 12.341 ns )                    ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.632 ns               ;
+; N/A                                     ; 81.06 MHz ( period = 12.337 ns )                    ; \melodyCtrl:cntForTime[8]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.628 ns               ;
+; N/A                                     ; 81.25 MHz ( period = 12.307 ns )                    ; \melodyCtrl:cntForTime[12] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.598 ns               ;
+; N/A                                     ; 81.30 MHz ( period = 12.300 ns )                    ; \melodyCtrl:cntForTime[9]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.591 ns               ;
+; N/A                                     ; 81.39 MHz ( period = 12.286 ns )                    ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.577 ns               ;
+; N/A                                     ; 81.57 MHz ( period = 12.259 ns )                    ; \melodyCtrl:cntForTime[11] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.550 ns               ;
+; N/A                                     ; 81.68 MHz ( period = 12.243 ns )                    ; \melodyCtrl:cntForTime[7]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.534 ns               ;
+; N/A                                     ; 81.73 MHz ( period = 12.235 ns )                    ; \melodyCtrl:cntForTime[14] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.526 ns               ;
+; N/A                                     ; 82.06 MHz ( period = 12.186 ns )                    ; \melodyCtrl:cntForTime[15] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.477 ns               ;
+; N/A                                     ; 82.39 MHz ( period = 12.137 ns )                    ; \melodyCtrl:cntForTime[5]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.428 ns               ;
+; N/A                                     ; 82.48 MHz ( period = 12.124 ns )                    ; \melodyCtrl:cntForTime[17] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.415 ns               ;
+; N/A                                     ; 82.69 MHz ( period = 12.094 ns )                    ; \melodyCtrl:cntForTime[0]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.385 ns               ;
+; N/A                                     ; 82.76 MHz ( period = 12.083 ns )                    ; \melodyCtrl:cntForTime[2]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.374 ns               ;
+; N/A                                     ; 83.06 MHz ( period = 12.039 ns )                    ; \melodyCtrl:cntForTime[4]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.330 ns               ;
+; N/A                                     ; 83.10 MHz ( period = 12.034 ns )                    ; \melodyCtrl:cntForTime[1]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.325 ns               ;
+; N/A                                     ; 83.11 MHz ( period = 12.032 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 11.323 ns               ;
+; N/A                                     ; 83.17 MHz ( period = 12.023 ns )                    ; \melodyCtrl:cntForTime[6]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.314 ns               ;
+; N/A                                     ; 83.25 MHz ( period = 12.012 ns )                    ; \melodyCtrl:cntForTime[11] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.303 ns               ;
+; N/A                                     ; 83.30 MHz ( period = 12.005 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 11.296 ns               ;
+; N/A                                     ; 83.36 MHz ( period = 11.996 ns )                    ; \melodyCtrl:cntForTime[7]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.287 ns               ;
+; N/A                                     ; 83.49 MHz ( period = 11.978 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 11.269 ns               ;
+; N/A                                     ; 83.65 MHz ( period = 11.955 ns )                    ; \melodyCtrl:cntForTime[17] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.246 ns               ;
+; N/A                                     ; 83.83 MHz ( period = 11.929 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 11.220 ns               ;
+; N/A                                     ; 84.40 MHz ( period = 11.848 ns )                    ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.139 ns               ;
+; N/A                                     ; 84.49 MHz ( period = 11.836 ns )                    ; \melodyCtrl:cntForTime[2]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.127 ns               ;
+; N/A                                     ; 84.84 MHz ( period = 11.787 ns )                    ; \melodyCtrl:cntForTime[1]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.078 ns               ;
+; N/A                                     ; 84.89 MHz ( period = 11.780 ns )                    ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 11.071 ns               ;
+; N/A                                     ; 84.92 MHz ( period = 11.776 ns )                    ; \melodyCtrl:cntForTime[6]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 11.067 ns               ;
+; N/A                                     ; 85.10 MHz ( period = 11.751 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 11.042 ns               ;
+; N/A                                     ; 85.53 MHz ( period = 11.692 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[0]               ; clk        ; clk      ; None                        ; None                      ; 10.983 ns               ;
+; N/A                                     ; 85.73 MHz ( period = 11.665 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[5]               ; clk        ; clk      ; None                        ; None                      ; 10.956 ns               ;
+; N/A                                     ; 85.93 MHz ( period = 11.638 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[6]               ; clk        ; clk      ; None                        ; None                      ; 10.929 ns               ;
+; N/A                                     ; 86.20 MHz ( period = 11.601 ns )                    ; \melodyCtrl:cntForTime[10] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 10.892 ns               ;
+; N/A                                     ; 86.20 MHz ( period = 11.601 ns )                    ; \melodyCtrl:curIndex[1]    ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 10.892 ns               ;
+; N/A                                     ; 86.29 MHz ( period = 11.589 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[1]               ; clk        ; clk      ; None                        ; None                      ; 10.880 ns               ;
+; N/A                                     ; 86.71 MHz ( period = 11.533 ns )                    ; \melodyCtrl:cntForTime[3]  ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 10.824 ns               ;
+; N/A                                     ; 87.30 MHz ( period = 11.455 ns )                    ; \melodyCtrl:cntForTime[16] ; \melodyCtrl:oFlag       ; clk        ; clk      ; None                        ; None                      ; 10.746 ns               ;
+; N/A                                     ; 87.63 MHz ( period = 11.411 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[2]               ; clk        ; clk      ; None                        ; None                      ; 10.702 ns               ;
+; N/A                                     ; 88.61 MHz ( period = 11.286 ns )                    ; \melodyCtrl:cntForTime[16] ; \melodyCtrl:curIndex[4] ; clk        ; clk      ; None                        ; None                      ; 10.577 ns               ;
+; N/A                                     ; 88.80 MHz ( period = 11.261 ns )                    ; \melodyCtrl:curIndex[0]    ; curDiv[7]               ; clk        ; clk      ; None                        ; None                      ; 10.552 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                            ;                         ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+-------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; tsu                                                                                       ;
++-------+--------------+------------+---------------+----------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From          ; To                         ; To Clock ;
++-------+--------------+------------+---------------+----------------------------+----------+
+; N/A   ; None         ; 0.972 ns   ; bStateCode[0] ; \melodyCtrl:oFlag          ; clk      ;
+; N/A   ; None         ; 0.783 ns   ; bStateCode[0] ; curDiv[8]                  ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[16] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[17] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[18] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[13] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[15] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[14] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[9]  ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[10] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[11] ; clk      ;
+; N/A   ; None         ; 0.705 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[12] ; clk      ;
+; N/A   ; None         ; 0.501 ns   ; bStateCode[0] ; \melodyCtrl:curIndex[3]    ; clk      ;
+; N/A   ; None         ; 0.398 ns   ; bStateCode[0] ; \melodyCtrl:curIndex[0]    ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[0]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[1]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[2]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[3]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[5]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[4]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[6]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[7]  ; clk      ;
+; N/A   ; None         ; 0.311 ns   ; bStateCode[0] ; \melodyCtrl:cntForTime[8]  ; clk      ;
+; N/A   ; None         ; 0.254 ns   ; bStateCode[0] ; curDiv[1]                  ; clk      ;
+; N/A   ; None         ; 0.071 ns   ; bStateCode[1] ; \melodyCtrl:oFlag          ; clk      ;
+; N/A   ; None         ; -0.109 ns  ; bStateCode[1] ; curDiv[8]                  ; clk      ;
+; N/A   ; None         ; -0.177 ns  ; bStateCode[0] ; curDiv[0]                  ; clk      ;
+; N/A   ; None         ; -0.177 ns  ; bStateCode[0] ; curDiv[5]                  ; clk      ;
+; N/A   ; None         ; -0.177 ns  ; bStateCode[0] ; curDiv[7]                  ; clk      ;
+; N/A   ; None         ; -0.177 ns  ; bStateCode[0] ; curDiv[6]                  ; clk      ;
+; N/A   ; None         ; -0.400 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[3]    ; clk      ;
+; N/A   ; None         ; -0.503 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[0]    ; clk      ;
+; N/A   ; None         ; -0.697 ns  ; bStateCode[0] ; curDiv[2]                  ; clk      ;
+; N/A   ; None         ; -0.697 ns  ; bStateCode[0] ; curDiv[3]                  ; clk      ;
+; N/A   ; None         ; -1.078 ns  ; bStateCode[1] ; curDiv[0]                  ; clk      ;
+; N/A   ; None         ; -1.078 ns  ; bStateCode[1] ; curDiv[5]                  ; clk      ;
+; N/A   ; None         ; -1.078 ns  ; bStateCode[1] ; curDiv[7]                  ; clk      ;
+; N/A   ; None         ; -1.078 ns  ; bStateCode[1] ; curDiv[6]                  ; clk      ;
+; N/A   ; None         ; -1.293 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[1]    ; clk      ;
+; N/A   ; None         ; -1.316 ns  ; bStateCode[1] ; curDiv[1]                  ; clk      ;
+; N/A   ; None         ; -1.318 ns  ; bStateCode[1] ; curDiv[2]                  ; clk      ;
+; N/A   ; None         ; -1.573 ns  ; bStateCode[1] ; curDiv[3]                  ; clk      ;
+; N/A   ; None         ; -1.602 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[4]    ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[16] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[17] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[18] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[13] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[15] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[14] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[9]  ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[10] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[11] ; clk      ;
+; N/A   ; None         ; -1.661 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[12] ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[0]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[1]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[2]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[3]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[5]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[4]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[6]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[7]  ; clk      ;
+; N/A   ; None         ; -2.055 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[8]  ; clk      ;
+; N/A   ; None         ; -2.083 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[4]    ; clk      ;
+; N/A   ; None         ; -2.331 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[2]    ; clk      ;
+; N/A   ; None         ; -2.552 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[1]    ; clk      ;
+; N/A   ; None         ; -3.502 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[2]    ; clk      ;
++-------+--------------+------------+---------------+----------------------------+----------+
+
+
++-----------------------------------------------------------------------+
+; tco                                                                   ;
++-------+--------------+------------+------------+---------+------------+
+; Slack ; Required tco ; Actual tco ; From       ; To      ; From Clock ;
++-------+--------------+------------+------------+---------+------------+
+; N/A   ; None         ; 14.837 ns  ; tempBuzzer ; bBuzzer ; clk        ;
++-------+--------------+------------+------------+---------+------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; th                                                                                              ;
++---------------+-------------+-----------+---------------+----------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From          ; To                         ; To Clock ;
++---------------+-------------+-----------+---------------+----------------------------+----------+
+; N/A           ; None        ; 4.056 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[2]    ; clk      ;
+; N/A           ; None        ; 3.260 ns  ; bStateCode[1] ; \melodyCtrl:oFlag          ; clk      ;
+; N/A           ; None        ; 3.106 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[1]    ; clk      ;
+; N/A           ; None        ; 2.885 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[2]    ; clk      ;
+; N/A           ; None        ; 2.828 ns  ; bStateCode[0] ; curDiv[1]                  ; clk      ;
+; N/A           ; None        ; 2.637 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[4]    ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[0]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[1]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[2]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[3]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[5]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[4]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[6]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[7]  ; clk      ;
+; N/A           ; None        ; 2.609 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[8]  ; clk      ;
+; N/A           ; None        ; 2.596 ns  ; bStateCode[0] ; curDiv[2]                  ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[16] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[17] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[18] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[13] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[15] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[14] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[9]  ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[10] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[11] ; clk      ;
+; N/A           ; None        ; 2.215 ns  ; bStateCode[1] ; \melodyCtrl:cntForTime[12] ; clk      ;
+; N/A           ; None        ; 2.174 ns  ; bStateCode[1] ; curDiv[3]                  ; clk      ;
+; N/A           ; None        ; 2.156 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[4]    ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[2]                  ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[1]                  ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[0]                  ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[5]                  ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[7]                  ; clk      ;
+; N/A           ; None        ; 2.127 ns  ; bStateCode[1] ; curDiv[6]                  ; clk      ;
+; N/A           ; None        ; 2.020 ns  ; bStateCode[0] ; curDiv[0]                  ; clk      ;
+; N/A           ; None        ; 2.020 ns  ; bStateCode[0] ; curDiv[5]                  ; clk      ;
+; N/A           ; None        ; 2.020 ns  ; bStateCode[0] ; curDiv[7]                  ; clk      ;
+; N/A           ; None        ; 2.020 ns  ; bStateCode[0] ; curDiv[6]                  ; clk      ;
+; N/A           ; None        ; 1.847 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[1]    ; clk      ;
+; N/A           ; None        ; 1.282 ns  ; bStateCode[0] ; curDiv[3]                  ; clk      ;
+; N/A           ; None        ; 1.057 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[0]    ; clk      ;
+; N/A           ; None        ; 0.966 ns  ; bStateCode[1] ; curDiv[8]                  ; clk      ;
+; N/A           ; None        ; 0.954 ns  ; bStateCode[1] ; \melodyCtrl:curIndex[3]    ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[0]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[1]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[2]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[3]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[5]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[4]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[6]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[7]  ; clk      ;
+; N/A           ; None        ; 0.243 ns  ; bStateCode[0] ; \melodyCtrl:cntForTime[8]  ; clk      ;
+; N/A           ; None        ; 0.156 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[0]    ; clk      ;
+; N/A           ; None        ; 0.090 ns  ; bStateCode[0] ; curDiv[8]                  ; clk      ;
+; N/A           ; None        ; 0.053 ns  ; bStateCode[0] ; \melodyCtrl:curIndex[3]    ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[16] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[17] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[18] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[13] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[15] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[14] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[9]  ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[10] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[11] ; clk      ;
+; N/A           ; None        ; -0.151 ns ; bStateCode[0] ; \melodyCtrl:cntForTime[12] ; clk      ;
+; N/A           ; None        ; -0.418 ns ; bStateCode[0] ; \melodyCtrl:oFlag          ; clk      ;
++---------------+-------------+-----------+---------------+----------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Mon Nov 05 10:00:32 2018
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off extr_beep -c extr_beep
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "clk_tmp" as buffer
+Info: Clock "clk" has Internal fmax of 62.25 MHz between source register "\melodyCtrl:cntForTime[13]" and destination register "curDiv[0]" (period= 16.065 ns)
+    Info: + Longest register to register delay is 15.356 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X11_Y10_N4; Fanout = 3; REG Node = '\melodyCtrl:cntForTime[13]'
+        Info: 2: + IC(3.172 ns) + CELL(0.200 ns) = 3.372 ns; Loc. = LC_X11_Y9_N3; Fanout = 1; COMB Node = 'Equal0~4'
+        Info: 3: + IC(0.704 ns) + CELL(0.914 ns) = 4.990 ns; Loc. = LC_X11_Y9_N5; Fanout = 5; COMB Node = 'Equal0~5'
+        Info: 4: + IC(1.860 ns) + CELL(0.200 ns) = 7.050 ns; Loc. = LC_X14_Y9_N5; Fanout = 6; COMB Node = 'Add1~0'
+        Info: 5: + IC(1.747 ns) + CELL(0.200 ns) = 8.997 ns; Loc. = LC_X14_Y10_N5; Fanout = 13; COMB Node = 'Add1~1'
+        Info: 6: + IC(2.015 ns) + CELL(0.740 ns) = 11.752 ns; Loc. = LC_X15_Y9_N6; Fanout = 1; COMB Node = 'Mux7~1'
+        Info: 7: + IC(2.543 ns) + CELL(1.061 ns) = 15.356 ns; Loc. = LC_X13_Y8_N7; Fanout = 2; REG Node = 'curDiv[0]'
+        Info: Total cell delay = 3.315 ns ( 21.59 % )
+        Info: Total interconnect delay = 12.041 ns ( 78.41 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 9.493 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 9; CLK Node = 'clk'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X10_Y5_N8; Fanout = 45; REG Node = 'clk_tmp'
+            Info: 3: + IC(4.380 ns) + CELL(0.918 ns) = 9.493 ns; Loc. = LC_X13_Y8_N7; Fanout = 2; REG Node = 'curDiv[0]'
+            Info: Total cell delay = 3.375 ns ( 35.55 % )
+            Info: Total interconnect delay = 6.118 ns ( 64.45 % )
+        Info: - Longest clock path from clock "clk" to source register is 9.493 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 9; CLK Node = 'clk'
+            Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X10_Y5_N8; Fanout = 45; REG Node = 'clk_tmp'
+            Info: 3: + IC(4.380 ns) + CELL(0.918 ns) = 9.493 ns; Loc. = LC_X11_Y10_N4; Fanout = 3; REG Node = '\melodyCtrl:cntForTime[13]'
+            Info: Total cell delay = 3.375 ns ( 35.55 % )
+            Info: Total interconnect delay = 6.118 ns ( 64.45 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Micro setup delay of destination is 0.333 ns
+Info: tsu for register "\melodyCtrl:oFlag" (data pin = "bStateCode[0]", clock pin = "clk") is 0.972 ns
+    Info: + Longest pin to register delay is 10.132 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_84; Fanout = 14; PIN Node = 'bStateCode[0]'
+        Info: 2: + IC(4.691 ns) + CELL(0.740 ns) = 6.563 ns; Loc. = LC_X13_Y8_N9; Fanout = 7; COMB Node = 'curDiv[1]~1'
+        Info: 3: + IC(2.508 ns) + CELL(1.061 ns) = 10.132 ns; Loc. = LC_X14_Y10_N3; Fanout = 2; REG Node = '\melodyCtrl:oFlag'
+        Info: Total cell delay = 2.933 ns ( 28.95 % )
+        Info: Total interconnect delay = 7.199 ns ( 71.05 % )
+    Info: + Micro setup delay of destination is 0.333 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 9.493 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 9; CLK Node = 'clk'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X10_Y5_N8; Fanout = 45; REG Node = 'clk_tmp'
+        Info: 3: + IC(4.380 ns) + CELL(0.918 ns) = 9.493 ns; Loc. = LC_X14_Y10_N3; Fanout = 2; REG Node = '\melodyCtrl:oFlag'
+        Info: Total cell delay = 3.375 ns ( 35.55 % )
+        Info: Total interconnect delay = 6.118 ns ( 64.45 % )
+Info: tco from clock "clk" to destination pin "bBuzzer" through register "tempBuzzer" is 14.837 ns
+    Info: + Longest clock path from clock "clk" to source register is 9.493 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 9; CLK Node = 'clk'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X10_Y5_N8; Fanout = 45; REG Node = 'clk_tmp'
+        Info: 3: + IC(4.380 ns) + CELL(0.918 ns) = 9.493 ns; Loc. = LC_X5_Y7_N6; Fanout = 2; REG Node = 'tempBuzzer'
+        Info: Total cell delay = 3.375 ns ( 35.55 % )
+        Info: Total interconnect delay = 6.118 ns ( 64.45 % )
+    Info: + Micro clock to output delay of source is 0.376 ns
+    Info: + Longest register to pin delay is 4.968 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X5_Y7_N6; Fanout = 2; REG Node = 'tempBuzzer'
+        Info: 2: + IC(2.646 ns) + CELL(2.322 ns) = 4.968 ns; Loc. = PIN_51; Fanout = 0; PIN Node = 'bBuzzer'
+        Info: Total cell delay = 2.322 ns ( 46.74 % )
+        Info: Total interconnect delay = 2.646 ns ( 53.26 % )
+Info: th for register "\melodyCtrl:curIndex[2]" (data pin = "bStateCode[1]", clock pin = "clk") is 4.056 ns
+    Info: + Longest clock path from clock "clk" to destination register is 9.493 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.163 ns) = 1.163 ns; Loc. = PIN_18; Fanout = 9; CLK Node = 'clk'
+        Info: 2: + IC(1.738 ns) + CELL(1.294 ns) = 4.195 ns; Loc. = LC_X10_Y5_N8; Fanout = 45; REG Node = 'clk_tmp'
+        Info: 3: + IC(4.380 ns) + CELL(0.918 ns) = 9.493 ns; Loc. = LC_X14_Y10_N6; Fanout = 6; REG Node = '\melodyCtrl:curIndex[2]'
+        Info: Total cell delay = 3.375 ns ( 35.55 % )
+        Info: Total interconnect delay = 6.118 ns ( 64.45 % )
+    Info: + Micro hold delay of destination is 0.221 ns
+    Info: - Shortest pin to register delay is 5.658 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.132 ns) = 1.132 ns; Loc. = PIN_3; Fanout = 10; PIN Node = 'bStateCode[1]'
+        Info: 2: + IC(3.722 ns) + CELL(0.804 ns) = 5.658 ns; Loc. = LC_X14_Y10_N6; Fanout = 6; REG Node = '\melodyCtrl:curIndex[2]'
+        Info: Total cell delay = 1.936 ns ( 34.22 % )
+        Info: Total interconnect delay = 3.722 ns ( 65.78 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 151 megabytes
+    Info: Processing ended: Mon Nov 05 10:00:32 2018
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

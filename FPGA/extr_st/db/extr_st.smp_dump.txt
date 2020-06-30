@@ -1,0 +1,7 @@
+
+State Machine - |extr_st|now_state
+Name now_state.s3 now_state.s2 now_state.s1 now_state.s0 
+now_state.s0 0 0 0 0 
+now_state.s1 0 0 1 1 
+now_state.s2 0 1 0 1 
+now_state.s3 1 0 0 1 

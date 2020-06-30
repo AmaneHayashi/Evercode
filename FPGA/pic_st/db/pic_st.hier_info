@@ -1,0 +1,11 @@
+|pic_st
+clk => ddout[0].CLK
+clk => ddout[1].CLK
+clk => ddout[2].CLK
+clk => ddout[3].CLK
+dout[0] <= ddout[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= ddout[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= ddout[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= ddout[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

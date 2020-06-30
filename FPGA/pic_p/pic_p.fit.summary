@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sun Nov 04 20:34:21 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : pic_p
+Top-level Entity Name : pic_p
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 34 / 1,270 ( 3 % )
+Total pins : 44 / 116 ( 38 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

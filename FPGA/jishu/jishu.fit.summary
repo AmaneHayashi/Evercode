@@ -1,0 +1,11 @@
+Fitter Status : Failed - Mon Nov 05 10:06:41 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
+Revision Name : jishu
+Top-level Entity Name : jishu
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 303 / 1,270 ( 24 % )
+Total pins : 139 / 116 ( 120 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

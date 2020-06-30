@@ -1,0 +1,163 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY dzn_lg IS --键盘按键时点阵变化
+	PORT(
+		rst:          IN STD_LOGIC;
+		key:          IN STD_LOGIC;
+		out_fail:     OUT STD_LOGIC;
+		
+		keyin:        IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		maxpath:      IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+		incol0:       IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		incol1:       IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		incol2:       IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		incol3:       IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		max_pathe:    OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		pathnum:      OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		outcol0:      OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		outcol1:      OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		outcol2:      OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		outcol3:      OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		);
+END dzn_lg;
+
+architecture adzn_lg OF dzn_lg IS
+	
+	TYPE temp_array   IS ARRAY (3 DOWNTO 0) OF STD_LOGIC_VECTOR(7 DOWNTO 0);
+	
+	SIGNAL tarr:      temp_array;
+	SIGNAL fail:      STD_LOGIC;	
+	SIGNAL delay:     INTEGER RANGE 0 TO 2;
+	SIGNAL path:      STD_LOGIC_VECTOR(6 DOWNTO 0);
+	SIGNAL max_path:  STD_LOGIC_VECTOR(6 DOWNTO 0);
+	
+BEGIN
+	
+PROCESS(rst,key)
+BEGIN 
+	IF rst='1' THEN
+		tarr(0)<=incol0;
+		tarr(1)<=incol1;
+		tarr(2)<=incol2;
+		tarr(3)<=incol3;
+		path<="0000000";
+		fail<='0';
+		max_path<=maxpath;
+		delay<=0;
+	ELSIF key'EVENT AND key='1' THEN --键盘按键上升沿
+		IF delay=2 THEN--按键消抖
+			delay<=0;
+			IF path="1100011" THEN 
+				path<="0000000";
+			ELSE 
+				path<=path+1;
+			END IF;	
+			IF max_path<=path THEN--步数超过时
+				fail<='1';
+			ELSE
+				fail<='0';
+			END IF;
+			CASE keyin IS
+				WHEN "0000" => --(4,4)
+					tarr(0)<=incol0 XNOR "11001111";
+					tarr(1)<=incol1 XNOR "11011111";
+					tarr(2)<=incol2 ;
+					tarr(3)<=incol3 ;
+				WHEN "0001"=> --(4,3)
+					tarr(0)<=incol0 XNOR "11011111";
+					tarr(1)<=incol1 XNOR "11001111";
+					tarr(2)<=incol2 XNOR "11011111";
+					tarr(3)<=incol3 ;
+				WHEN "0010"=> --(4,2)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 XNOR "11011111";
+					tarr(2)<=incol2 XNOR "11001111";
+					tarr(3)<=incol3 XNOR "11011111";
+				WHEN "0011"=> --(4,1)
+					tarr(0)<=incol0  ;
+					tarr(1)<=incol1  ;
+					tarr(2)<=incol2 XNOR "11011111";
+					tarr(3)<=incol3 XNOR "11001111";
+				WHEN "0100"=> --(3,4)
+					tarr(0)<=incol0 XNOR "11000111";
+					tarr(1)<=incol1 XNOR "11101111";
+					tarr(2)<=incol2 ;
+					tarr(3)<=incol3 ;
+				WHEN "0101"=> --(3,3)
+					tarr(0)<=incol0 XNOR "11101111";
+					tarr(1)<=incol1 XNOR "11000111";
+					tarr(2)<=incol2 XNOR "11101111";
+					tarr(3)<=incol3 ;
+				WHEN "0110"=> --(3,2)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 XNOR "11101111";
+					tarr(2)<=incol2 XNOR "11000111";
+					tarr(3)<=incol3 XNOR "11101111";
+				WHEN "0111"=> --(3,1)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 ;
+					tarr(2)<=incol2 XNOR "11101111";
+					tarr(3)<=incol3 XNOR "11000111";
+				WHEN "1000"=> --(2,4)
+					tarr(0)<=incol0 XNOR "11100011";
+					tarr(1)<=incol1 XNOR "11110111";
+					tarr(2)<=incol2 ;
+					tarr(3)<=incol3 ;
+				WHEN "1001"=> --(2,3)
+					tarr(0)<=incol0 XNOR "11110111";
+					tarr(1)<=incol1 XNOR "11100011";
+					tarr(2)<=incol2 XNOR "11110111";
+					tarr(3)<=incol3 ;
+				WHEN "1010"=> --(2,2)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 XNOR "11110111";
+					tarr(2)<=incol2 XNOR "11100011";
+					tarr(3)<=incol3 XNOR "11110111";
+				WHEN "1011"=> --(2,1)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 ;
+					tarr(2)<=incol2 XNOR "11110111";
+					tarr(3)<=incol3 XNOR "11100011";
+				WHEN "1100"=> --(1,4)
+					tarr(0)<=incol0 XNOR "11110011";
+					tarr(1)<=incol1 XNOR "11111011";
+					tarr(2)<=incol2 ;
+					tarr(3)<=incol3 ;	
+				WHEN "1101"=> --(1,3)
+					tarr(0)<=incol0 XNOR "11111011";
+					tarr(1)<=incol1 XNOR "11110011";
+					tarr(2)<=incol2 XNOR "11111011";
+					tarr(3)<=incol3 ;
+				WHEN "1110"=> --(1,2)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 XNOR "11111011";
+					tarr(2)<=incol2 XNOR "11110011";
+					tarr(3)<=incol3 XNOR "11111011";
+				WHEN "1111"=> --(1,1)
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 ;
+					tarr(2)<=incol2 XNOR "11111011";
+					tarr(3)<=incol3 XNOR "11110011";
+				WHEN OTHERS =>
+					tarr(0)<=incol0 ;
+					tarr(1)<=incol1 ;
+					tarr(2)<=incol2 ;
+					tarr(3)<=incol3 ;
+			END CASE;
+		ELSE 
+			delay<=delay+1;
+		END IF;		
+	END IF;
+END PROCESS;
+
+	pathnum<=path;
+	max_pathe<=max_path;
+	out_fail<=fail;
+	outcol0<=tarr(0);
+	outcol1<=tarr(1);
+	outcol2<=tarr(2);
+	outcol3<=tarr(3);
+
+END adzn_lg;

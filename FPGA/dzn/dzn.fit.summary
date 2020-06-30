@@ -1,0 +1,11 @@
+Fitter Status : Failed - Sun Nov 04 20:41:32 2018
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Web Edition
+Revision Name : dzn
+Top-level Entity Name : dzn
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 150 / 1,270 ( 12 % )
+Total pins : 121 / 116 ( 104 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

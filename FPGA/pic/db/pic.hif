@@ -1,0 +1,201 @@
+Quartus II
+Version 9.1 Build 222 10/21/2009 SJ Web Edition
+45
+3268
+OFF
+OFF
+OFF
+ON
+ON
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+pic
+# storage
+db|pic.(0).cnf
+db|pic.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+pic.vhd
+519b7444bdbd4ae6515d6f7ce4b1b82
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pic_st
+# storage
+db|pic.(1).cnf
+db|pic.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|pic_st|pic_st.vhd
+47f098ad88cb69428ff06edf34e45022
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(dout)
+3 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pic_st:u1
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pic_rdm
+# storage
+db|pic.(2).cnf
+db|pic.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|pic_rdm|pic_rdm.vhd
+6387763bbc71ca9d7372bc90b2b597
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(mr)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(in_count)
+1 downto 0
+PARAMETER_STRING
+USR
+ constraint(rdom)
+3 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pic_rdm:u2
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+pic_p
+# storage
+db|pic.(3).cnf
+db|pic.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+|digital_circuit|aaa synex experiments|final_exp|pic_p|pic_p.vhd
+60e484ec90cdc6ad6a75e467dff83ac
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(rod)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(col1)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col2)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col3)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(col4)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(max)
+6 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+pic_p:u3
+}
+# lmf
+c:|altera|91|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# complete
+

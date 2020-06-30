@@ -1,0 +1,10 @@
+|extr_st
+clk => state_temp[0].CLK
+clk => state_temp[1].CLK
+hap => state_temp.DATAA
+fal => state_temp.OUTPUTSELECT
+fal => state_temp[0].DATAIN
+beepstate[0] <= state_temp[0].DB_MAX_OUTPUT_PORT_TYPE
+beepstate[1] <= state_temp[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
