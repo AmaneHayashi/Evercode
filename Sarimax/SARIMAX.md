@@ -246,11 +246,11 @@ i += 1
 ![平稳性示例](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175216.png)
   - *ADF*单位根检验
     - 白噪声是指功率谱密度在整个频域内是常数的噪声。序列的特点表现在任何两个时点的随机变量都不相关,序列中没有任何可以利用的动态规律
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175258.png)
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175336.png)
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175351.png)
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175411.png)
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175436.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175258.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175336.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175351.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175411.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175436.png)
     - 单位根：当一个自回归过程中：$y_t=by_{t-1}+a+\epsilon_t$，如果滞后项系数$b$为1，就称为单位根。当单位根存在时，自变量和因变量之间的关系具有欺骗性，因为残差序列的任何误差都不会随着样本量(即时期数)增大而衰减，也就是说模型中的残差的影响是永久的。这种回归又称作伪回归。如果单位根存在，这个过程就是一个随机漫步(*random walk*)。
     - *ADF*检验就是判断序列是否存在单位根：如果序列平稳，就不存在单位根；否则，就会存在单位根。
     - *ADF*检验的 $H_0$假设就是存在单位根，如果得到的显著性检验统计量小于三个置信度$(10\%，5\%，1\%)$，则对应有$(90\%，95\%，99\%)$的把握来拒绝原假设。
@@ -293,10 +293,10 @@ $$式中，\hat EX_t=E[X_t|X_{t-1},...,X_{t-k+1}],\hat EX_{t-k}=E[X_{t-k}|X_{t-1
 - 周期性差分(*seasonal differencing*)：数据点和前一个周期同一时间的数据点进行查分。
 #### 2.3.3 模型特征
 - *AR、MA、ARMA*的选择：
-![AR、MA、ARMA的区分](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175516.png)
+  ![AR、MA、ARMA的区分](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175516.png)
     - 拖尾：序列以指数率单调递减或震荡衰减
     - $d$阶截尾：序列从某个第d阶开始变得非常小
-![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175458.png)
+    ![](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175458.png)
 - *S*（季节性）的选择：是否数据序列具有季节周期性
 - *I*（差分）的选择：是否在处理数据平稳性时用到了差分
 #### 2.3.4 训练流程
@@ -307,7 +307,7 @@ $$式中，\hat EX_t=E[X_t|X_{t-1},...,X_{t-k+1}],\hat EX_{t-k}=E[X_{t-k}|X_{t-1
   4. 参数估计，检验是否具有统计意义。
   5. 假设检验，判断(诊断)残差序列是否为白噪声序列。
   6. 利用已通过检验的模型进行预测。
-![SARIMA算法流程](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175535.png)
+  ![SARIMA算法流程](https://cdn.jsdelivr.net/gh/AmaneHayashi/PictureBed/20200630175535.png)
 ### 2.3.5 模型选择标准
 - 模型选择问题在模型复杂度与模型对数据集描述能力（即似然函数）之间寻求最佳平衡。
 - 人们提出许多信息准则，通过加入模型复杂度的惩罚项来避免过拟合问题，此处我们介绍一下常用的两个模型选择方法：
